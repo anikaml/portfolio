@@ -43,7 +43,7 @@ export default class Logo extends React.Component {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <svg width="100" viewBox="0 0 22 22">
+        <svg width="50" viewBox="-3 -3 25 25">
           <Gradient id="gradient-morph" />
           <g fill="url(#gradient-morph)">
             <Spring

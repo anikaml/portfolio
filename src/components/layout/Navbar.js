@@ -56,66 +56,69 @@ const styles = theme => ({
   about: {
     margin: "0 1em",
   },
-  underline: { // from left to right and back
-    display: "inline-block",
-    fontSize: "2em",
-    textDecoration: "none",
-    margin: "0 1em",
-    "&:hover:after": {
-      width: "100%",
-    },
-    "&:after": {
-      content: "''",
-      display: "block",
-      width: "0%",
-      height: "5px",
-      background: "blue",
-      transition: "width .3s",
-    },
-  },
-  underline1: { // grows from center
-    position: "relative",
-    display: "block",
-    transition: "color 0.1s, background-color 0.1s",
-    fontSize: "2em",
-    "&::before": {
-      content: "''",
-      display: "block",
-      position: "absolute",
-      top: "100%",
-      height: "5px",
-      borderRadius: "25px",
-      width: "100%",
-      backgroundColor: "blue",
-      "-webkit-transform-origin": "center top",
-              transformOrigin: "center top",
-      "-webkit-transform": "scale(0, 1)",
-              transform: "scale(0, 1)",
-      // transition: "color 0.1s, -webkit-transform 0.2s ease-out",
-      transition: "color 0.1s, transform 0.2s ease-out",
-      // transition: "color 0.1s, transform 0.2s ease-out, -webkit-transform 0.2s ease-out",
-    },
-    "&:active::before": {
-      backgroundColor: "blue",
-    },
-    "&:hover::before": {
-      "-webkit-transform-origin": "center top",
-      transformOrigin: "center top",
-    "-webkit-transform": "scale(1, 1)",
-      transform: "scale(1, 1)",
-    },
-    "&:focus::before": {
-      "-webkit-transform-origin": "center top",
-              transformOrigin: "center top",
-      "-webkit-transform": "scale(1, 1)",
-              transform: "scale(1, 1)",
-    }
-  },
+  // underline: { // from left to right and back
+  //   display: "inline-block",
+  //   fontSize: "2em",
+  //   textDecoration: "none",
+  //   margin: "0 1em",
+  //   "&:hover:after": {
+  //     width: "100%",
+  //   },
+  //   "&:after": {
+  //     content: "''",
+  //     display: "block",
+  //     width: "0%",
+  //     height: "5px",
+  //     background: "blue",
+  //     transition: "width .3s",
+  //   },
+  // },
+  // underline1: { // grows from center
+  //   position: "relative",
+  //   display: "block",
+  //   transition: "color 0.1s, background-color 0.1s",
+  //   fontSize: "2em",
+  //   "&::before": {
+  //     content: "''",
+  //     display: "block",
+  //     position: "absolute",
+  //     top: "100%",
+  //     height: "5px",
+  //     borderRadius: "25px",
+  //     width: "100%",
+  //     backgroundColor: "blue",
+  //     "-webkit-transform-origin": "center top",
+  //             transformOrigin: "center top",
+  //     "-webkit-transform": "scale(0, 1)",
+  //             transform: "scale(0, 1)",
+  //     // transition: "color 0.1s, -webkit-transform 0.2s ease-out",
+  //     transition: "color 0.1s, transform 0.2s ease-out",
+  //     // transition: "color 0.1s, transform 0.2s ease-out, -webkit-transform 0.2s ease-out",
+  //   },
+  //   "&:active::before": {
+  //     backgroundColor: "blue",
+  //   },
+  //   "&:hover::before": {
+  //     "-webkit-transform-origin": "center top",
+  //     transformOrigin: "center top",
+  //   "-webkit-transform": "scale(1, 1)",
+  //     transform: "scale(1, 1)",
+  //   },
+  //   "&:focus::before": {
+  //     "-webkit-transform-origin": "center top",
+  //             transformOrigin: "center top",
+  //     "-webkit-transform": "scale(1, 1)",
+  //             transform: "scale(1, 1)",
+  //   }
+  // },
   underline2: { 
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
     fontSize: "2em",
+    '@media (max-width:767px)': {
+      fontSize: "unset",
+    },
     "&:before": {
       content: "''",
       display: "block",
@@ -124,7 +127,10 @@ const styles = theme => ({
       left: "0",
       height: "5px",
       width: "100%",
-      backgroundColor: "blue",
+      // backgroundColor: "blue",
+      background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+      backgroundSize: "400% 400%",
+      animation: "$gradient 5s ease infinite",
       transformOrigin: "right top",
       transform: "scale(0, 1)",
       transition: "color 0.1s, transform 0.3s ease-out",
@@ -134,6 +140,17 @@ const styles = theme => ({
       transform: "scale(1, 1)",
     }
   },
+  "@keyframes gradient": {
+    "0%": {
+      backgroundPosition: "0% 50%",
+    },
+    "50%": {
+      backgroundPosition: "100% 50%",
+    },
+    "100%": {
+      backgroundPosition: "0% 50%",
+    }
+  }
   // wave: { // wave underline animation
   //   fontSize: "2em",
   //   paddingBottom: "5px",
@@ -211,9 +228,7 @@ class Navbar extends Component {
                     <Typography 
                       color="secondary" 
                       variant="button" 
-                      classes={{
-                        root: classes.underline2, // class name, e.g. `classes-nesting-root-x`
-                      }}
+                      className={classes.underline2}
                     >
                       CONTACT
                     </Typography> 

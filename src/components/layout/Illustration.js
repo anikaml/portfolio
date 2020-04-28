@@ -34,24 +34,24 @@ const useStyles = makeStyles((theme) => ({
     //maxHeight: "100em",
     //backgroundImage: "url(https://image.flaticon.com/icons/svg/119/119596.svg)"
   },
-  card2: { //sun
+  card2: { //bag
     width: "15em",
     height: "15em",
     zIndex: "1",
     opacity: "0.7"
     //backgroundImage: "url(https://image.flaticon.com/icons/svg/789/789395.svg)"
   },
-  card3: { //clouds
+  card3: { //cup
     height: "5em",
     width: "5em",
     zIndex: "1",
   },
-  card4: { //hummingbird
+  card4: { //sofa
     opacity: "0.8"
   },
   background: {
-   //height: "100em",
-   width: "30em"
+   maxHeight: "30em",
+   maxWidth: "30em"
   },
   bag: {
     height: "5em",
@@ -77,7 +77,7 @@ const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
 
 export default function Illustration() {
   const classes = useStyles();
-    const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 150, friction: 340 } }))
+    const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
     return (
       <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
         {/* <animated.div className={`${classes.card} ${classes.card1}`} style={{ transform: props.xy.interpolate(trans1) }} > */}
@@ -87,13 +87,13 @@ export default function Illustration() {
             //preProcessor={code => code.replace(/width=".*?"/g, 'width="300px"').replace(/height=".*?"/g, 'height="200px"')}
           />
         {/* </animated.div> */}
-        <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: props.xy.interpolate(trans2) }} >
+        <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: props.xy.to(trans2) }} >
           <SVG
             src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
             className={classes.bag}
           />
         </animated.div>
-        <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: props.xy.interpolate(trans3) }} >
+        <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: props.xy.to(trans3) }} >
           <SVG
             src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
             className={classes.cup}
@@ -101,7 +101,7 @@ export default function Illustration() {
 
           />
         </animated.div>
-        <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: props.xy.interpolate(trans4) }}>
+        <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: props.xy.to(trans4) }}>
           <SVG
             src={process.env.PUBLIC_URL + "/icons/example-me.svg"} 
             className={classes.sofa}
