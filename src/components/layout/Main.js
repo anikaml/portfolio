@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Illustration from "./Illustration";
+import Trails from './Trails';
 
 const styles = () => ({
   root: {
@@ -43,19 +44,9 @@ class Main extends Component {
 
     return (
       <React.Fragment>
-        {/* <Parallax className="custom-class" y={[-20, 20]} >
-          <Typography variant="h2">
-            Welcome to my website
-          </Typography>
-        </Parallax>
-        <Parallax className="custom-class" x={[-20, 20]} >
-        <Typography variant="h2">
-          My name is Anika
-        </Typography>
-        </Parallax> */}
         <div className={classes.container}>
           <div className={classes.text}>
-          <Typography variant="h3">
+          {/* <Typography variant="h3">
               Architectural Designer
             </Typography>
             <Typography variant="h6" display="inline">
@@ -66,15 +57,13 @@ class Main extends Component {
             </Typography>
             <Typography variant="h5">
               Living & working in San Diego, California
-            </Typography>
+            </Typography> */}
+            <Trails />
           </div>
           <div className={classes.illustration}>
             <Illustration />
           </div>
         </div>
-        
-        
-        
       </React.Fragment>
     )       
   }

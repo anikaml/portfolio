@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 //import SVG from 'react-inlinesvg';
-import Logo from "./Logo";
+// import Logo from "./Logo";
+import LogoMorph from "../Logo/LogoMorph";
 
 // Material UI Components
 import { withStyles } from '@material-ui/core/styles';
@@ -200,10 +201,11 @@ class Navbar extends Component {
             <Container maxWidth="lg">
               <Toolbar className={classes.toolbar}>
                 <div className={classes.logoDiv}>
-                  <Link href="/" style={{ textDecoration: 'none'}} color="secondary">
-                    
+                <LogoMorph />
+                  {/* <Link href="/" style={{ textDecoration: 'none'}} color="secondary">
+                   
                     <Logo />
-                  </Link>
+                  </Link> */}
                 </div>
                 <div className={classes.navRight}>
                   <Link href="#projects" style={{ textDecoration: 'none'}} color="secondary">

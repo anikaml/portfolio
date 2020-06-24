@@ -72,8 +72,10 @@ const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 // const trans3 = (x, y) => `translate3d(${x / 6 - 90}px,${y / 6 - 0}px,0)` //cup
 // const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
 const trans2 = (x, y) => `translate3d(${x / 10 + 200}px,${y / 10 + 200}px,0)` //bag
-const trans3 = (x, y) => `translate3d(${x / 10 - 90}px,${y / 10 - 0}px,0)` //cup
-const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
+const trans3 = (x, y) => `translate3d(${x / 8 - 90}px,${y / 8 - 0}px,0)` //cup
+//const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
+const trans4 = (x, y) => `translate3d(${x / 20}px,${y / 20 + 20}px,0)` //sofa 
+
 
 export default function Illustration() {
   const classes = useStyles();
