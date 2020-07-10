@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 // Material UI Components
 import { withStyles } from '@material-ui/core/styles';
 
-import Typography from '@material-ui/core/Typography';
+//import Typography from '@material-ui/core/Typography';
 import Illustration from "./Illustration";
 import Trails from './Trails';
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from "prop-types";
 import { useTrail, animated } from 'react-spring'
 import Typography from '@material-ui/core/Typography';
@@ -7,13 +8,13 @@ import { isMobileOnly } from 'react-device-detect';
 
 const items = [
                 <Typography variant={isMobileOnly? "h5" : "h3"}>Architectural Designer</Typography>,
-                <Typography variant="h6" display="inline">who become<Typography variant={isMobileOnly? "h5" : "h3"} display="inline"> Web Designer</Typography></Typography>,
+                <><Typography variant="h6" display="inline">who become</Typography><Typography variant={isMobileOnly? "h5" : "h3"} display="inline"> Web Designer</Typography></>,
                 <Typography variant="h5">Living & working in San Diego, California</Typography>
               ]
 const config = { mass: 5, tension: 2000, friction: 200 }
 
 export default function Trails(props) {
-  const [toggle, set] = useState(true)
+  const toggle = true
   const trail = useTrail(items.length, {
     config,
     opacity: toggle ? 1 : 0,
@@ -24,8 +25,7 @@ export default function Trails(props) {
 
   return (
     // <div className="trails-main" onClick={() => set(state => !state)}>
-    <div>
-      <div>
+      <>
         {trail.map(({ x, height, ...rest }, index) => (
           <animated.div
             key={items[index]}
@@ -34,8 +34,8 @@ export default function Trails(props) {
             <animated.div style={{ height }}>{items[index]}</animated.div>
           </animated.div>
         ))}
-      </div>
-    </div>
+      </>
+  
   )
 }
 

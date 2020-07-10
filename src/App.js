@@ -4,7 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
-import Landing from './containers/Landing';
+import Routes from './Routes';
 import theme from './utils/theme';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <ParallaxProvider>
           <CssBaseline />
-          <Landing />
+          <Routes />
         </ParallaxProvider>
       </div>
     </MuiThemeProvider>
