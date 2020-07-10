@@ -47,7 +47,7 @@ const theme = createMuiTheme({
                 padding: 0,
               },
               body: {
-                //backgroundColor: '#3D444F',
+                //backgroundColor: '#f7faff',
                 height: "100%",
               },
             }
