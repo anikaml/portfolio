@@ -1,8 +1,8 @@
 import React, { useState }  from 'react';
 import PropTypes from "prop-types";
-//import { Parallax } from 'react-scroll-parallax';
+
 //import Flight, { Oval, Rect } from "react-flight/dom";
-import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 //import { isMobileOnly } from 'react-device-detect';
 
 
@@ -10,8 +10,10 @@ import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
+import { Container, Link, Typography } from '@material-ui/core/';
 
-import { Container, Typography } from '@material-ui/core/';
+import Banner from '../projects/Banner';
+import { covers } from '../Covers';
 
 
 const useStyles = makeStyles(() => ({
@@ -55,15 +57,9 @@ const useStyles = makeStyles(() => ({
   banner: {
     margin: "1em 0",
     position: "relative",
-    // '&:hover, &.hidden' : {
-    //   //filter: "blur(2px)",
-    //   visibility: "visible",
-    //   opacity: 1,
-    // }
-    
   },
   hidden: {
-    position: "absolute",
+    //position: "absolute",
     top: 0,
     bottom: 0,
     left: 0,
@@ -81,7 +77,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
+    position: "relative",
     top: 0,
     bottom: 0,
     left: 0,
@@ -107,8 +103,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-
-
 export default function Projects() {
   const classes = useStyles();
   // const [hovered, setHovered] = useState(false);
@@ -126,20 +120,7 @@ export default function Projects() {
   console.log(hovered)
   };
 
-  const covers = [
-    {
-      name: "stalue",
-      url: "/projects/stalue/mockup-1500x500.png",
-    },
-    {
-      name: "bokiem",
-      url: "/projects/bokiem/bokiem_mockup_1.png",
-    },
-    {
-      name: "datette",
-      url: "/projects/datette/exploded_mockup_datette_3.png",
-    },
-  ]
+  
   
   return (
     <>
@@ -160,18 +141,31 @@ export default function Projects() {
               onClick={() => toggleHover(covers[project].name)}
               className={classes.parallaxDiv}
             >
-              <ParallaxBanner
-                //key={project}
+              <Banner
+                url={covers[project].url1}
                 className={classes.banner}
-                layers={[
-                  {
-                    image: process.env.PUBLIC_URL + covers[project].url,
-                    amount: 0.2,
-                  },
-                ]}
               >
-                <Typography variant="h2" className={hovered[(covers[project].name)]? classes.inside : classes.hidden}>Go to {covers[project].name}.com</Typography>
-              </ParallaxBanner>
+                <div>
+                  <Link
+                    href="https://stalue.com"
+                    style={{textDecoration: 'none'}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Typography variant="h2" className={hovered[(covers[project].name)]? classes.inside : classes.hidden}>Go to {covers[project].name}.com</Typography>
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/stalue"
+                    style={{textDecoration: 'none'}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Typography variant="h2" className={hovered[(covers[project].name)]? classes.inside : classes.hidden}>See {covers[project].name} Project</Typography>
+                  </Link>
+                </div>
+              </Banner>
             </div>
           )}
         </div>

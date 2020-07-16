@@ -116,7 +116,7 @@ const styles = theme => ({
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
-    fontSize: "2em",
+    fontSize: "1em",
     '@media (max-width:767px)': {
       fontSize: "unset",
     },
@@ -201,14 +201,12 @@ class Navbar extends Component {
             <Container maxWidth="lg">
               <Toolbar className={classes.toolbar}>
                 <div className={classes.logoDiv}>
-                <LogoMorph />
-                  {/* <Link href="/" style={{ textDecoration: 'none'}} color="secondary">
-                   
-                    <Logo />
-                  </Link> */}
+                  <Link href="/" style={{ textDecoration: 'none'}} color="secondary">
+                    <LogoMorph />
+                  </Link>
                 </div>
                 <div className={classes.navRight}>
-                  <Link href="#projects" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link href="/#projects" style={{ textDecoration: 'none'}} color="secondary">
                     <Typography 
                       color="secondary" 
                       variant="button" 
@@ -217,7 +215,7 @@ class Navbar extends Component {
                       PROJECTS
                     </Typography> 
                   </Link>
-                  <Link href="#about" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link href="/#about" style={{ textDecoration: 'none'}} color="secondary">
                     <Typography 
                       color="secondary" 
                       variant="button" 
@@ -226,7 +224,7 @@ class Navbar extends Component {
                       ABOUT ME
                     </Typography> 
                   </Link>
-                  <Link href="#contact" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link href="/#contact" style={{ textDecoration: 'none'}} color="secondary">
                     <Typography 
                       color="secondary" 
                       variant="button" 

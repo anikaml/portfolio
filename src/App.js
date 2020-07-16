@@ -6,6 +6,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 
 import Routes from './Routes';
 import theme from './utils/theme';
+import Navbar from './components/layout/Navbar';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="App">
         <ParallaxProvider>
           <CssBaseline />
+          <Navbar />
           <Routes />
         </ParallaxProvider>
       </div>

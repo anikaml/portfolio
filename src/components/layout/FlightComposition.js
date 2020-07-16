@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Flight, { Rect, Oval } from 'react-flight/dom'
 
 //import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core/';
+import { Container, Typography } from '@material-ui/core/';
 
 // const useStyles = makeStyles(() => ({
 //   div: {
@@ -228,6 +228,22 @@ export default class FlightComposition extends Component {
                 top: 130,
               }}
             />
+
+<Rect
+  name="rec1"
+  style={{
+    backgroundColor: '#95A2AA',
+    left: 120,
+    top: -10,
+    width: 90,
+    height: 90,
+  }}
+>
+  <Typography name="typ1" variant="h2">
+    Hello
+  </Typography>
+</Rect> 
+
             <Oval
               name="circ2"
               size={100}
@@ -260,7 +276,10 @@ export default class FlightComposition extends Component {
                 left: 50,
                 top: 70,
               }} />
-<Oval
+
+
+
+            <Oval
               name="circ2"
               size={100}
               style={{
@@ -269,7 +288,31 @@ export default class FlightComposition extends Component {
                 top: 170,
                 display: "none",
               }} />
-            
+
+<Rect
+  name="rec1"
+  style={{
+    backgroundColor: '#95A2AA',
+    left: 120,
+    top: -10,
+    width: 90,
+    height: 90,
+  }}
+>
+  <Typography
+    name="typ1"
+    variant="h6"
+    style={{
+      backgroundColor: '#95A2AA',
+      left: 120,
+      top: -10,
+      width: 90,
+      height: 90,
+    }}
+  >
+    Anika
+  </Typography>
+</Rect> 
             
           </div>
         </Flight.Frame>
