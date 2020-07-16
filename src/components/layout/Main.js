@@ -26,12 +26,6 @@ const styles = () => ({
 
   },
   illustration: {
-    // maxHeight: "300px",
-    // maxWidth: "300px",
-    // display: "flex",
-    // //height: "300px",
-    // //width: "300px",
-    // margin: "0 auto",
      overflow: "hidden",
   },
   
@@ -46,18 +40,6 @@ class Main extends Component {
       <React.Fragment>
         <div className={classes.container}>
           <div className={classes.text}>
-          {/* <Typography variant="h3">
-              Architectural Designer
-            </Typography>
-            <Typography variant="h6" display="inline">
-              who become
-            </Typography>
-            <Typography variant="h3" display="inline">
-               Web Designer
-            </Typography>
-            <Typography variant="h5">
-              Living & working in San Diego, California
-            </Typography> */}
             <Trails />
           </div>
           <div className={classes.illustration}>

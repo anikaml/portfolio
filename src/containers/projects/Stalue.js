@@ -1,54 +1,104 @@
 import React from "react";
 
+// import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
+
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { Container, Grid, Typography } from '@material-ui/core/';
+
+import { covers } from '../../components/Covers';
+import Banner from "../../components/projects/Banner";
+import Launch from "../../components/projects/Launch";
+import ProjectHeader from "../../components/projects/ProjectHeader";
+import Colors from "../../components/projects/Colors";
 
 const useStyles = makeStyles(() => ({
-  errorDiv: {
-    height: "350px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+  container: {
+    margin: "4em",
+    width: "auto",
     '@media (max-width:600px)': {
-      padding: "1em",
-    }
+      margin: "1em",
+    },
   },
-  errorTyph: {
-    color: "grey",
-    marginTop: "2em",
-    textAlign: "center",
-    lineHeight: "1.5em",
+  image: {
+    width: "100%",
   },
-  browser: {
-    animationName: '$float',
-    animation: "float 6s ease-in-out infinite",
-  },
-  '@keyframes float': { 
-    "0%": { 
-      transform: 'translatey(0px)'
-    }, 
-    "50%": { 
-      transform: 'translatey(-20px)'
-    }, 
-    "100%": {
-      transform: 'translatey(0px)'
-    }
-  }
 }))
 
 export default function Stalue() {
   
   const classes = useStyles();
+  const index = 0;
   
-    return (
-      <>
-        <div className={classes.errorDiv}>
-          <Typography variant="subtitle1" className={classes.errorTyph} >
-            This is Stalue Project Page
-          </Typography>
-        </div>
-      </>
-    )
+  return (
+    <>
+      <Banner url={covers[index].url1} />
+      <Container maxWidth="lg" className={classes.container}>
+        <Launch href="https://stalue.com"/>
+        <ProjectHeader index={index}/>
+        <Colors index={index}/>
+        <Grid
+          container
+          className={classes.grid}
+          spacing={2}
+          alignItems="center"
+        >
+          <Grid item xs={3}>
+            <img
+              src={process.env.PUBLIC_URL + covers[index].url2}
+              alt="screen"
+              className={classes.image}
+            />
+          </Grid>
+          <Grid item xs={9}>
+            <img
+              src={process.env.PUBLIC_URL + covers[index].url3}
+              alt="macbook"
+              className={classes.image}
+            />
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          className={classes.grid}
+          spacing={2}
+        >
+          <Grid item xs={6}>
+            <img
+              src={process.env.PUBLIC_URL + covers[index].url4}
+              alt="chart1"
+              className={classes.image}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <img
+              src={process.env.PUBLIC_URL + covers[index].url5}
+              alt="chart2"
+              className={classes.image}
+            />
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          className={classes.grid}
+          spacing={2}
+        >
+          <Grid item xs={6}>
+            <img
+              src={process.env.PUBLIC_URL + covers[index].url6}
+              alt="chart3"
+              className={classes.image}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <img
+              src={process.env.PUBLIC_URL + covers[index].url7}
+              alt="chart4"
+              className={classes.image}
+            />
+          </Grid>
+        </Grid> 
+      </Container>
+    </>
+  )
 }
