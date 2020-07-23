@@ -11,16 +11,17 @@ import { shadowColor, darkGreyColor } from "../../utils/colors";
 
 const useStyles = makeStyles(() => ({
   paper: {
-    height: 150,
-    width: 150,
+    width: "fit-content",
+    maxWidth: "9em",
     borderRadius: 15,
     boxShadow: `0px 3px 10px 3px ${shadowColor}`,
     margin: "0em 1em",
+    paddingBottom: "1em",
     //boxShadow: `0px 3px 1px -2px ${shadowColor}, 0px 2px 2px 0px ${shadowColor}, 0px 1px 5px 0px ${shadowColor}`,
   },
   background: {
-    height: 100,
-    width: 150,
+    height: "6em",
+    width: "9em",
     borderRadius: "15px 15px 0px 0px",
     marginBottom: "1em",
   },
