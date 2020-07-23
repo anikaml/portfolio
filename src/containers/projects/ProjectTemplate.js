@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,10 +28,15 @@ const useStyles = makeStyles(() => ({
   grid: {
     display: "flex",
   },
+  banner: {
+    '&:hover': {
+      cursor: "pointer",
+    }
+  }
 }))
 
 export default function ProjectTemplate(props) {
-  
+  const [lightbox_open, setLightbox_open] = useState(false);
   const classes = useStyles();
   const name = props.name;
 
@@ -44,7 +52,15 @@ export default function ProjectTemplate(props) {
   
   return (
     <>
-      <Banner url={covers[name].url1} />
+      <div onClick={() => setLightbox_open(true)}>
+        <Banner url={covers[name].url1} className={classes.banner}/>
+      </div>
+      {lightbox_open && (
+        <Lightbox
+            mainSrc={process.env.PUBLIC_URL + covers[name].url1}
+            onCloseRequest={() => setLightbox_open(false)}
+        />
+      )}
       <Container maxWidth="lg" className={classes.container}>
         <Launch index={name}/>
         <ProjectHeader index={name}/>
@@ -53,18 +69,13 @@ export default function ProjectTemplate(props) {
           className={classes.grid}
           spacing={2}
         >
-        <Grid item xs={12} sm={3}>
-          <TechStack name={name}/>
+          <Grid item xs={12} sm={3}>
+            <TechStack name={name}/>
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <Colors index={name}/>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={9}>
-        <Colors index={name}/>
-        </Grid>
-      </Grid>
-
-
-
-       
-        
         {body}
         <NextProject name={name}/>
       </Container>
