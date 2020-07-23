@@ -3,29 +3,20 @@ import PropTypes from "prop-types";
 
 import { ParallaxBanner } from 'react-scroll-parallax';
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(() => ({
-  banner: {
-    
-  }
-}))
-
 export default function Banner(props) {
-  
-  const classes = useStyles();
-  
   return (
     <>
       <ParallaxBanner
-        className={props.className? props.className : classes.banner}
+        className={props.className}
         layers={[
           {
             image: process.env.PUBLIC_URL + props.url,
             amount: 0.2,
           },
         ]}
+        style={{
+          height: props.height ? props.height : '50vh',
+        }}
       >
         {props.children}
       </ParallaxBanner>
@@ -36,5 +27,6 @@ export default function Banner(props) {
 Banner.propTypes = {
   className: PropTypes.object,
   children: PropTypes.node,
+  height: PropTypes.string,
   url: PropTypes.string.isRequired,
 };

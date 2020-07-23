@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { covers } from '../../components/Covers';
+
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Typography } from '@material-ui/core/';
@@ -44,13 +46,13 @@ export default function Launch(props) {
   return (
     <>
       <Link
-        href={props.href}
+        href={covers[props.index].href}
         style={{textDecoration: 'none'}}
         target="_blank"
         rel="noopener noreferrer"
       >
         <Typography variant="subtitle2" className={classes.launch}>
-          Launch the website
+          Visit the website
         </Typography>
       </Link>
     </>
@@ -58,5 +60,5 @@ export default function Launch(props) {
 }
 
 Launch.propTypes = {
-  href: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };

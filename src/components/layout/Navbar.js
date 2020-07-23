@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-//import SVG from 'react-inlinesvg';
-// import Logo from "./Logo";
 import LogoMorph from "../Logo/LogoMorph";
 
 // Material UI Components
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-//import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -201,12 +198,17 @@ class Navbar extends Component {
             <Container maxWidth="lg">
               <Toolbar className={classes.toolbar}>
                 <div className={classes.logoDiv}>
-                  <Link href="/" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link
+                    href="/"
+                    style={{ textDecoration: 'none'}}
+                    color="secondary"
+                    rel="noopener noreferrer"
+                  >
                     <LogoMorph />
                   </Link>
                 </div>
                 <div className={classes.navRight}>
-                  <Link href="/#projects" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link href="/#projects" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
                       color="secondary" 
                       variant="button" 
@@ -215,7 +217,7 @@ class Navbar extends Component {
                       PROJECTS
                     </Typography> 
                   </Link>
-                  <Link href="/#about" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link href="/#about" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
                       color="secondary" 
                       variant="button" 
@@ -224,7 +226,7 @@ class Navbar extends Component {
                       ABOUT ME
                     </Typography> 
                   </Link>
-                  <Link href="/#contact" style={{ textDecoration: 'none'}} color="secondary">
+                  <Link href="/#contact" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
                       color="secondary" 
                       variant="button" 

@@ -3,17 +3,22 @@ import PropTypes from "prop-types";
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
+import { Grid, Typography } from '@material-ui/core/';
 
 import ColorSwatch from "./ColorSwatch";
+import { greyColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
- 
   gridColors: {
-    margin: "3em 0em",
+    margin: "1em 0em",
     textAlign: "center",
     display: "flex",
   },
+  title: {
+    marginTop: "2em",
+    color: greyColor,
+    paddingBottom: "0.5em",
+  }
 }))
 
 export default function Colors(props) {
@@ -24,24 +29,26 @@ export default function Colors(props) {
     <>
       <Grid
         container
-        justify="center"
         alignItems="center"
       >
-        <Grid
+         <Grid
           item
           xs={12}
-          sm={3}
+          justify="center"
+        >
+          <Typography variant="subtitle2" className={classes.title}>
+            COLOR PALETTE
+          </Typography>
+        </Grid>
+        <Grid
+          item
           className={classes.gridColors}
-          justify="space-around"
         >
           <ColorSwatch index={props.index} colorNumber="color_1"/>
         </Grid>
         <Grid
           item
-          xs={12}
-          sm={3}
           className={classes.gridColors}
-          justify="space-around"
         >
           <ColorSwatch index={props.index} colorNumber="color_2"/>
         </Grid>

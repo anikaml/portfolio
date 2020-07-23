@@ -36,7 +36,7 @@ export default function ProjectHeader(props) {
           <Typography variant="subtitle2" className={classes.title}>
             PROJECT
           </Typography>
-          <Typography variant="subtitle2" className={classes.text}>
+          <Typography variant="subtitle2" className={classes.text} style={{fontWeight: 500,}}>
             {covers[props.index].project}
           </Typography>
         </Grid>
