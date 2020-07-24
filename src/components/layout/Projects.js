@@ -16,10 +16,6 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     color: "white",
-    //"-webkit-text-stroke": "1px rgba(0,0,0,0.06)",
-    //textShadow: "-10px -10px 10px 0 #F0F0F3, 10px 10px 10px 0 #AEAEC0",
-    //textShadow: "-8px -8px 12px #e0e5eb, 8px 8px 12px rgba(0,0,0,0.08)",
-    //textShadow: "2px 2px 3px rgba(255,255,255,0.1)",
     textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
     caretColor:"#262626",
     fontWeight: 700,
