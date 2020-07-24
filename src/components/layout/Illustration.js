@@ -1,5 +1,4 @@
 import React from "react";
-//import PropTypes from "prop-types";
 
 import { useSpring, animated } from 'react-spring'
 import SVG from 'react-inlinesvg';
@@ -7,7 +6,7 @@ import SVG from 'react-inlinesvg';
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   container: {
     //width: "500px",
     maxHeight: "500px",
@@ -79,7 +78,7 @@ const trans4 = (x, y) => `translate3d(${x / 20}px,${y / 20 + 20}px,0)` //sofa
 
 export default function Illustration() {
   const classes = useStyles();
-    const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+    const [properties, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
     return (
       <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
         {/* <animated.div className={`${classes.card} ${classes.card1}`} style={{ transform: props.xy.interpolate(trans1) }} > */}
@@ -89,13 +88,13 @@ export default function Illustration() {
             //preProcessor={code => code.replace(/width=".*?"/g, 'width="300px"').replace(/height=".*?"/g, 'height="200px"')}
           />
         {/* </animated.div> */}
-        <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: props.xy.to(trans2) }} >
+        <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
           <SVG
             src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
             className={classes.bag}
           />
         </animated.div>
-        <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: props.xy.to(trans3) }} >
+        <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: properties.xy.to(trans3) }} >
           <SVG
             src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
             className={classes.cup}
@@ -103,7 +102,7 @@ export default function Illustration() {
 
           />
         </animated.div>
-        <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: props.xy.to(trans4) }}>
+        <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: properties.xy.to(trans4) }}>
           <SVG
             src={process.env.PUBLIC_URL + "/icons/example-me.svg"} 
             className={classes.sofa}
@@ -112,4 +111,3 @@ export default function Illustration() {
       </div>
     )
   }
-

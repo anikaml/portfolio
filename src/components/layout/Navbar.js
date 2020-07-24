@@ -194,7 +194,7 @@ class Navbar extends Component {
             color="transparent"
             elevation={0}
             className={classes.appbar}
-          >>>>>>>>>>>>>>??>>
+          >
             <Container maxWidth="lg">
               <Toolbar className={classes.toolbar}>
                 <div className={classes.logoDiv}>
