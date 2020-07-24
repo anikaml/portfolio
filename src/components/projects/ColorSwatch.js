@@ -59,4 +59,5 @@ export default function ColorSwatch(props) {
 ColorSwatch.propTypes = {
   index: PropTypes.number.isRequired,
   colorNumber: PropTypes.string.isRequired,
+  className: PropTypes.object,
 };
