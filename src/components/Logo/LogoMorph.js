@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function LogoMorph(props) {
+export default function LogoMorph() {
   const classes = useStyles();
   const morph = useMorph();
   const [toggle, setToggle] = useState(true);

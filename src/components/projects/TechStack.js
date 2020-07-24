@@ -34,6 +34,7 @@ export default function TechStack(props) {
       </Typography>
       {covers[name].tech_stack.map((stack, index) => 
         <Chip
+          key={stack}
           label={covers[name].tech_stack[index]}
           size="small"
           className={classes.chip}

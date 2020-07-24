@@ -34,7 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint src/**"
+    "lint": "./node_modules/.bin/eslint 'src/**/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-jest": "^23.18.0",
     "husky": "^4.2.5"
   }
 }
