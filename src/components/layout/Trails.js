@@ -6,14 +6,15 @@ import Typography from '@material-ui/core/Typography';
 import { isMobileOnly } from 'react-device-detect';
 
 
-const items = [
+const items = [ <>
                 <Typography variant={isMobileOnly? "h5" : "h3"}>Architectural Designer</Typography>,
                 <><Typography variant="h6" display="inline">who become</Typography><Typography variant={isMobileOnly? "h5" : "h3"} display="inline"> Web Designer</Typography></>,
                 <Typography variant="h5">Living & working in San Diego, California</Typography>
+                </>
               ]
 const config = { mass: 5, tension: 2000, friction: 200 }
 
-export default function Trails(props) {
+export default function Trails() {
   const toggle = true
   const trail = useTrail(items.length, {
     config,

@@ -17,7 +17,7 @@ export default function Routes() {
           <Landing />
         </Route>
         {Object.keys(covers).map(name => 
-          <Route exact path={`/${name}`}>
+          <Route exact path={`/${name}`} key={name}>
             <ProjectTemplate name={name}/>
           </Route>
         )}
