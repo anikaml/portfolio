@@ -12,8 +12,8 @@ export const covers = {
     url3: "/projects/stalue/macbook-pro-stalue.png",
     url4: "/projects/stalue/chart1.png",
     url5: "/projects/stalue/chart2.png",
-    url6: "/projects/stalue/asset1x.png",
-    url7: "/projects/stalue/asset2x.png",
+    url6: "/projects/stalue/asset_list.png",
+    url7: "/projects/stalue/pricing.png",
   },
   bokiem: {
     name: "bokiem",

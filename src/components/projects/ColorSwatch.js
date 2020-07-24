@@ -17,7 +17,6 @@ const useStyles = makeStyles(() => ({
     boxShadow: `0px 3px 10px 3px ${shadowColor}`,
     margin: "0em 1em",
     paddingBottom: "1em",
-    //boxShadow: `0px 3px 1px -2px ${shadowColor}, 0px 2px 2px 0px ${shadowColor}, 0px 1px 5px 0px ${shadowColor}`,
   },
   background: {
     height: "6em",

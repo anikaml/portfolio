@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core/';
 
 import { covers } from '../../components/Covers';
+import LightboxImage from "../../components/projects/LightboxImage";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -65,18 +66,18 @@ export default function Stalue(props) {
         className={classes.grid}
         spacing={2}
       >
-        <Grid item xs={6}>
-          <img
-            src={process.env.PUBLIC_URL + covers[name].url4}
+        <Grid item xs={12} md={6}>
+          <LightboxImage
+            name={name}
+            url="url4"
             alt="chart1"
-            className={classes.image}
           />
         </Grid>
-        <Grid item xs={6}>
-          <img
-            src={process.env.PUBLIC_URL + covers[name].url5}
+        <Grid item xs={12} md={6}>
+          <LightboxImage
+            name={name}
+            url="url5"
             alt="chart2"
-            className={classes.image}
           />
         </Grid>
       </Grid>
@@ -85,18 +86,18 @@ export default function Stalue(props) {
         className={classes.grid}
         spacing={2}
       >
-        <Grid item xs={6}>
-          <img
-            src={process.env.PUBLIC_URL + covers[name].url6}
+        <Grid item xs={12} md={6}>
+          <LightboxImage
+            name={name}
+            url="url6"
             alt="chart3"
-            className={classes.image}
           />
         </Grid>
-        <Grid item xs={6}>
-          <img
-            src={process.env.PUBLIC_URL + covers[name].url7}
+        <Grid item xs={12} md={6}>
+          <LightboxImage
+            name={name}
+            url="url7"
             alt="chart4"
-            className={classes.image}
           />
         </Grid>
       </Grid> 
