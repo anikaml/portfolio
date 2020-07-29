@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
       boxShadow: `0px 3px 1px -2px ${shadowColor}, 0px 2px 2px 0px ${shadowColor}, 0px 1px 5px 0px ${shadowColor}`,
       transition: "all .3s ease-in-out",
+      transform: "translateY(-2px)",
     }
   },
 }))
@@ -23,18 +24,25 @@ const useStyles = makeStyles(() => ({
 export default function LightboxImage(props) {
   const classes = useStyles();
   const [lightbox_open, setLightbox_open] = useState(false);
-  
+  const [photoIndex, setPhotoIndex] = useState(props.url);
+
+  const images = covers[props.name].screenshots
+
   return (
     <>
       <img
         onClick={() => setLightbox_open(true)}
-        src={process.env.PUBLIC_URL + covers[props.name][props.url]}
+        src={process.env.PUBLIC_URL + images[props.url]}
         alt={props.alt}
         className={props.className ? props.className : classes.image}
       />
       {lightbox_open && (
         <Lightbox
-          mainSrc={process.env.PUBLIC_URL + covers[props.name][props.url]}
+          mainSrc={process.env.PUBLIC_URL + images[photoIndex]}
+          nextSrc={images[(photoIndex + 1) % images.length]}
+          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+          onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
           onCloseRequest={() => setLightbox_open(false)}
         />
       )}
@@ -46,5 +54,5 @@ LightboxImage.propTypes = {
   alt: PropTypes.string,
   className: PropTypes.object,
   name: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.number.isRequired,
 };

@@ -3,8 +3,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
     typography: {
       useNextVariants: true,
+      fontSize: 16,
     },
-    // spacing: 4,
     palette: {  
       type: "light",  
       primary: {
@@ -23,7 +23,6 @@ const theme = createMuiTheme({
         main: '#ff0033',
       },
       background: {
-        //paper: '#3D444F',
         default: '#FFF',
       }
     },

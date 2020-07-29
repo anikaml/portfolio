@@ -34,7 +34,6 @@ export default function Colors(props) {
          <Grid
           item
           xs={12}
-          justify="center"
         >
           <Typography variant="subtitle2" className={classes.title}>
             COLOR PALETTE
@@ -58,5 +57,5 @@ export default function Colors(props) {
 }
 
 Colors.propTypes = {
-  index: PropTypes.number.isRequired,
+  index: PropTypes.string.isRequired,
 };

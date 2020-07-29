@@ -11,7 +11,7 @@ import { Link, Typography } from '@material-ui/core/';
 const useStyles = makeStyles(() => ({
   launch: {
     color: "black",
-    fontWeight: 500,
+    fontWeight: 600,
     paddingBottom: "0.1em",
     marginBottom: "2em",
     '@media (max-width:600px)': {
@@ -51,7 +51,7 @@ export default function Launch(props) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Typography variant="subtitle2" className={classes.launch}>
+        <Typography variant="h6" className={classes.launch}>
           Visit the website
         </Typography>
       </Link>
@@ -60,5 +60,5 @@ export default function Launch(props) {
 }
 
 Launch.propTypes = {
-  index: PropTypes.number.isRequired,
+  index: PropTypes.string.isRequired,
 };
