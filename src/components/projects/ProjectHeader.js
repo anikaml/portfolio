@@ -36,7 +36,7 @@ export default function ProjectHeader(props) {
           <Typography variant="subtitle2" className={classes.title}>
             PROJECT
           </Typography>
-          <Typography variant="subtitle2" className={classes.text} style={{fontWeight: 500,}}>
+          <Typography variant="subtitle2" className={classes.text} style={{fontWeight: 500, paddingRight: "0.5em"}}>
             {covers[props.index].project}
           </Typography>
         </Grid>
@@ -54,5 +54,5 @@ export default function ProjectHeader(props) {
 }
 
 ProjectHeader.propTypes = {
-  index: PropTypes.number.isRequired,
+  index: PropTypes.string.isRequired,
 };
