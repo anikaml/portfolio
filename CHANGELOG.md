@@ -1,3 +1,11 @@
+## 0.2.1
+
+NOTES:
+* Created LightboxImage component with next and previous functionality
+* Made screenshots in Stalue the same size 
+* Added logo animation in Stalue project
+* Fixed bugs
+
 ## 0.2.0
 
 NOTES:
