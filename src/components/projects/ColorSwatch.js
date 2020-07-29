@@ -45,7 +45,7 @@ export default function ColorSwatch(props) {
           style={{backgroundColor: covers[props.index][props.colorNumber]}}
         />
         <Typography
-          variant="captcha"
+          variant="caption"
           className={classes.colorText}
         >
           {covers[props.index][props.colorNumber]}
@@ -56,7 +56,7 @@ export default function ColorSwatch(props) {
 }
 
 ColorSwatch.propTypes = {
-  index: PropTypes.number.isRequired,
+  index: PropTypes.string.isRequired,
   colorNumber: PropTypes.string.isRequired,
   className: PropTypes.object,
 };

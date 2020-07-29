@@ -10,10 +10,8 @@ export const covers = {
     url1: "/projects/stalue/mockup-1500x500.png",
     url2: "/projects/stalue/iPhoneXs.png",
     url3: "/projects/stalue/macbook-pro-stalue.png",
-    url4: "/projects/stalue/chart1.png",
-    url5: "/projects/stalue/chart2.png",
-    url6: "/projects/stalue/asset_list.png",
-    url7: "/projects/stalue/pricing.png",
+    screenshots: ["/projects/stalue/chart1.png", "/projects/stalue/chart2.png", "/projects/stalue/asset_list.png", "/projects/stalue/pricing.png",],
+    logo: "/projects/stalue/logo512.svg",
   },
   bokiem: {
     name: "bokiem",
