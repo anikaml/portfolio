@@ -27,7 +27,7 @@ export default function Banner(props) {
 }
 
 Banner.propTypes = {
-  className: PropTypes.object,
+  className: PropTypes.string,
   children: PropTypes.node,
   height: PropTypes.string,
   url: PropTypes.string.isRequired,

@@ -45,6 +45,9 @@ const useStyles = makeStyles(() => ({
       filter: "blur(0px)",
       transition: "0.6s all ease-in-out",
     },
+    '@media (max-width:600px)': {
+      filter: "blur(0px)",
+    },
   },
   wrapper: {
     height: "30vh",
