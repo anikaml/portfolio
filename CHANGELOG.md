@@ -1,3 +1,11 @@
+## 0.2.2
+
+NOTES:
+* Created Datette and Bokiem components for project body
+* Created FadeIn component
+* Created colors array in Covers object
+* Fixed bugs
+
 ## 0.2.1
 
 NOTES:
