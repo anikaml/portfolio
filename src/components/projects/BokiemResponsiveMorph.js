@@ -7,7 +7,6 @@ import { isMobileOnly } from 'react-device-detect';
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core/';
-//import Fade from '@material-ui/core/Fade';
 
 import { covers } from '../../components/Covers';
 import FadeIn from "../../containers/style/FadeIn";

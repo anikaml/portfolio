@@ -27,8 +27,7 @@
     "react-scripts": "3.4.1",
     "react-scroll-parallax": "^2.3.3",
     "react-spring": "^9.0.0-beta.34",
-    "react-use-gesture": "^7.0.15",
-    "react-visibility-sensor": "^5.1.1"
+    "react-use-gesture": "^7.0.15"
   },
   "scripts": {
     "start": "react-scripts start",

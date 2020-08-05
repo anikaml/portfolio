@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-//import SVG from 'react-inlinesvg';
-
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
 
 import { covers } from '../../components/Covers';
 import LightboxImage from "../../components/projects/LightboxImage";
-//import FadeIn from "../style/FadeIn";
 
 const useStyles = makeStyles(() => ({
   container: {
