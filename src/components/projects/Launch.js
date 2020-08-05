@@ -6,6 +6,7 @@ import { covers } from '../../components/Covers';
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Typography } from '@material-ui/core/';
+import FadeIn from "../../containers/style/FadeIn";
 
 
 const useStyles = makeStyles(() => ({
@@ -45,16 +46,18 @@ export default function Launch(props) {
   
   return (
     <>
-      <Link
-        href={covers[props.index].href}
-        style={{textDecoration: 'none'}}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Typography variant="h6" className={classes.launch}>
-          Visit the website
-        </Typography>
-      </Link>
+      <FadeIn>
+        <Link
+          href={covers[props.index].href}
+          style={{textDecoration: 'none'}}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Typography variant="h6" className={classes.launch}>
+            Visit the website
+          </Typography>
+        </Link>
+      </FadeIn>
     </>
   )
 }

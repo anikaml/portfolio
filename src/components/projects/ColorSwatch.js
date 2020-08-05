@@ -8,7 +8,6 @@ import { Typography, Paper } from '@material-ui/core/';
 import { covers } from '../../components/Covers';
 import { shadowColor, darkGreyColor } from "../../utils/colors";
 
-
 const useStyles = makeStyles(() => ({
   paper: {
     width: "fit-content",
@@ -42,13 +41,13 @@ export default function ColorSwatch(props) {
       >
         <div
           className={classes.background}
-          style={{backgroundColor: covers[props.index][props.colorNumber]}}
+          style={{backgroundColor: covers[props.name].colors[props.colorIndex]}}
         />
         <Typography
           variant="caption"
           className={classes.colorText}
         >
-          {covers[props.index][props.colorNumber]}
+          {covers[props.name].colors[props.colorIndex]}
         </Typography>
       </Paper>
     </>
@@ -56,7 +55,7 @@ export default function ColorSwatch(props) {
 }
 
 ColorSwatch.propTypes = {
-  index: PropTypes.string.isRequired,
-  colorNumber: PropTypes.string.isRequired,
-  className: PropTypes.object,
+  name: PropTypes.string.isRequired,
+  colorIndex: PropTypes.number.isRequired,
+  className: PropTypes.string,
 };

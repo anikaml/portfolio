@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 
 import { covers } from '../Covers';
 import { shadowColor } from "../../utils/colors";
+import FadeIn from "../../containers/style/FadeIn";
 
 const useStyles = makeStyles(() => ({
   image: {
@@ -30,12 +32,14 @@ export default function LightboxImage(props) {
 
   return (
     <>
-      <img
-        onClick={() => setLightbox_open(true)}
-        src={process.env.PUBLIC_URL + images[props.url]}
-        alt={props.alt}
-        className={props.className ? props.className : classes.image}
-      />
+      <FadeIn>
+        <img
+          onClick={() => setLightbox_open(true)}
+          src={process.env.PUBLIC_URL + images[props.url]}
+          alt={props.alt}
+          className={props.className ? props.className : classes.image}
+        />
+      </FadeIn>
       {lightbox_open && (
         <Lightbox
           mainSrc={process.env.PUBLIC_URL + images[photoIndex]}

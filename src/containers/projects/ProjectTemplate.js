@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,6 +15,9 @@ import Colors from "../../components/projects/Colors";
 import Stalue from "./Stalue";
 import NextProject from "../../components/projects/NextProject";
 import TechStack from "../../components/projects/TechStack";
+import Bokiem from "./Bokiem";
+import FadeIn from "../style/FadeIn";
+import Datette from "./Datette";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -43,24 +45,25 @@ export default function ProjectTemplate(props) {
   let body = null;
   if (name === 'stalue') {
     body = <Stalue name={name}/>
+  } else if (name === 'bokiem') {
+    body = <Bokiem name={name}/>
+  } else if (name === 'datette') {
+    body = <Datette name={name}/>
   }
-  // } else if (name === 'bokiem') {
-  //   body = <Bokiem name={name}/>
-  // } else if (name === 'datette') {
-  //   body = <Datette name={name}/>
-  // }
   
   return (
     <>
-      <div onClick={() => setLightbox_open(true)}>
-        <Banner url={covers[name].url1} className={classes.banner}/>
-      </div>
-      {lightbox_open && (
-        <Lightbox
+      <FadeIn>
+        <div onClick={() => setLightbox_open(true)}>
+          <Banner url={covers[name].url1} className={classes.banner}/>
+        </div>
+        {lightbox_open && (
+          <Lightbox
             mainSrc={process.env.PUBLIC_URL + covers[name].url1}
             onCloseRequest={() => setLightbox_open(false)}
-        />
-      )}
+          />
+        )}
+      </FadeIn>
       <Container maxWidth="lg" className={classes.container}>
         <Launch index={name}/>
         <ProjectHeader index={name}/>
@@ -73,7 +76,7 @@ export default function ProjectTemplate(props) {
             <TechStack name={name}/>
           </Grid>
           <Grid item xs={12} sm={9}>
-            <Colors index={name}/>
+            <Colors name={name}/>
           </Grid>
         </Grid>
         {body}
