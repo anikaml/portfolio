@@ -1,7 +1,5 @@
 import React from "react";
 
-//import VisibilitySensor from 'react-visibility-sensor';
-
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core/';

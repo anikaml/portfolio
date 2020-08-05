@@ -8,7 +8,6 @@ import { Typography, Paper } from '@material-ui/core/';
 import { covers } from '../../components/Covers';
 import { shadowColor, darkGreyColor } from "../../utils/colors";
 
-
 const useStyles = makeStyles(() => ({
   paper: {
     width: "fit-content",
