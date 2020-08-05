@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { covers } from '../Covers';
 import { Chip, Typography } from "@material-ui/core";
 import { greyColor, shadowColor } from '../../utils/colors';
+import FadeIn from "../../containers/style/FadeIn";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -29,9 +30,12 @@ export default function TechStack(props) {
   
   return (
     <>
-      <Typography variant="subtitle2" className={classes.title}>
-        TECH STACK
-      </Typography>
+      <FadeIn>
+        <Typography variant="subtitle2" className={classes.title}>
+          TECH STACK
+        </Typography>
+      </FadeIn>
+      <FadeIn>
       {covers[name].tech_stack.map((stack, index) => 
         <Chip
           key={stack}
@@ -43,6 +47,7 @@ export default function TechStack(props) {
           }}
         />
       )}
+      </FadeIn>
     </>
   )
 }
