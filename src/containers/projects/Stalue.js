@@ -10,6 +10,7 @@ import { Grid, Typography } from '@material-ui/core/';
 import { covers } from '../../components/Covers';
 import LightboxImage from "../../components/projects/LightboxImage";
 import { greyColor } from "../../utils/colors";
+import FadeIn from "../style/FadeIn";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -63,7 +64,6 @@ const useStyles = makeStyles(() => ({
     '0%': {
       width: 120,
       boxShadow: `0px 10px 8px ${greyColor}`,
-      
     },
     '50%': {
       width: 100,
@@ -73,16 +73,13 @@ const useStyles = makeStyles(() => ({
     '100%': {
       width: 120,
       boxShadow: `0px 10px 8px ${greyColor}`,
-      
     },
   }
 }))
 
 export default function Stalue(props) {
-  
   const classes = useStyles();
   const name = props.name
- 
   
   return (
     <>
@@ -93,23 +90,29 @@ export default function Stalue(props) {
         alignItems="center"
       >
          <Grid item xs={12}>
-          <Typography variant="h4" className={classes.text}>
-            Responsive design
-          </Typography>
+           <FadeIn>
+            <Typography variant="h4" className={classes.text}>
+              Responsive design
+            </Typography>
+          </FadeIn>
         </Grid>
         <Grid item xs={3}>
-          <img
-            src={process.env.PUBLIC_URL + covers[name].url2}
-            alt="iphone"
-            className={classes.image}
-          />
+          <FadeIn>
+            <img
+              src={process.env.PUBLIC_URL + covers[name].url2}
+              alt="iphone"
+              className={classes.image}
+            />
+          </FadeIn>
         </Grid>
         <Grid item xs={9}>
-          <img
-            src={process.env.PUBLIC_URL + covers[name].url3}
-            alt="macbook"
-            className={classes.image}
-          />
+          <FadeIn>
+            <img
+              src={process.env.PUBLIC_URL + covers[name].url3}
+              alt="macbook"
+              className={classes.image}
+            />
+          </FadeIn>
         </Grid>
       </Grid>
       <Grid
@@ -117,58 +120,37 @@ export default function Stalue(props) {
         className={classes.grid}
         spacing={2}
       >
-        <Grid item xs={12} md={6}>
-          <LightboxImage
-            name={name}
-            url={0}
-            alt="chart1"
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <LightboxImage
-            name={name}
-            url={1}
-            alt="chart2"
-          />
-        </Grid>
+        {covers[name].screenshots.map((screenshot, index) => 
+          <Grid key={screenshot} item xs={12} md={6}>
+            <LightboxImage
+              name={name}
+              url={index}
+              alt={`chart${index}`}
+            />
+          </Grid>
+        )}
       </Grid>
-      <Grid
-        container
-        className={classes.grid}
-        spacing={2}
-      >
-        <Grid item xs={12} md={6}>
-          <LightboxImage
-            name={name}
-            url={2}
-            alt="chart3"
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <LightboxImage
-            name={name}
-            url={3}
-            alt="chart4"
-          />
-        </Grid>
-      </Grid> 
       <Grid
         container
         className={classes.logoContainer}
       >
         <Grid item xs={12}>
-          <Typography variant="h4" className={classes.text}>
-            Custom logo design
-          </Typography>
+          <FadeIn>
+            <Typography variant="h4" className={classes.text}>
+              Custom logo design
+            </Typography>
+          </FadeIn>
         </Grid>
         <Grid item xs={12} className={classes.logoGrid}>
-          <SVG
-            src={process.env.PUBLIC_URL + covers[name].logo}
-            className={classes.logo}
-          />
-          <div className={classes.shadow}></div>
+          <FadeIn>
+            <SVG
+              src={process.env.PUBLIC_URL + covers[name].logo}
+              className={classes.logo}
+            />
+            <div className={classes.shadow}></div>
+          </FadeIn>
         </Grid>
-    </Grid>
+      </Grid>
     </>
   )
 }

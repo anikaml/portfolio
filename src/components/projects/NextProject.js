@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
+import { Link, Typography } from "@material-ui/core";
 
 import { covers } from '../../components/Covers';
-import { Link, Typography } from "@material-ui/core";
+import FadeIn from "../../containers/style/FadeIn";
 
 const useStyles = makeStyles(() => ({
   nextProject: {
@@ -76,19 +77,21 @@ export default function NextProject(props) {
   
   return (
     <>
-    <Typography variant="h6" className={classes.next}>
-      Next Project
-    </Typography>
-    <div className={classes.wrapper}>
-      <Link
-          href={`/${covers[nextProject].name}`}
-          style={{textDecoration: 'none'}}
-          rel="noopener noreferrer"
-          className={classes.link}
-        >
-          <div className={classes.blurDiv} style={{backgroundImage: `url(${covers[nextProject].url1})`,}}/>
-        </Link>
-      </div>
+      <FadeIn>
+        <Typography variant="h6" className={classes.next}>
+          Next Project
+        </Typography>
+        <div className={classes.wrapper}>
+          <Link
+            href={`/${covers[nextProject].name}`}
+            style={{textDecoration: 'none'}}
+            rel="noopener noreferrer"
+            className={classes.link}
+          >
+            <div className={classes.blurDiv} style={{backgroundImage: `url(${covers[nextProject].url1})`,}}/>
+          </Link>
+        </div>
+      </FadeIn>
     </>
   )
 }
