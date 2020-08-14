@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import PropTypes from "prop-types";
 
 import Lightbox from 'react-image-lightbox';
@@ -12,12 +12,14 @@ import Banner from "../../components/projects/Banner";
 import Launch from "../../components/projects/Launch";
 import ProjectHeader from "../../components/projects/ProjectHeader";
 import Colors from "../../components/projects/Colors";
-import Stalue from "./Stalue";
 import NextProject from "../../components/projects/NextProject";
 import TechStack from "../../components/projects/TechStack";
-import Bokiem from "./Bokiem";
 import FadeIn from "../style/FadeIn";
-import Datette from "./Datette";
+import SuspenseContainer from "../../components/layout/SuspenseContainer";
+
+const Bokiem = lazy(() => import("./Bokiem"))
+const Datette = lazy(() => import("./Datette"))
+const Stalue = lazy(() => import("./Stalue"))
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -44,11 +46,11 @@ export default function ProjectTemplate(props) {
 
   let body = null;
   if (name === 'stalue') {
-    body = <Stalue name={name}/>
+    body = <SuspenseContainer><Stalue name={name}/></SuspenseContainer>
   } else if (name === 'bokiem') {
-    body = <Bokiem name={name}/>
+    body = <SuspenseContainer><Bokiem name={name}/></SuspenseContainer>
   } else if (name === 'datette') {
-    body = <Datette name={name}/>
+    body = <SuspenseContainer><Datette name={name}/></SuspenseContainer>
   }
   
   return (
