@@ -1,15 +1,15 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Landing from './containers/Landing';
 import NotFound from "./containers/NotFound";
 
 import { covers } from "./components/Covers";
-import ProjectTemplate from "./containers/projects/ProjectTemplate";
+import SuspenseContainer from "./components/layout/SuspenseContainer";
+
+const ProjectTemplate = lazy(() => import("./containers/projects/ProjectTemplate"));
 
 export default function Routes() {
-
-
   return (
     <BrowserRouter>
       <Switch>
@@ -18,7 +18,9 @@ export default function Routes() {
         </Route>
         {Object.keys(covers).map(name => 
           <Route exact path={`/${name}`} key={name}>
-            <ProjectTemplate name={name}/>
+            <SuspenseContainer>
+              <ProjectTemplate name={name}/>
+            </SuspenseContainer>
           </Route>
         )}
         <NotFound />
