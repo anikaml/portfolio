@@ -1,36 +1,42 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import { Parallax } from 'react-scroll-parallax';
-
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Link, Typography } from '@material-ui/core/';
+import { Container, Link } from '@material-ui/core/';
 
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
+import SectionTitle from './SectionTitle';
+import { greyColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
   container: {
     margin: "2em auto",
   },
   title: {
-    color: "white",
+    color: "black",
     textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
     caretColor:"#262626",
     fontWeight: 700,
+    '@media (max-width:800px)': {
+      fontSize: "2.5rem",
+    },
   },
   banner: {
     margin: "1em 0",
-    position: "relative",
+    //position: "relative",
     display: "block",
-    height: "50vh",
     overflow: "hidden",
     transition: "all .2s ease-in-out",
+    zIndex: "1",
     '&:hover': {
       transform: "scale(1.05)",
       transition: "0.6s all ease-in-out",
-    }
+    },
+    '@media (max-width:800px)': {
+      height: "30vh",
+    },
   },
   containerDiv: {
     display: "flex",
@@ -38,11 +44,16 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center", 
     alignItems: "center",
     flexWrap: "wrap",
+    border: `1px solid ${greyColor}`,
+    borderRadius: 15,
+    padding: "2em",
   },
   parallaxDiv: {
     width: "100%",
     overflow: "hidden",
-    height: "50vh",
+    '@media (max-width:800px)': {
+      height: "30vh",
+    },
   },
 }));
 
@@ -52,13 +63,7 @@ export default function Projects() {
   return (
     <>
       <Container maxWidth="lg" className={classes.container}>
-        <div id="projects">
-          <Parallax x={[-500, 0]} >
-            <Typography variant="h1" className={classes.title}>
-              Projects
-            </Typography>
-          </Parallax>
-        </div>
+       <SectionTitle id="projects" title="Projects"/>
         <div  className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
             <div
@@ -72,7 +77,6 @@ export default function Projects() {
               >
                 <Banner
                   url={covers[project].url1}
-                  height="50vh"
                   className={classes.banner}
                 />
               </Link>
@@ -81,8 +85,7 @@ export default function Projects() {
         </div>
       </Container>
     </>
-  )       
-  
+  )
 }
 
 Projects.propTypes = {

@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { ParallaxBanner } from 'react-scroll-parallax';
 
 export default function Banner(props) {
-
   
   return (
     <>
