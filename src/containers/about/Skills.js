@@ -106,13 +106,15 @@ export default function Skills() {
                     {Object.keys(skills[field])[2]}:&nbsp;
                   </Typography>
                 </FadeIn>
-                <Typography className={classes.typography}>
+                <div className={classes.typography}>
                   {(skills[field].Tools).map(tool =>
                     <FadeIn key={tool}>
-                      {tool}
+                      <Typography>
+                        {tool}
+                      </Typography>
                     </FadeIn>
                   )}
-                </Typography>
+                </div>
               </div>
             </Grid>
           )}
