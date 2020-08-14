@@ -1,3 +1,11 @@
+## 0.2.3
+
+NOTES:
+* Created Skills component
+* Created test mock for IntersectionObserver API
+* Updated Datette graphics
+* Fixed bugs
+
 ## 0.2.2
 
 NOTES:
