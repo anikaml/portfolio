@@ -1,3 +1,8 @@
+## 0.2.4
+
+NOTES:
+* Added lazy loading
+
 ## 0.2.3
 
 NOTES:
