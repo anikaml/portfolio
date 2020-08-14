@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     '&:hover': {
       cursor: "pointer",
       boxShadow: `0px 3px 1px -2px ${shadowColor}, 0px 2px 2px 0px ${shadowColor}, 0px 1px 5px 0px ${shadowColor}`,
-      transition: "all .3s ease-in-out",
+      transition: "all 0.5s ease-in-out",
       transform: "translateY(-2px)",
     }
   },
@@ -33,12 +33,14 @@ export default function LightboxImage(props) {
   return (
     <>
       <FadeIn>
-        <img
-          onClick={() => setLightbox_open(true)}
-          src={process.env.PUBLIC_URL + images[props.url]}
-          alt={props.alt}
-          className={props.className ? props.className : classes.image}
-        />
+        <div className={props.classNameInner ? props.classNameInner : ""}>
+          <img
+            onClick={() => setLightbox_open(true)}
+            src={process.env.PUBLIC_URL + images[props.url]}
+            alt={props.alt}
+            className={props.classNameImg ? props.classNameImg : classes.image}
+          />
+        </div>
       </FadeIn>
       {lightbox_open && (
         <Lightbox
@@ -56,7 +58,8 @@ export default function LightboxImage(props) {
 
 LightboxImage.propTypes = {
   alt: PropTypes.string,
-  className: PropTypes.object,
+  classNameImg: PropTypes.string,
+  classNameInner: PropTypes.string,
   name: PropTypes.string.isRequired,
   url: PropTypes.number.isRequired,
 };
