@@ -8,7 +8,7 @@ import { Container, Link } from '@material-ui/core/';
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
-import { greyColor } from '../../utils/colors';
+//import { greyColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -44,9 +44,12 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center", 
     alignItems: "center",
     flexWrap: "wrap",
-    border: `1px solid ${greyColor}`,
+    //border: `1px solid ${greyColor}`,
     borderRadius: 15,
     padding: "2em",
+    '@media (max-width:800px)': {
+      padding: "2em 0em 0em 0em",
+    },
   },
   parallaxDiv: {
     width: "100%",

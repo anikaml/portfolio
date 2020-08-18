@@ -9,7 +9,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 //import Typography from '@material-ui/core/Typography';
 import Illustration from "./Illustration";
-import Trails from './Trails';
+//import Trails from './Trails';
+import AboutText from "./AboutText";
 
 const styles = () => ({
   root: {
@@ -19,8 +20,12 @@ const styles = () => ({
     display: "flex",
     justifyContent: "center", 
     alignItems: "center",
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
     margin: "2em",
+    padding: "2em",
+    '@media (max-width:800px)': {
+      flexWrap: "wrap",
+    },
   },
   text: {
 
@@ -40,7 +45,7 @@ class Main extends Component {
       <React.Fragment>
         <div className={classes.container}>
           <div className={classes.text}>
-            <Trails />
+            <AboutText />
           </div>
           <div className={classes.illustration}>
             <Illustration />

@@ -75,6 +75,14 @@ const theme = createMuiTheme({
     }
   };
 
+  theme.typography.h3 = {
+    fontSize: '3.42rem',
+    fontWeight: 400,
+    '@media (max-width:600px)': {
+      fontSize: '2.5rem',
+    }
+  };
+
   theme.typography.h6 = {
     fontSize: '1.25rem',
     fontWeight: '500',
