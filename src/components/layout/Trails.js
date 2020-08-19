@@ -1,45 +1,40 @@
 // import React, { useState } from 'react'
 import React from 'react'
-import PropTypes from "prop-types";
 import { useTrail, animated } from 'react-spring'
-import Typography from '@material-ui/core/Typography';
-import { isMobileOnly } from 'react-device-detect';
+import { Typography } from '@material-ui/core/';
 
-
-const items = [ <>
-                <Typography variant={isMobileOnly? "h5" : "h3"}>Architectural Designer</Typography>,
-                <><Typography variant="h6" display="inline">who become</Typography><Typography variant={isMobileOnly? "h5" : "h3"} display="inline"> Web Designer</Typography></>,
-                <Typography variant="h5">Living & working in San Diego, California</Typography>
+const element1 = <Typography variant="h2">Hi,</Typography>
+const element2 = <>
+                  <Typography variant="h4">
+                    {"I'm Anika. A web designer & front-end developer"} 
+                  </Typography>
                 </>
-              ]
-const config = { mass: 5, tension: 2000, friction: 200 }
+const element3 = (<Typography variant="h6" style={{marginTop: "2em"}}>
+                    {"I design and develop clean and user-friendly websites."}
+                  </Typography>)
+
+const items = [ element1, element2, element3 ]
+//const config = { mass: 5, tension: 2000, friction: 200 }
 
 export default function Trails() {
-  const toggle = true
   const trail = useTrail(items.length, {
-    config,
-    opacity: toggle ? 1 : 0,
-    x: toggle ? 0 : 20,
-    height: toggle ? 80 : 0,
-    from: { opacity: 0, x: 20, height: 0 },
+    //config,
+    opacity: 1,
+    x: 20,
+    height: 100,
+    from: { opacity: 0, x: 0, height: 0 },
   })
 
   return (
-    // <div className="trails-main" onClick={() => set(state => !state)}>
-      <>
-        {trail.map(({ x, height, ...rest }, index) => (
-          <animated.div
-            key={items[index]}
-            className="trails-text"
-            style={{ ...rest, transform: x.to(x => `translate3d(0,${x}px,0)`) }}>
-            <animated.div style={{ height }}>{items[index]}</animated.div>
-          </animated.div>
-        ))}
-      </>
-  
+    <>
+      {trail.map(({ x, height, ...rest }, index) => (
+        <animated.div
+          key={index}
+          style={{ ...rest, transform: x.to(x => `translate3d(0,${x}px,0)`) }}
+        >
+          <animated.div style={{ height }}>{items[index]}</animated.div>
+        </animated.div>
+      ))}
+    </>
   )
 }
-
-Trails.propTypes = {
-  classes: PropTypes.object,
-};
