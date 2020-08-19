@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
 
-import ParallaxMove from '../../containers/style/ParallaxMove';
+//import ParallaxMove from '../../containers/style/ParallaxMove';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     color: "black",
-    textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
+    //textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
     caretColor:"#262626",
     fontWeight: 700,
     //marginBottom: -40,
@@ -33,16 +33,15 @@ export default function SectionTitle(props) {
     <>
       {/* <Container maxWidth="lg" className={classes.container}> */}
         <div id={props.id}>
-          <ParallaxMove>
+          {/* <ParallaxMove> */}
             <Typography variant="h1" className={classes.title}>
               {props.title}
             </Typography>
-          </ParallaxMove>
+          {/* </ParallaxMove> */}
         </div>
       {/* </Container> */}
     </>
-  )       
-  
+  )
 }
 
 SectionTitle.propTypes = {
