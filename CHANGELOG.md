@@ -1,3 +1,9 @@
+## 0.2.6
+
+NOTES:
+* Stylized Skills Component, added colors
+* Added angled background to AboutText Component
+
 ## 0.2.5
 
 NOTES:
