@@ -14,6 +14,9 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     margin: "0 auto",
     overflow: "hidden",
+    '@media (max-width:1115px)': {
+      maxHeight: "unset",
+    },
   },
   card: {
     position: "absolute",
@@ -37,8 +40,9 @@ const useStyles = makeStyles(() => ({
     opacity: "0.8"
   },
   background: {
-   maxHeight: "60em",
-   maxWidth: "60em"
+    maxHeight: "60em",
+    maxWidth: "60em",
+    height: "auto",
   },
   bag: {
     height: "5em",
