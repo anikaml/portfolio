@@ -40,6 +40,7 @@ const useStyles = makeStyles(() => ({
     margin: "2em 1em",
     backgroundColor: "white",
     maxWidth: "40vw",
+    zIndex: 10,
     transition: 'all .2s ease-in-out',
     '@media (max-width:800px)': {
       maxWidth: "90vw",
