@@ -8,37 +8,28 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
-    //width: "500px",
     maxHeight: "500px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     margin: "0 auto",
     overflow: "hidden",
+    '@media (max-width:1115px)': {
+      maxHeight: "unset",
+    },
   },
   card: {
     position: "absolute",
     borderRadius: "5px",
-    //backgroundSize: "cover",
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
     willChange: "transform",
-  },
-  card1: { //background
-   //minWidth: "30em",
-    //minHeight: "30em",
-    // width: "100%",
-    // height: "100%",
-   // maxWidth: "100em",
-    //maxHeight: "100em",
-    //backgroundImage: "url(https://image.flaticon.com/icons/svg/119/119596.svg)"
   },
   card2: { //bag
     width: "15em",
     height: "15em",
     zIndex: "1",
     opacity: "0.7"
-    //backgroundImage: "url(https://image.flaticon.com/icons/svg/789/789395.svg)"
   },
   card3: { //cup
     height: "5em",
@@ -49,20 +40,19 @@ const useStyles = makeStyles(() => ({
     opacity: "0.8"
   },
   background: {
-   maxHeight: "30em",
-   maxWidth: "30em"
+    maxHeight: "60em",
+    maxWidth: "60em",
+    height: "auto",
   },
   bag: {
     height: "5em",
   },
   cup: {
-    //height: "5em",
     opacity: "0.7",
   },
   sofa: {
     height: "15em"
   },
-
 }))
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
@@ -81,13 +71,10 @@ export default function Illustration() {
     const [properties, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
     return (
       <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-        {/* <animated.div className={`${classes.card} ${classes.card1}`} style={{ transform: props.xy.interpolate(trans1) }} > */}
           <SVG
             src={process.env.PUBLIC_URL + "/icons/example-blob-full.svg"} 
             className={classes.background}
-            //preProcessor={code => code.replace(/width=".*?"/g, 'width="300px"').replace(/height=".*?"/g, 'height="200px"')}
           />
-        {/* </animated.div> */}
         <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
           <SVG
             src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
@@ -98,8 +85,6 @@ export default function Illustration() {
           <SVG
             src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
             className={classes.cup}
-            //preProcessor={code => code.replace(/width=".*?"/g, 'width="50px"').replace(/height=".*?"/g, 'height="50px"')}
-
           />
         </animated.div>
         <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: properties.xy.to(trans4) }}>

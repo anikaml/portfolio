@@ -3,16 +3,19 @@ import PropTypes from "prop-types";
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Link } from '@material-ui/core/';
+import { Link } from '@material-ui/core/';
 
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
-import { greyColor } from '../../utils/colors';
+//import { greyColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
   container: {
-    margin: "2em auto",
+    margin: "2em",
+    '@media (max-width:800px)': {
+      margin: 0,
+    },
   },
   title: {
     color: "black",
@@ -25,7 +28,6 @@ const useStyles = makeStyles(() => ({
   },
   banner: {
     margin: "1em 0",
-    //position: "relative",
     display: "block",
     overflow: "hidden",
     transition: "all .2s ease-in-out",
@@ -44,9 +46,11 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center", 
     alignItems: "center",
     flexWrap: "wrap",
-    border: `1px solid ${greyColor}`,
+    //border: `1px solid ${greyColor}`,
     borderRadius: 15,
-    padding: "2em",
+    // '@media (max-width:800px)': {
+    //   padding: "2em 0em 0em 0em",
+    // },
   },
   parallaxDiv: {
     width: "100%",
@@ -62,8 +66,8 @@ export default function Projects() {
   
   return (
     <>
-      <Container maxWidth="lg" className={classes.container}>
-       <SectionTitle id="projects" title="Projects"/>
+     <SectionTitle id="projects" title="Projects"/>
+      <div className={classes.container}>
         <div  className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
             <div
@@ -83,7 +87,7 @@ export default function Projects() {
             </div>
           )}
         </div>
-      </Container>
+      </div>
     </>
   )
 }

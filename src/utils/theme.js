@@ -9,15 +9,18 @@ const theme = createMuiTheme({
       type: "light",  
       primary: {
         light: '#FF9F79', 
-        main: '#ff6060',
+        main: '#ff6060', //'#7a49a5'
         dark: '#4bc0c0', //#ff607b
         contrastText: '#FFFFFF',
       },
       secondary: {
         light: '#b9e4ea',
         main: '#000', 
-        dark: '#ff6060', //#3D444F
-        contrastText: '#000000',
+        dark: '#3D444F',
+        contrastText: '#111029',
+      },
+      text: {
+        primary: '#111029',
       },
       error: {
         main: '#ff0033',
@@ -72,6 +75,25 @@ const theme = createMuiTheme({
     fontSize: '0.875rem',
     '@media (max-width:350px)': {
       fontSize: '0.7rem',
+    }
+  };
+
+  theme.typography.h2 = {
+    fontSize: '4.28rem',
+    fontWeight: 400,
+    '@media (max-width:1140px)': {
+      fontSize: '5vw',
+    }
+  };
+
+  theme.typography.h3 = {
+    fontSize: '3.42rem',
+    fontWeight: 400,
+    // '@media (max-width:640px)': {
+    //   fontSize: '2.5rem',
+    // },
+    '@media (max-width:1140px)': {
+      fontSize: '4vw',
     }
   };
 

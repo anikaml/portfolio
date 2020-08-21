@@ -1,22 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 import LogoMorph from "../Logo/LogoMorph";
 
 // Material UI Components
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  appbar: {
-    //border: `8px solid ${theme.palette.primary.main}`,
   },
   toolbar: {
     display: "flex",
@@ -179,12 +175,10 @@ const styles = theme => ({
   //     }
   //   }
   
-});
+}));
 
-class Navbar extends Component {
-
-  render() {
-    const { classes } = this.props;    
+export default function Navbar() {
+  const classes = useStyles(); 
 
     return (
       <React.Fragment>
@@ -243,11 +237,3 @@ class Navbar extends Component {
       </React.Fragment>
     )       
   }
-}
-
-Navbar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-
-export default withStyles(styles)(Navbar);
