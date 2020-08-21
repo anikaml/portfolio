@@ -11,10 +11,12 @@ import SectionTitle from './SectionTitle';
 const useStyles = makeStyles((theme) => ({
   div: {
     backgroundColor: theme.palette.primary.light,
-    padding: "4em 0em 18em 0em",
-    marginBottom: "-17em",
+    clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
+    //clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
+    padding: "4em 0em 30em 0em",
+    marginBottom: "-29em",
     '@media (max-width:800px)': {
-      padding: "1em 1em 15em 1em",
+      padding: "1em 1em 25em 1em",
     },
     
   },

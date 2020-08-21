@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from "prop-types";
 
 import SVG from 'react-inlinesvg';
+import { isMobile } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,6 +18,11 @@ const useStyles = makeStyles(() => ({
   title: {
     fontWeight: 700,
   },
+  field: {
+    fontWeight: 700,
+    background: 'linear-gradient(180deg, rgba(255,255,255,0) 70%, #FFe359 65%)',
+    display: "inline",
+  },
   flexContainer: {
     display: "flex",
     justifyContent: "space-evenly",
@@ -30,10 +35,19 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     padding: "1em",
     border: `1px solid ${shadowColor}`,
-    borderRadius: 15,
+    borderRadius: 40,
     //boxShadow: `0px 3px 5px 3px ${shadowColor}`,
-    margin: "1em",
+    margin: "2em 1em",
     backgroundColor: "white",
+    maxWidth: "40vw",
+    zIndex: 10,
+    transition: 'all .2s ease-in-out',
+    '@media (max-width:800px)': {
+      maxWidth: "90vw",
+    },
+    '&:hover': {
+      filter: `drop-shadow(5px 5px 10px rgba(0,0,0,.25))`
+    },
   },
   typography: {
     margin: "0.25em",
@@ -45,7 +59,30 @@ const useStyles = makeStyles(() => ({
     },
   },
   icon: {
-    marginTop: "1em",
+    transition: 'all .2s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.1)',
+    },
+  },
+  colorDiv: {
+    margin: "3em",
+    position: "relative",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  circle: {
+    borderRadius: "50%",
+    width: "12em",
+    height: "12em",
+    position: "absolute",
+    display: "inline",
+    zIndex: -1,
+    left: 0,
+    right: 0,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    
   }
 }));
 
@@ -58,22 +95,24 @@ export default function Skills() {
       Languages: 'ReactJS, Javascript, CSS, HTML, Redux',
       Tools: ['Material-ui', 'Github', 'Terminal'],
       svg: "/icons/dev.svg",
+      color: "#b9e4ea", //"#7a49a5",
     },
     Designer: {
       text: 'I like clean design, easy navigation and adding custom touch.',
       'What I design': 'Web, PWA ,Responsive Apps, Logos, Product design, App presentations',
       Tools: ['Photoshop', 'AdobeXD', 'Illustrator', 'InDesign', 'Cinema4D', 'Pen & Paper'],
       svg: "/icons/designer.svg",
+      color: "rgba(255, 96, 96,0.7)", //"#ff6060",
     },
   }
   
   return (
     <>
-    <SectionTitle title="Skills" />
+      <SectionTitle title="Skills" />
       <Container maxWidth="lg" className={classes.container}>
         <Grid
           container
-          spacing={2}
+          spacing={isMobile? 2 : 8}
           className={classes.flexContainer}
         >
           {Object.keys(skills).map(field => 
@@ -84,15 +123,18 @@ export default function Skills() {
               className={classes.fieldDiv}
             >
               <FadeIn>
-                <div>
-                <SVG
-                  src={process.env.PUBLIC_URL + skills[field].svg}
-                  className={classes.icon}
-                />
-                <Typography variant="h3" className={classes.typography} style={{margin: 0,}}>
-                  {field}
-                </Typography>
-                </div>
+                <>
+                  <div className={classes.colorDiv}>
+                    <div className={classes.circle} style={{backgroundColor: skills[field].color}}/>
+                    <SVG
+                      src={process.env.PUBLIC_URL + skills[field].svg}
+                      className={classes.icon}
+                    />
+                  </div>
+                  <Typography variant={isMobile? "h4" : "h3"} className={classes.field} style={{margin: 0, fontWeight: 600}}>
+                    {field}
+                  </Typography>
+                </>
               </FadeIn>
               <div style={{padding: "1em 2em"}}>
                 <FadeIn>
@@ -102,7 +144,7 @@ export default function Skills() {
                 </FadeIn>
                 <div style={{margin: "2em 0"}}>
                   <FadeIn>
-                    <Typography variant="h6" className={`${classes.typography}${classes.title}`}>
+                    <Typography variant="h5" className={classes.title}>
                       {Object.keys(skills[field])[1]}:&nbsp;
                     </Typography>
                   </FadeIn>
@@ -113,14 +155,14 @@ export default function Skills() {
                   </FadeIn>
                 </div>
                 <FadeIn>
-                  <Typography variant="h6" className={`${classes.typography}${classes.title}`}>
+                  <Typography variant="h5" className={classes.title}>
                     {Object.keys(skills[field])[2]}:&nbsp;
                   </Typography>
                 </FadeIn>
                 <div className={classes.typography}>
                   {(skills[field].Tools).map(tool =>
                     <FadeIn key={tool}>
-                      <Typography>
+                      <Typography style={{margin: "0.25em 0"}}>
                         {tool}
                       </Typography>
                     </FadeIn>
@@ -134,8 +176,4 @@ export default function Skills() {
     </>
   )
 }
-
-Skills.propTypes = {
-  classes: PropTypes.object,
-};
 
