@@ -112,7 +112,7 @@ export default function Skills() {
       <Container maxWidth="lg" className={classes.container}>
         <Grid
           container
-          spacing={8}
+          spacing={isMobile? 2 : 8}
           className={classes.flexContainer}
         >
           {Object.keys(skills).map(field => 
