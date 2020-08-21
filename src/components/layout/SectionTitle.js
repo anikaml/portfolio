@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
     margin: "2em auto",
   },
   title: {
-    caretColor:"#262626",
+    // caretColor:"#262626",
     fontWeight: 700,
     //marginBottom: -40,
     transform: 'translate(10px, 35px)',
