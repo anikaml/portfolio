@@ -69,8 +69,8 @@ export default function Skills() {
   
   return (
     <>
+    <SectionTitle title="Skills" />
       <Container maxWidth="lg" className={classes.container}>
-        <SectionTitle title="Skills" />
         <Grid
           container
           spacing={2}

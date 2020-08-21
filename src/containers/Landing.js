@@ -7,11 +7,11 @@ import AboutText from "../components/layout/AboutText";
 
 export default function Landing() {
   return (
-    <React.Fragment>
+    <>
       <Main />
       <Projects />
       <AboutText />
       <Skills />
-    </React.Fragment>
+    </>
   );
 }
