@@ -1,3 +1,11 @@
+## 0.2.5
+
+NOTES:
+* Added AboutText component with about me text
+* Styling changes
+* New font color
+* Updated Trails component, working better on mobile
+
 ## 0.2.4
 
 NOTES:
