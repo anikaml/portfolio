@@ -1,17 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-//import { Parallax } from 'react-scroll-parallax';
+import React from "react";
 
-//import SVG from 'react-inlinesvg';
+import { isMobile } from 'react-device-detect';
+import SVG from 'react-inlinesvg';
 
 // Material UI Components
-import { withStyles } from '@material-ui/core/styles';
-
-//import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core/';
 import Illustration from "./Illustration";
 import Trails from './Trails';
 
-const styles = () => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
@@ -19,41 +17,61 @@ const styles = () => ({
     display: "flex",
     justifyContent: "center", 
     alignItems: "center",
-    flexWrap: "wrap",
     margin: "2em",
+    padding: "4em 2em",
+    //backgroundColor: "#f7faff",
+    '@media (max-width:800px)': {
+      flexWrap: "wrap",
+    },
+  },
+  containerMobile: {
+    '@media (max-width:800px)': {
+      flexWrap: "wrap",
+      margin: "1em",
+      padding: "0em",
+    },
+  },
+  trailsContainer: {
+    margin: "2em auto",
+    paddingLeft: "4em",
+    '@media (max-width:800px)': {
+      height: "unset",
+      padding: 0,
+      margin: "2em",
+      width: "auto",
+    },
   },
   text: {
-
+    //maxWidth: isMobileOnly? "none" : "50vw",
   },
   illustration: {
-     overflow: "hidden",
+    overflow: "hidden",
+    textAlign: "center",
   },
-  
-});
-
-class Main extends Component {
-
-  render() {
-    const { classes } = this.props;    
-
-    return (
-      <React.Fragment>
-        <div className={classes.container}>
-          <div className={classes.text}>
-            <Trails />
-          </div>
-          <div className={classes.illustration}>
-            <Illustration />
-          </div>
-        </div>
-      </React.Fragment>
-    )       
+  icon: {
+    maxWidth: "-webkit-fill-available",
+    height: "auto",
   }
+}));
+
+export default function Main() {
+  const classes = useStyles();
+
+  const illustration = (<SVG 
+                          src={process.env.PUBLIC_URL + "/icons/illustration_mobile.svg"} 
+                          className={classes.icon}
+                        />)
+
+  return (
+    <div className={isMobile ? classes.containerMobile : classes.container}>
+      <div className={classes.text}>
+        <Container maxWidth="lg" className={classes.trailsContainer}>
+          <Trails />
+        </Container>
+      </div>
+      <div className={classes.illustration}>
+        {isMobile ? illustration : <Illustration />}
+      </div>
+    </div>
+  )       
 }
-
-Main.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-
-export default withStyles(styles)(Main);

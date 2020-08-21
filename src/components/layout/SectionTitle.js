@@ -12,18 +12,21 @@ const useStyles = makeStyles(() => ({
     margin: "2em auto",
   },
   title: {
-    color: "black",
-    textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
     caretColor:"#262626",
     fontWeight: 700,
     //marginBottom: -40,
-    zIndex: '999 !important',
-    //position: "absolute",
     transform: 'translate(10px, 35px)',
+    background: 'linear-gradient(180deg, rgba(255,255,255,0) 70%, #FFe359 65%)',
+    display: "inline",
+    paddingLeft: "0.5em",
     '@media (max-width:800px)': {
       fontSize: "2.5rem",
     },
   },
+  wrapper: {
+    position: "relative",
+    margin: "1em 0",
+  }
 }));
 
 export default function SectionTitle(props) {
@@ -31,18 +34,15 @@ export default function SectionTitle(props) {
   
   return (
     <>
-      {/* <Container maxWidth="lg" className={classes.container}> */}
-        <div id={props.id}>
-          {/* <ParallaxMove> */}
-            <Typography variant="h1" className={classes.title}>
-              {props.title}
-            </Typography>
-          {/* </ParallaxMove> */}
-        </div>
-      {/* </Container> */}
+      <div id={props.id} className={classes.wrapper}>
+        {/* <ParallaxMove> */}
+          <Typography variant="h1" className={classes.title}>
+            {props.title}
+          </Typography>
+        {/* </ParallaxMove> */}
+      </div>
     </>
-  )       
-  
+  )
 }
 
 SectionTitle.propTypes = {
