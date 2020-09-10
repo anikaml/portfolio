@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
   container: {
     display: "flex",
     justifyContent: "center", 
-    alignItems: "center",
+    //alignItems: "center",
     margin: "2em",
     padding: "4em 2em",
     //backgroundColor: "#f7faff",
@@ -34,6 +34,7 @@ const useStyles = makeStyles(() => ({
   trailsContainer: {
     margin: "2em auto",
     paddingLeft: "4em",
+    
     '@media (max-width:800px)': {
       height: "unset",
       padding: 0,
