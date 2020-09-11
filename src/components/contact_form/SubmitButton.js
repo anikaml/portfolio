@@ -11,7 +11,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import { shadowColor, successColor, errorColor } from "../../utils/colors";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   buttonDiv: {
     marginTop: "1em",
     display: "flex",
@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: `0px 3px 1px -2px ${shadowColor}, 0px 2px 2px 0px ${shadowColor}, 0px 1px 5px 0px ${shadowColor}`,
     transition: 'all .2s ease-in-out',
     '&:hover': {
-      background: theme.palette.secondary.main,
       filter: `drop-shadow(5px 5px 10px rgba(0,0,0,.25))`,
     }
   },
@@ -39,24 +38,29 @@ export default function SubmitButton(props) {
 
   let submitButton = (
     <div className={classes.buttonDiv}>
-      {!props.isLoading && 
+      {props.isLoading ? (
         <Button {...morph}
           disabled={props.isLoading}
           className={ props.className ? props.className : classes.submitButton }
-          type="submit"
-          variant={ props.variant ? props.variant : "contained" }
-          color={ props.color ? props.color : "primary" }
-          disableElevation
-          style={{backgroundColor: props.success? successColor : props.error? errorColor : "#ff6060"}}
-          endIcon={props.success? <DoneIcon/> : props.error? <PriorityHighIcon/> : <ArrowForwardIosIcon/>}
         >
-          {props.children}
+          <CircularProgress 
+            size={33}
+          />
         </Button>
-      }
-      {props.isLoading && 
-        <CircularProgress {...morph}
-          size={33}
-        />
+         ) : (
+          <Button {...morph}
+            disabled={props.isLoading}
+            className={ props.className ? props.className : classes.submitButton }
+            type="submit"
+            variant={ props.variant ? props.variant : "contained" }
+            color={ props.color ? props.color : "primary" }
+            disableElevation
+            style={{backgroundColor: props.success? successColor : props.error? errorColor : "#ff6060"}}
+            endIcon={props.success? <DoneIcon/> : props.error? <PriorityHighIcon/> : <ArrowForwardIosIcon/>}
+          >
+            {props.children}
+          </Button>
+        )
       }
     </div>
   )
@@ -74,7 +78,6 @@ SubmitButton.propTypes = {
   children: PropTypes.node.isRequired,
   isLoading: PropTypes.bool.isRequired,
   progressCircularColor: PropTypes.string,
-  //backgroundColor: PropTypes.string,
   success: PropTypes.bool,
   error: PropTypes.bool,
   variant: PropTypes.string,
