@@ -9,6 +9,7 @@ import ContactMessage from "./ContactMessage";
 import Email from './Email';
 import SubmitButton from "./SubmitButton";
 import { greyColor, shadowColor } from "../../utils/colors";
+import FadeIn from "../../containers/style/FadeIn";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -108,28 +109,34 @@ export default function ContactForm() {
   return (
     <Container maxWidth="sm" className={classes.container}> 
       <ValidatorForm noValidate onSubmit={handleSubmit}>
-        <Email 
-          autoFocus
-          disabled={isLoading}
-          className={classes.input}
-          onChange={textChange}
-          value={text.email}
-          variant="outlined"
-        /> 
-        <ContactMessage 
-          disabled={isLoading}
-          className={classes.input}
-          onChange={textChange}
-          value={text.message}
-          variant="outlined"
-        />
-        <SubmitButton
-          isLoading={isLoading}
-          success={success}
-          error={error}
-        >
-          {submitButtonText}
-        </SubmitButton>
+        <FadeIn>
+          <Email 
+            autoFocus
+            disabled={isLoading}
+            className={classes.input}
+            onChange={textChange}
+            value={text.email}
+            variant="outlined"
+          /> 
+        </FadeIn>
+        <FadeIn>
+          <ContactMessage 
+            disabled={isLoading}
+            className={classes.input}
+            onChange={textChange}
+            value={text.message}
+            variant="outlined"
+          />
+        </FadeIn>
+        <FadeIn>
+          <SubmitButton
+            isLoading={isLoading}
+            success={success}
+            error={error}
+          >
+            {submitButtonText}
+          </SubmitButton>
+        </FadeIn>
       </ValidatorForm>
     </Container>
   );
