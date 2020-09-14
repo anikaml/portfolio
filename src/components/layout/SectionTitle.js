@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
+import { highlightColor } from '../../utils/colors';
 
 //import ParallaxMove from '../../containers/style/ParallaxMove';
 
@@ -16,7 +17,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: 700,
     //marginBottom: -40,
     transform: 'translate(10px, 35px)',
-    background: 'linear-gradient(180deg, rgba(255,255,255,0) 70%, #FFe359 65%)',
+    background: `linear-gradient(180deg, rgba(255,255,255,0) 70%, ${highlightColor} 65%)`,
     display: "inline",
     paddingLeft: "0.5em",
     '@media (max-width:800px)': {

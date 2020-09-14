@@ -4,7 +4,15 @@ import { useTrail, animated } from 'react-spring'
 
 import { isMobile } from 'react-device-detect';
 
+import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
+
+const useStyles = makeStyles(() => ({
+  trailsDiv: {
+    display: "block",
+    maxHeight: "5em",
+  }
+}))
 
 const element1 = <Typography variant={isMobile? "h4":"h2"} display="inline" color="textPrimary" style={{fontWeight: 600}}>{"Hi, I'm Anika."}</Typography>
 const element2 = <Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 600}}>
@@ -19,6 +27,7 @@ const items = [ element1, element2, element3 ]
 const config = { mass: 15, tension: 2000, friction: 200 }
 
 export default function Trails() {
+  const classes = useStyles();
   const trail = useTrail(items.length, {
     config,
     opacity: 1,
@@ -28,7 +37,7 @@ export default function Trails() {
   })
 
   return (
-    <>
+    <div className={classes.trailsDiv}>
       {trail.map(({ x, height, ...rest }, index) => (
         <animated.div
           key={index}
@@ -37,6 +46,6 @@ export default function Trails() {
           <animated.div style={{ height }}>{items[index]}</animated.div>
         </animated.div>
       ))}
-    </>
+    </div>
   )
 }
