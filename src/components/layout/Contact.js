@@ -14,6 +14,10 @@ import { greyColor } from '../../utils/colors';
 const useStyles = makeStyles(() => ({
   container: {
     margin: "2em auto 0 auto",
+    display: "flex",
+    '@media (max-width:900px)': {
+      flexWrap: "wrap",
+    }
   },
   containerSmall: {
     margin: "2em auto",
@@ -44,6 +48,7 @@ export default function Contact() {
     <>
       <SectionTitle title="Contact" />
       <Container maxWidth="lg" className={classes.container}>
+        <div>
           <FadeIn>
             <Typography
               variant={isMobile? "h4" : "h2"}
@@ -60,6 +65,7 @@ export default function Contact() {
               {`Have a question? Like my work? Let's talk`}
             </Typography>
           </FadeIn>
+        </div>
         <ContactForm />
       </Container>
     </>
