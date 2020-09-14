@@ -1,3 +1,9 @@
+## 0.2.7
+
+NOTES:
+* Added Contact Component
+* Created contact form 
+
 ## 0.2.6
 
 NOTES:
