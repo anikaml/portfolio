@@ -10,6 +10,7 @@ import { Container, Grid, Typography } from '@material-ui/core/';
 import { shadowColor } from '../../utils/colors';
 import SectionTitle from '../../components/layout/SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
+import theme from '../../utils/theme';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -95,14 +96,14 @@ export default function Skills() {
       Languages: 'ReactJS, Javascript, CSS, HTML, Redux',
       Tools: ['Material-ui', 'Github', 'Terminal'],
       svg: "/icons/dev.svg",
-      color: "#b9e4ea", //"#7a49a5",
+      color: theme.palette.primary.light,
     },
     Designer: {
       text: 'I like clean design, easy navigation and adding custom touch.',
       'What I design': 'Web, PWA ,Responsive Apps, Logos, Product design, App presentations',
       Tools: ['Photoshop', 'AdobeXD', 'Illustrator', 'InDesign', 'Cinema4D', 'Pen & Paper'],
       svg: "/icons/designer.svg",
-      color: "rgba(255, 96, 96,0.7)", //"#ff6060",
+      color: theme.palette.primary.light,
     },
   }
   
