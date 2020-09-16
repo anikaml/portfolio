@@ -10,9 +10,10 @@ import SectionTitle from './SectionTitle';
 
 const useStyles = makeStyles((theme) => ({
   div: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.dark,
     clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
-    //clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
+    //clipPath: 'polygon(100% 0, 100% 75%, 0 100%, 0 25%)',
+    ////clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
     padding: "4em 0em 30em 0em",
     marginBottom: "-29em",
     '@media (max-width:800px)': {
@@ -28,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
   },
   typography: {
     color: theme.palette.primary.contrastText,
+  },
+  link: {
+    textDecoration: 'none',
+    transition: 'all .2s ease-in-out',
+    
   }
 }));
 
@@ -46,14 +52,16 @@ export default function AboutText() {
           </FadeIn>
           <FadeIn>
             <Typography variant={isMobile? "h5":"h4"} className={classes.typography}>
-              {"I'm Anika. A web designer & front-end developer, currently working at"} 
+              {"I'm Anika. A web designer & front-end developer, currently working at "} 
                 <Link
                   href="https://bokiem.solutions"
                   style={{ textDecoration: 'none'}}
+                  className={classes.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  color='secondary'
                 >
-                  {" Bokiem Solutions"}
+                  {"Bokiem Solutions"}
                 </Link>
                 {" San Diego, CA"}
             </Typography>
