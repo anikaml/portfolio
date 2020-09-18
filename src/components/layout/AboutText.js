@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { isMobile, } from 'react-device-detect';
+import { isMobile, isMobileOnly, } from 'react-device-detect';
 import { Parallax } from 'react-scroll-parallax';
 
 // Material UI Components
@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
     ////clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
     clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 10%)',
     //padding: "4em 0em 30em 0em",
-    marginBottom: "-65em",
+    marginBottom: "-45em",
     height: "200vh",
-    marginTop: '10em',
+    //marginTop: '10em',
     padding: "14em 0em 30em 0em",
     '@media (max-width:900px)': {
       padding: "1em 1em 45em 1em",
@@ -53,7 +53,7 @@ export default function AboutText() {
   return (
     <>
       <SectionTitle id="about" title="About"/>
-      <Parallax y={[10, -10]} className={classes.parallaxFooter} tagOuter="aboutBackground">
+      <Parallax y={isMobileOnly? [10, -10] : [20, -20]} className={classes.parallaxFooter} tagOuter="section">
         <div id="about" className={classes.div}>
           <Container maxWidth="md" className={classes.container}>
             <FadeIn>
