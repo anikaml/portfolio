@@ -1,3 +1,10 @@
+## 0.2.8
+
+NOTES:
+* Added Footer Component
+* Changed theme colors
+* Styling changes for about, footer and contact
+
 ## 0.2.7
 
 NOTES:
