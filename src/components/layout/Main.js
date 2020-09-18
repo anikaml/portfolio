@@ -20,12 +20,12 @@ const useStyles = makeStyles(() => ({
     margin: "2em",
     padding: "4em 2em",
     //backgroundColor: "#f7faff",
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       flexWrap: "wrap",
     },
   },
   containerMobile: {
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       flexWrap: "wrap",
       margin: "1em",
       padding: "0em",
@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     margin: "2em auto",
     paddingLeft: "4em",
     
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       height: "unset",
       padding: 0,
       margin: "2em",

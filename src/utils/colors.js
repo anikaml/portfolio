@@ -11,3 +11,5 @@ export const errorColor = '#ff0033';
 export const successColor = '#00BF8B';
 
 export const highlightColor = '#FFe359';
+
+export const orangeColor = 'rgb(255, 188, 162)';
