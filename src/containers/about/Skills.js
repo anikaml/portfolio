@@ -10,6 +10,7 @@ import { Container, Grid, Typography } from '@material-ui/core/';
 import { shadowColor } from '../../utils/colors';
 import SectionTitle from '../../components/layout/SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
+import theme from '../../utils/theme';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-evenly",
     flexWrap: "nowrap",
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       flexWrap: "wrap",
     },
   },
@@ -42,7 +43,7 @@ const useStyles = makeStyles(() => ({
     maxWidth: "40vw",
     zIndex: 10,
     transition: 'all .2s ease-in-out',
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       maxWidth: "90vw",
     },
     '&:hover': {
@@ -53,7 +54,7 @@ const useStyles = makeStyles(() => ({
     margin: "0.25em",
     lineHeight: "1.5em",
     fontWeight: 300,
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       margin: "auto",
       padding: "inherit",
     },
@@ -95,20 +96,20 @@ export default function Skills() {
       Languages: 'ReactJS, Javascript, CSS, HTML, Redux',
       Tools: ['Material-ui', 'Github', 'Terminal'],
       svg: "/icons/dev.svg",
-      color: "#b9e4ea", //"#7a49a5",
+      color: theme.palette.primary.light,
     },
     Designer: {
       text: 'I like clean design, easy navigation and adding custom touch.',
       'What I design': 'Web, PWA ,Responsive Apps, Logos, Product design, App presentations',
       Tools: ['Photoshop', 'AdobeXD', 'Illustrator', 'InDesign', 'Cinema4D', 'Pen & Paper'],
       svg: "/icons/designer.svg",
-      color: "rgba(255, 96, 96,0.7)", //"#ff6060",
+      color: theme.palette.primary.light,
     },
   }
   
   return (
     <>
-      <SectionTitle title="Skills" />
+      <SectionTitle title="Skills" stroke={true}/>
       <Container maxWidth="lg" className={classes.container}>
         <Grid
           container
