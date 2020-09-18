@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 15,
       },
       '&:hover fieldset': {
-        border: `2px solid ${theme.palette.secondary.main}`,
+        border: `2px solid ${theme.palette.primary.main}`,
       },
       '&.Mui-focused': {
         borderRadius: 15,

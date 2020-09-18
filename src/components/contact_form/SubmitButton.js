@@ -10,6 +10,7 @@ import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import { shadowColor, successColor, errorColor } from "../../utils/colors";
+import theme from '../../utils/theme';
 
 const useStyles = makeStyles(() => ({
   buttonDiv: {
@@ -55,7 +56,7 @@ export default function SubmitButton(props) {
             variant={ props.variant ? props.variant : "contained" }
             color={ props.color ? props.color : "primary" }
             disableElevation
-            style={{backgroundColor: props.success? successColor : props.error? errorColor : "#ff6060"}}
+            style={{backgroundColor: props.success? successColor : props.error? errorColor : theme.palette.primary.main}}
             endIcon={props.success? <DoneIcon/> : props.error? <PriorityHighIcon/> : <ArrowForwardIosIcon/>}
           >
             {props.children}

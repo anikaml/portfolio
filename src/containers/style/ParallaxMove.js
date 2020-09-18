@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     visibility: "hidden",
     transition: " all 0.9s ease-out",
     willChange: "opacity, visibility",
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       transform: "translateX(10em)",
     },
   },

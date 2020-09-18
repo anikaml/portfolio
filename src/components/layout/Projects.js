@@ -13,7 +13,7 @@ import SectionTitle from './SectionTitle';
 const useStyles = makeStyles(() => ({
   container: {
     margin: "2em",
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       margin: 0,
     },
   },
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
     textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
     caretColor:"#262626",
     fontWeight: 700,
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       fontSize: "2.5rem",
     },
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
       transform: "scale(1.05)",
       transition: "0.6s all ease-in-out",
     },
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       height: "30vh",
     },
   },
@@ -48,14 +48,14 @@ const useStyles = makeStyles(() => ({
     flexWrap: "wrap",
     //border: `1px solid ${greyColor}`,
     borderRadius: 15,
-    // '@media (max-width:800px)': {
+    // '@media (max-width:900px)': {
     //   padding: "2em 0em 0em 0em",
     // },
   },
   parallaxDiv: {
     width: "100%",
     overflow: "hidden",
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       height: "30vh",
     },
   },
