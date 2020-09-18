@@ -46,7 +46,7 @@ export default function Contact() {
   
   return (
     <>
-      <SectionTitle title="Contact" />
+      <SectionTitle id="contact" title="Contact" />
       <Container maxWidth="lg" className={classes.container}>
         <div>
           <FadeIn>

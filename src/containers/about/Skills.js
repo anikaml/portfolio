@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-evenly",
     flexWrap: "nowrap",
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       flexWrap: "wrap",
     },
   },
@@ -43,7 +43,7 @@ const useStyles = makeStyles(() => ({
     maxWidth: "40vw",
     zIndex: 10,
     transition: 'all .2s ease-in-out',
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       maxWidth: "90vw",
     },
     '&:hover': {
@@ -54,7 +54,7 @@ const useStyles = makeStyles(() => ({
     margin: "0.25em",
     lineHeight: "1.5em",
     fontWeight: 300,
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       margin: "auto",
       padding: "inherit",
     },
@@ -109,7 +109,7 @@ export default function Skills() {
   
   return (
     <>
-      <SectionTitle title="Skills" />
+      <SectionTitle title="Skills" stroke={true}/>
       <Container maxWidth="lg" className={classes.container}>
         <Grid
           container

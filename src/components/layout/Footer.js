@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   footerDiv: {
     // backgroundColor: theme.palette.primary.main,
     //backgroundImage: "linear-gradient(to bottom, #ffffff, #ff6060, #ff6060)",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.dark,
     padding: "4em 0 2em 0",
     marginTop: "2em",
     textAlign: "center",
@@ -93,24 +93,6 @@ export default function Footer() {
           Version: {packageJson.version}
         </Typography>
         <div>
-          {/* <Link 
-            href="https://github.com/anikaniescierewicz"
-            style={{ textDecoration: 'none'}}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={classes.gitHubLink}
-          >
-            <GitHubIcon className={classes.version}/>
-          </Link>
-          <Link 
-            href="https://github.com/anikaniescierewicz"
-            style={{ textDecoration: 'none'}}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={classes.gitHubLink}
-          >
-            <LinkedInIcon className={classes.version}/>
-          </Link> */}
           <Typography variant="caption" className={classes.whiteText}>
             2020
           </Typography>

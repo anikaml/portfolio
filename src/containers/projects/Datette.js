@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
       transform: "scale(1.05)",
       boxShadow: "0.5rem 1rem 2rem 0.5rem rgba(0,0,0,0.2)",
     },
-    '@media (max-width:800px)': {
+    '@media (max-width:900px)': {
       maxHeight: "35vh",
     },
   }
