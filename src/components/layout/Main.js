@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core/';
 import Illustration from "./Illustration";
 import Trails from './Trails';
+import Scroll from "./Scroll";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -16,16 +17,16 @@ const useStyles = makeStyles(() => ({
   container: {
     display: "flex",
     justifyContent: "center", 
-    //alignItems: "center",
     margin: "2em",
     padding: "4em 2em",
-    //backgroundColor: "#f7faff",
+    height: 'calc(100vh - 64px)',
     '@media (max-width:900px)': {
       flexWrap: "wrap",
     },
   },
   containerMobile: {
     '@media (max-width:900px)': {
+      height: 'calc(100vh - 64px)',
       flexWrap: "wrap",
       margin: "1em",
       padding: "0em",
@@ -41,9 +42,6 @@ const useStyles = makeStyles(() => ({
       margin: "2em",
       width: "auto",
     },
-  },
-  text: {
-    //maxWidth: isMobileOnly? "none" : "50vw",
   },
   illustration: {
     overflow: "hidden",
@@ -73,6 +71,7 @@ export default function Main() {
       <div className={classes.illustration}>
         {isMobile ? illustration : <Illustration />}
       </div>
+      <Scroll />
     </div>
   )       
 }

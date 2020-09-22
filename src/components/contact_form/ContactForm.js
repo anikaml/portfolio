@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiInputLabel-formControl': {
       color: greyColor,
-      fontWeight: 600
+      letterSpacing: 1.5,
+      //fontWeight: 300
     },
   }
 }));
