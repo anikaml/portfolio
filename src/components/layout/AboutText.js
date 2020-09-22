@@ -13,25 +13,23 @@ const useStyles = makeStyles((theme) => ({
   div: {
     backgroundColor: theme.palette.primary.dark,
     //**clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
-    //clipPath: 'polygon(100% 0, 100% 75%, 0 100%, 0 25%)',
-    ////clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
     clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 10%)',
     //padding: "4em 0em 30em 0em",
     marginBottom: "-45em",
+    marginTop: '-5em',
     height: "200vh",
     //marginTop: '10em',
     padding: "14em 0em 30em 0em",
     '@media (max-width:900px)': {
+      clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 5%)',
       padding: "1em 1em 45em 1em",
-      marginBottom: "-55em",
       height: "auto",
-      marginTop: '5em',
     },
   },
   container: {
     margin: "2em auto",
     '@media (max-width:900px)': {
-      padding: "10em 1em 2em 1em",
+      padding: "7em 1em 2em 1em",
     },
   },
   typography: {
@@ -40,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: 'none',
     transition: 'all .2s ease-in-out',
-    //boxShadow: `${highlightColor} 0px -3px 0px inset`,
+    //boxShadow: `${highlightColor} 0px -3px 0px inset`, //another way to do the highlight
     '&:hover': {
       boxShadow: 'rgb(255, 188, 162) 0px -46px inset',
     }
@@ -70,7 +68,6 @@ export default function AboutText() {
                     className={classes.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    //color='secondary'
                   >
                     {"Bokiem Solutions"}
                   </Link>

@@ -10,7 +10,7 @@ import { Typography } from '@material-ui/core/';
 const useStyles = makeStyles(() => ({
   trailsDiv: {
     display: "block",
-    maxHeight: "5em",
+    //maxHeight: "5em",
   }
 }))
 

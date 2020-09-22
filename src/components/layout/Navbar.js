@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { greyColor } from "../../utils/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -109,7 +110,9 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
-    fontSize: "1em",
+    fontSize: "1.5em",
+    color: greyColor,
+    textTransform: "none",
     '@media (max-width:767px)': {
       fontSize: "unset",
     },
@@ -121,8 +124,8 @@ const useStyles = makeStyles((theme) => ({
       left: "0",
       height: "5px",
       width: "100%",
-      // backgroundColor: "blue",
-      background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+      //background: "linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+      background: "linear-gradient(-90deg, #FF9F79, #E5A4ED, #B684F1, #B0C0F4)",
       backgroundSize: "400% 400%",
       animation: "$gradient 5s ease infinite",
       transformOrigin: "right top",
@@ -204,11 +207,11 @@ export default function Navbar() {
                 <div className={classes.navRight}>
                   <Link href="/#projects" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
-                      color="secondary" 
+                      //color="secondary" 
                       variant="button" 
                       className={classes.underline2}
                     >
-                      PROJECTS
+                      Projects
                     </Typography> 
                   </Link>
                   <Link href="/#about" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
@@ -217,7 +220,7 @@ export default function Navbar() {
                       variant="button" 
                       className={`${classes.underline2} ${classes.about}`}
                       >
-                      ABOUT ME
+                      About me
                     </Typography> 
                   </Link>
                   <Link href="/#contact" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
@@ -226,7 +229,7 @@ export default function Navbar() {
                       variant="button" 
                       className={classes.underline2}
                     >
-                      CONTACT
+                      Contact
                     </Typography> 
                   </Link>
                 </div>
