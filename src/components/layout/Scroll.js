@@ -9,12 +9,10 @@ import { greyColor, shadowColor } from '../../utils/colors';
 const useStyles = makeStyles(() => ({
   scroll: {
     position: 'absolute',
-    left: '50%',
+    left: '45vw',
     width: '2.5rem',
     height: '4rem',
-    marginLeft: -20,
     bottom: '1rem',
-    marginTop: -35,
     boxShadow: `inset 0 0 0 1px ${shadowColor}`,
     borderRadius: 25,
     "&:before": {

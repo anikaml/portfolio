@@ -11,31 +11,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { greyColor } from "../../utils/colors";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
-  },
-  flowers: {
-    width: "400px",
-    height: "auto",    
-    '@media (max-width:767px)': {
-      display: "none",
-    },
-  },
-  bokiem: {
-    color: theme.palette.primary.main,
-    fontWeight: 500,
-    fontSize: '1.25rem',
-    letterSpacing: "1px",
-    marginLeft: "1em",
-    paddingBottom: "0.15em",
-    '@media (max-width:767px)': {
-      display: "none",
-    },
   },
   navRight: {
     display: "flex",
@@ -49,68 +31,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   about: {
-    margin: "0 1em",
+    margin: "0 2em",
+    '@media (max-width:900px)': {
+      margin: "0 1em",
+    },
   },
-  // underline: { // from left to right and back
-  //   display: "inline-block",
-  //   fontSize: "2em",
-  //   textDecoration: "none",
-  //   margin: "0 1em",
-  //   "&:hover:after": {
-  //     width: "100%",
-  //   },
-  //   "&:after": {
-  //     content: "''",
-  //     display: "block",
-  //     width: "0%",
-  //     height: "5px",
-  //     background: "blue",
-  //     transition: "width .3s",
-  //   },
-  // },
-  // underline1: { // grows from center
-  //   position: "relative",
-  //   display: "block",
-  //   transition: "color 0.1s, background-color 0.1s",
-  //   fontSize: "2em",
-  //   "&::before": {
-  //     content: "''",
-  //     display: "block",
-  //     position: "absolute",
-  //     top: "100%",
-  //     height: "5px",
-  //     borderRadius: "25px",
-  //     width: "100%",
-  //     backgroundColor: "blue",
-  //     "-webkit-transform-origin": "center top",
-  //             transformOrigin: "center top",
-  //     "-webkit-transform": "scale(0, 1)",
-  //             transform: "scale(0, 1)",
-  //     // transition: "color 0.1s, -webkit-transform 0.2s ease-out",
-  //     transition: "color 0.1s, transform 0.2s ease-out",
-  //     // transition: "color 0.1s, transform 0.2s ease-out, -webkit-transform 0.2s ease-out",
-  //   },
-  //   "&:active::before": {
-  //     backgroundColor: "blue",
-  //   },
-  //   "&:hover::before": {
-  //     "-webkit-transform-origin": "center top",
-  //     transformOrigin: "center top",
-  //   "-webkit-transform": "scale(1, 1)",
-  //     transform: "scale(1, 1)",
-  //   },
-  //   "&:focus::before": {
-  //     "-webkit-transform-origin": "center top",
-  //             transformOrigin: "center top",
-  //     "-webkit-transform": "scale(1, 1)",
-  //             transform: "scale(1, 1)",
-  //   }
-  // },
   underline2: { 
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
-    fontSize: "1.5em",
+    fontSize: "1em",
     color: greyColor,
     textTransform: "none",
     '@media (max-width:767px)': {
@@ -148,36 +78,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: "0% 50%",
     }
   }
-  // wave: { // wave underline animation
-  //   fontSize: "2em",
-  //   paddingBottom: "5px",
-  //   animation: "move 15s linear infinite",
-  //   animationPlayState: "paused",
-  //   textDecoration: "none",
-  //   backgroundColor: "transparent",
-  //   "-webkit-text-decoration-skip": "objects",
-  //   animationName: '$move1',
-  //   "&:hover": {
-  //     animationPlayState: "running",
-  //     background: 'url("https://ewebdesign.com/wp-content/themes/ewebdesign/assets/img/wave.svg")',
-  //     //background: 'url("../../public/icons/wave.svg")',
-  //     backgroundPositionX: "0%",
-  //     backgroundPositionY: "0%",
-  //     //backgroundSize: "auto auto",
-  //     backgroundRepeat: "repeat-x",
-  //     backgroundSize: "25px 20px",
-  //     backgroundPosition: "2px 19px",
-  //   }
-  // },
-  // "@keyframes move1": {
-  //   "0%": {
-  //       backgroundPosition: "2px 19px",
-  //     },
-  //     "100%": {
-  //       backgroundPosition: "500px 19px",
-  //     }
-  //   }
-  
 }));
 
 export default function Navbar() {
@@ -207,7 +107,6 @@ export default function Navbar() {
                 <div className={classes.navRight}>
                   <Link href="/#projects" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
-                      //color="secondary" 
                       variant="button" 
                       className={classes.underline2}
                     >
@@ -216,7 +115,6 @@ export default function Navbar() {
                   </Link>
                   <Link href="/#about" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
-                      color="secondary" 
                       variant="button" 
                       className={`${classes.underline2} ${classes.about}`}
                       >
@@ -225,7 +123,6 @@ export default function Navbar() {
                   </Link>
                   <Link href="/#contact" style={{ textDecoration: 'none'}} color="secondary" rel="noopener noreferrer">
                     <Typography 
-                      color="secondary" 
                       variant="button" 
                       className={classes.underline2}
                     >
