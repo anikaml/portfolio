@@ -23,8 +23,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   footerDiv: {
-    // backgroundColor: theme.palette.primary.main,
-    //backgroundImage: "linear-gradient(to bottom, #ffffff, #ff6060, #ff6060)",
     backgroundColor: theme.palette.primary.dark,
     padding: "4em 0 2em 0",
     marginTop: "2em",
@@ -67,10 +65,9 @@ export default function Footer() {
           style={{ textDecoration: 'none'}}
           target="_blank"
           rel="noopener noreferrer"
-          className={classes.gitHubLink}
         >
           <Typography variant={isMobile? "h4" : "h3"} className={`${classes.typography} ${classes.whiteText}`}>
-            <GitHubIcon className={classes.version}/> GitHub
+            <GitHubIcon /> GitHub
           </Typography>
         </Link>
       </FadeIn>
@@ -80,10 +77,9 @@ export default function Footer() {
           style={{ textDecoration: 'none'}}
           target="_blank"
           rel="noopener noreferrer"
-          className={classes.gitHubLink}
         >
           <Typography variant={isMobile? "h4" : "h3"} className={`${classes.typography} ${classes.whiteText}`}>
-          <LinkedInIcon className={classes.version}/> LinkedIn 
+            <LinkedInIcon /> LinkedIn 
           </Typography>
         </Link>
       </FadeIn>
