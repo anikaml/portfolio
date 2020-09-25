@@ -49,6 +49,7 @@ export default function FadeIn(props) {
     return () => observer.unobserve(reference);
   }, []);
 
+  ///////////observing everytime when in viewport
   //   const observer = new IntersectionObserver(entries => {
   //     entries.forEach(entry => setVisible(entry.isIntersecting));
   //   });

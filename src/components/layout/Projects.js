@@ -8,7 +8,6 @@ import { Link } from '@material-ui/core/';
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
-//import { greyColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
   container: {
