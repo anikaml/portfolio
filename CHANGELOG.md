@@ -1,3 +1,9 @@
+## 0.2.9
+
+NOTES:
+* Added Scroll component on main page
+* Styling fixes for main landing page
+
 ## 0.2.8
 
 NOTES:
