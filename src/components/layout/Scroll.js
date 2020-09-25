@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
   scroll: {
     position: 'absolute',
     left: '50%',
+    transform: 'translate(-50%, -50%)',
     width: '2.5em',
     height: '4em',
     bottom: '1em',
