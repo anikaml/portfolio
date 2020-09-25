@@ -10,15 +10,20 @@ import { Typography } from '@material-ui/core/';
 const useStyles = makeStyles(() => ({
   trailsDiv: {
     display: "block",
-    //maxHeight: "5em",
+    '@media (max-width:900px)': {
+    display: "flex",
+    flexDirection: 'column',
+    minHeight: '35vh',
+    justifyContent: 'space-around',
+    }
   }
 }))
 
-const element1 = <Typography variant={isMobile? "h4":"h2"} display="inline" color="textPrimary" style={{fontWeight: 600}}>{"Hi, I'm Anika."}</Typography>
-const element2 = <Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 600}}>
+const element1 = <Typography variant={isMobile? "h4":"h2"} display="inline" style={{fontWeight: 600}}>{"Hi, I'm Anika."}</Typography>
+const element2 = (<Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 600}}>
                      {"A web designer & front-end developer"} 
-                  </Typography>
-const element3 = (<Typography variant="h6" style={{marginTop: "2em"}}>
+                  </Typography>)
+const element3 = (<Typography variant="h6" style={{marginTop: isMobile? 'unset' : "2em"}}>
                     {"I design and develop clean and user-friendly websites."}
                   </Typography>)
 
@@ -32,7 +37,7 @@ export default function Trails() {
     config,
     opacity: 1,
     x: 20,
-    height: isMobile? 60 : 100,
+    height: isMobile? 'auto' : 100,
     from: { opacity: 0, x: 0, height: 0 },
   })
 

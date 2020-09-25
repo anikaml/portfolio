@@ -46,10 +46,12 @@ const useStyles = makeStyles(() => ({
   illustration: {
     overflow: "hidden",
     textAlign: "center",
+    height: "auto",
   },
   icon: {
     maxWidth: "-webkit-fill-available",
     height: "auto",
+    maxHeight: '40vh',
   }
 }));
 

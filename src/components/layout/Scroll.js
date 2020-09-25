@@ -9,22 +9,22 @@ import { greyColor, shadowColor } from '../../utils/colors';
 const useStyles = makeStyles(() => ({
   scroll: {
     position: 'absolute',
-    left: '45vw',
-    width: '2.5rem',
-    height: '4rem',
-    bottom: '1rem',
+    left: '50%',
+    width: '2.5em',
+    height: '4em',
+    bottom: '1em',
     boxShadow: `inset 0 0 0 1px ${shadowColor}`,
     borderRadius: 25,
     "&:before": {
       content: "''",
       position: 'absolute',
       left: '50%',
-      width: '0.5rem',
-      height: '0.5rem',
+      width: '0.5em',
+      height: '0.5em',
       background: greyColor,
-      marginLeft: '-0.25rem',
-      top: '0.5rem',
-      borderRadius: '0.25rem',
+      marginLeft: '-0.25em',
+      top: '0.5em',
+      borderRadius: '0.25em',
       animationDuration: '1.5s',
       animationIterationCount: 'infinite',
       animationName: '$scroll',
@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
     },
     "100%": {
       opacity: 0,
-      transform: 'translateY(46px)',
+      transform: 'translateY(3em)',
     }
   }
 }));
