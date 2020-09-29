@@ -35,7 +35,6 @@ const useStyles = makeStyles(() => ({
   trailsContainer: {
     margin: "2em auto",
     paddingLeft: "4em",
-    
     '@media (max-width:900px)': {
       height: "unset",
       padding: 0,
