@@ -20,8 +20,8 @@ export const covers = {
     tech_stack: ["ReactJS", "Redux", "Axios", "Material-UI"],
     colors: ["#5000ca", "#4bc0c0"],
     url1: "/projects/bokiem/bokiem_mockup_1.png",
-    url2: "/projects/bokiem/desktopB.png",
-    url3: "/projects/bokiem/mobileB.png",
+    url2: "/projects/bokiem/desktop.png",
+    url3: "/projects/bokiem/mobile.png",
     logo: "/projects/bokiem/logo512.svg",
   },
   datette: {
@@ -31,7 +31,7 @@ export const covers = {
     colors: ["#FF9F79", "#3D444F"],
     tech_stack: ["ReactJS", "PWA", "Axios", "Material-UI", "Redux",],
     details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    url1: "/projects/datette/exploded_mockup_datette_3.png",
+    url1: "/projects/datette/exploded_mockup_datette.png",
     screenshots: ["/projects/datette/datette_1.png", "/projects/datette/datette_2.png", "/projects/datette/datette_3.png", "/projects/datette/datette_4.png", "/projects/datette/datette_5.png", "/projects/datette/datette_6.png",],
   },
 }

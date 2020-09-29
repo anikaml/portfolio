@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Link, Typography } from '@material-ui/core/';
 import FadeIn from '../../containers/style/FadeIn';
 import SectionTitle from './SectionTitle';
+import SocialMediaLink from '../socialMedia/SocialMediaLink';
 
 const useStyles = makeStyles((theme) => ({
   div: {
@@ -42,6 +43,11 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       boxShadow: 'rgb(255, 188, 162) 0px -46px inset',
     }
+  },
+  socialMediaDiv: {
+    display: 'flex',
+    justifyContent: "space-evenly",
+    flexWrap: "wrap",
   }
 }));
 
@@ -79,6 +85,16 @@ export default function AboutText() {
                 {"Design have always been my true passion. Really! I have started my journey working as an Architectural Designer in NYC. After few years learning new skills and discovering new possibilities along the way, I've decided to use my creativity in a new field, so I've started creating beautiful, clean websites, and everything in between. This just felt right. And that's how I become web designer & front-end developer, a perfect mix between developer and designer." }
               </Typography>
           </FadeIn>
+          <div className={classes.socialMediaDiv}>
+            <SocialMediaLink
+              href='https://github.com/anikaniescierewicz'
+              name='GitHub'
+            />
+            <SocialMediaLink
+              href='https://github.com/anikaniescierewicz'
+              name='LinkedIn'
+            />
+          </div>
           </Container>
         </div>
       </Parallax>
