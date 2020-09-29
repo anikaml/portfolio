@@ -11,6 +11,7 @@ import { covers } from '../../components/Covers';
 import LightboxImage from "../../components/projects/LightboxImage";
 import { greyColor } from "../../utils/colors";
 import FadeIn from "../style/FadeIn";
+import MultiFormatPhoto from "../../components/photos/MultiFormatPhoto";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -98,19 +99,21 @@ export default function Stalue(props) {
         </Grid>
         <Grid item xs={3}>
           <FadeIn>
-            <img
-              src={process.env.PUBLIC_URL + covers[name].url2}
+            <MultiFormatPhoto
               alt="iphone"
               className={classes.image}
+              url={covers[name].url2}
+              photoPath={`/projects/${name}`}
             />
           </FadeIn>
         </Grid>
         <Grid item xs={9}>
           <FadeIn>
-            <img
-              src={process.env.PUBLIC_URL + covers[name].url3}
+            <MultiFormatPhoto
               alt="macbook"
               className={classes.image}
+              url={covers[name].url3}
+              photoPath={`/projects/${name}`}
             />
           </FadeIn>
         </Grid>

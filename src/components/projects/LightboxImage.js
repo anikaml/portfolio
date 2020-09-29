@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { covers } from '../Covers';
 import { shadowColor } from "../../utils/colors";
 import FadeIn from "../../containers/style/FadeIn";
+import MultiFormatPhoto from "../photos/MultiFormatPhoto";
 
 const useStyles = makeStyles(() => ({
   image: {
@@ -28,17 +29,21 @@ export default function LightboxImage(props) {
   const [lightbox_open, setLightbox_open] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(props.url);
 
-  const images = covers[props.name].screenshots
+  const photosPath = `/projects/${props.name}`
+  const images = covers[props.name].screenshots.map(file =>
+    `${photosPath}/${file}`
+  )
 
   return (
     <>
       <FadeIn>
         <div className={props.classNameInner ? props.classNameInner : ""}>
-          <img
+          <MultiFormatPhoto
             onClick={() => setLightbox_open(true)}
-            src={process.env.PUBLIC_URL + images[props.url]}
             alt={props.alt}
             className={props.classNameImg ? props.classNameImg : classes.image}
+            url={covers[props.name].screenshots[props.url]}
+            photoPath={photosPath}
           />
         </div>
       </FadeIn>

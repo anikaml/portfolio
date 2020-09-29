@@ -43,6 +43,7 @@ export default function ProjectTemplate(props) {
   const [lightbox_open, setLightbox_open] = useState(false);
   const classes = useStyles();
   const name = props.name;
+  const photosPath = `/projects/${name}/`
 
   let body = null;
   if (name === 'stalue') {
@@ -57,11 +58,11 @@ export default function ProjectTemplate(props) {
     <>
       <FadeIn>
         <div onClick={() => setLightbox_open(true)}>
-          <Banner url={covers[name].url1} className={classes.banner}/>
+          <Banner url={photosPath + covers[name].url1} className={classes.banner}/>
         </div>
         {lightbox_open && (
           <Lightbox
-            mainSrc={process.env.PUBLIC_URL + covers[name].url1}
+            mainSrc={process.env.PUBLIC_URL + photosPath + covers[name].url1}
             onCloseRequest={() => setLightbox_open(false)}
           />
         )}
