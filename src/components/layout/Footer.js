@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { isMobile } from 'react-device-detect';
-
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Divider, Link, Typography } from '@material-ui/core/';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { Divider, Typography } from '@material-ui/core/';
 
-import FadeIn from '../../containers/style/FadeIn';
 import packageJson from '../../../package.json';
+import SocialMediaLink from '../socialMedia/SocialMediaLink';
+import { isMobileOnly } from 'react-device-detect';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,15 +29,6 @@ const useStyles = makeStyles((theme) => ({
       padding: "2em 0",
     }
   },
-  typography: {
-    fontWeight: 600,
-    display: "inline-block",
-    padding: "0.15em 0",
-    transition: 'all .2s ease-in-out',
-    '&:hover': {
-      color: theme.palette.primary.main,
-    }
-  },
   divider: {
     margin: "2em 4em",
     backgroundColor: theme.palette.primary.contrastText,
@@ -59,38 +47,24 @@ export default function Footer() {
   
   return (
     <div className={classes.footerDiv}>
-      <FadeIn>
-        <Link 
-          href="https://github.com/anikaniescierewicz"
-          style={{ textDecoration: 'none'}}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Typography variant={isMobile? "h4" : "h3"} className={`${classes.typography} ${classes.whiteText}`}>
-            <GitHubIcon /> GitHub
-          </Typography>
-        </Link>
-      </FadeIn>
-      <FadeIn>
-        <Link 
-          href="https://github.com/anikaniescierewicz"
-          style={{ textDecoration: 'none'}}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Typography variant={isMobile? "h4" : "h3"} className={`${classes.typography} ${classes.whiteText}`}>
-            <LinkedInIcon /> LinkedIn 
-          </Typography>
-        </Link>
-      </FadeIn>
+      <SocialMediaLink
+        href='https://github.com/anikaniescierewicz'
+        name='GitHub'
+      />
+      <SocialMediaLink
+        href='https://github.com/anikaniescierewicz'
+        name='LinkedIn'
+      />
       <Divider variant="middle" className={classes.divider}/>
       <div className={classes.container}>
-        <Typography variant="caption" className={classes.whiteText}>
-          Version: {packageJson.version}
-        </Typography>
         <div>
           <Typography variant="caption" className={classes.whiteText}>
-            2020
+            Version: {packageJson.version}
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="caption" className={classes.whiteText} style={{letterSpacing: isMobileOnly? 0 : 3}}>
+            &copy; 2020 Anika Mlodzianowski
           </Typography>
         </div>
       </div>
