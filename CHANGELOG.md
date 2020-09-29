@@ -1,3 +1,9 @@
+## 0.2.11
+
+NOTES:
+* Created MultiFormatPhoto component
+* Changed images formats for next gen 
+
 ## 0.2.10
 
 NOTES:
