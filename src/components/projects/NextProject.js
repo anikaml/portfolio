@@ -65,6 +65,7 @@ export default function NextProject(props) {
   
   const classes = useStyles();
   const name = props.name;
+  
 
   let nextProject = null;
   if (name === 'stalue') {
@@ -74,6 +75,8 @@ export default function NextProject(props) {
   } else if (name === 'datette') {
     nextProject = 'stalue'
   }
+
+  const photosPath = `/projects/${nextProject}/`
   
   return (
     <>
@@ -88,7 +91,7 @@ export default function NextProject(props) {
             rel="noopener noreferrer"
             className={classes.link}
           >
-            <div className={classes.blurDiv} style={{backgroundImage: `url(${covers[nextProject].url1})`,}}/>
+            <div className={classes.blurDiv} style={{backgroundImage: `url(${photosPath + covers[nextProject].url1})`,}}/>
           </Link>
         </div>
       </FadeIn>
