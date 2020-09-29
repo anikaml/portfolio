@@ -79,7 +79,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
               >
                 <Banner
-                  url={covers[project].url1}
+                  url={`/projects/${project}/${covers[project].url1}`}
                   className={classes.banner}
                 />
               </Link>
