@@ -70,16 +70,17 @@ export default function BokiemResponsiveMorph(props) {
             {toggle && 
               <img
                 {...morph}
-                src={process.env.PUBLIC_URL + covers[name].url2}
+                src={process.env.PUBLIC_URL + '/projects/bokiem/' + covers[name].url2}
                 alt="desktop"
                 height={isMobileOnly ? "150" : "300"}
                 className={classes.img}
               />
+              
             }
             {!toggle && 
               <img
                 {...morph}
-                src={process.env.PUBLIC_URL + covers[name].url3}
+                src={process.env.PUBLIC_URL + '/projects/bokiem/' + covers[name].url3}
                 alt="mobile"
                 height={isMobileOnly ? "150" : "300"}
                 className={classes.img}
