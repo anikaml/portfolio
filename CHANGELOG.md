@@ -1,3 +1,9 @@
+## 0.2.10
+
+NOTES:
+* Created NavLink, SocialMediaLink and NewLogo components
+* Worked on animating logo with animejs
+
 ## 0.2.9
 
 NOTES:
