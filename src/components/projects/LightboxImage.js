@@ -37,7 +37,7 @@ export default function LightboxImage(props) {
   return (
     <>
       <FadeIn>
-        <div className={props.classNameInner ? props.classNameInner : ""}>
+        <div className={props.classNameInner ? props.classNameInner : null}>
           <MultiFormatPhoto
             onClick={() => setLightbox_open(true)}
             alt={props.alt}
