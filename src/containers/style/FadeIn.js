@@ -61,7 +61,7 @@ export default function FadeIn(props) {
   return (
     <div
       ref={domRef}
-      className={props.className + ' ' + classes.fadeDiv + ' ' + (isVisible? classes.isVisible : "")}
+      className={props.className + ' ' + classes.fadeDiv + ' ' + (isVisible? classes.isVisible : null)}
     >
       {props.children}
     </div>
