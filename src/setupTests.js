@@ -17,3 +17,8 @@ global.IntersectionObserver = class IntersectionObserver {
     return null;
   }
 };
+
+// needed for motion.svg https://github.com/framer/motion/issues/204
+if (!SVGElement.prototype.getTotalLength) {
+  SVGElement.prototype.getTotalLength = () => 1;
+}
