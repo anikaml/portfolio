@@ -45,16 +45,16 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center", 
     alignItems: "center",
     flexWrap: "wrap",
-    //border: `1px solid ${greyColor}`,
     borderRadius: 15,
-    // '@media (max-width:900px)': {
-    //   padding: "2em 0em 0em 0em",
-    // },
   },
   parallaxDiv: {
     width: "100%",
     overflow: "hidden",
     '@media (max-width:900px)': {
+      height: "30vh",
+    },
+    /* IpadPro  Portrait */
+    '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       height: "30vh",
     },
   },

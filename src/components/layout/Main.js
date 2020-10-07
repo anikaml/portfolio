@@ -30,7 +30,10 @@ const useStyles = makeStyles(() => ({
       flexWrap: "wrap",
       margin: "1em",
       padding: "0em",
-    },
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+    }
   },
   trailsContainer: {
     margin: "2em auto",
