@@ -2,8 +2,6 @@ import React from 'react';
 
 import { motion } from "framer-motion";
 
-// import anime from "animejs";
-
 import { makeStyles } from '@material-ui/core/styles';
 import { isMobile } from 'react-device-detect';
 
@@ -104,12 +102,9 @@ export default function LogoMotion() {
     visible: {
       opacity: 1,
       pathLength: 1,
-      fill: 'rgba(100, 255, 255, 1)',
+      fill: 'rgb(100, 255, 255)',
     },
-   
   };
-
- 
 
   //const d = 'M0 -0.12C8.33 -8.46 16.67 -12.62 25 -12.62C37.5 -12.62 35.91 0.15 50 -0.12C64.09 -0.4 62.5 -34.5 75 -34.5C87.5 -34.5 87.17 -4.45 100 -0.12C112.83 4.2 112.71 -17.95 125 -18.28C137.29 -18.62 137.76 1.54 150.48 -0.12C163.19 -1.79 162.16 -25.12 174.54 -25.12C182.79 -25.12 191.28 -16.79 200 -0.12L200 -34.37L0 -34.37L0 -0.12Z'
 

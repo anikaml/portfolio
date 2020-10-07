@@ -48,11 +48,11 @@ export default function SectionTitle(props) {
   return (
     <>
       <div id={props.id} className={classes.wrapper}>
-        <Typography variant="h1" className={classes.title} style={{WebkitTextStroke: props.stroke ? '1px white': 'unset',}}>
-          {props.title}
-        </Typography>
-        <Parallax x={[-100, 0]} tagOuter="div" styleOuter={{margin: 0}}>
-          <div className={classes.highlight}/>
+        <Parallax x={[-30, 0]} tagOuter="div" styleOuter={{margin: 0}}>
+          {/* <div className={classes.highlight}/> */}
+          <Typography variant="h1" className={classes.title} style={{WebkitTextStroke: props.stroke ? '1px white': 'unset',}}>
+            {props.title}
+          </Typography>
         </Parallax>
       </div>
     </>

@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
     opacity: 1,
     transform: "none",
     visibility: "visible",
-    animation: " ease 2s",
+    animation: " ease 1s",
     animationName: "$fadeInAnimation",
     animationIterationCount: 1,
     animationFillMode: "both",
@@ -72,42 +72,3 @@ FadeIn.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string, 
 };
-
-// import { useEffect, useRef, useState } from "react";
-
-// export const useIntersect = ({ root = null, rootMargin, threshold = 0 }) => {
-//   const [entry, updateEntry] = useState({});
-//   const [node, setNode] = useState(null);
-
-//   const observer = useRef(null); 
-
-//     new window.IntersectionObserver(([entry]) => updateEntry(entry), {
-//       root,
-//       rootMargin,
-//       threshold
-//     })
-
-
-//   useEffect(
-//     () => {
-//       if(observer.current) observer.current.disconnect();
-//       observer.current = new window.IntersectionObserver(
-//         ([entry]) => updateEntry(entry),
-//         {
-//           root,
-//           rootMargin,
-//           threshold,
-//         }
-//       );
-
-//       const { current: currentObserver } = observer;
-
-//       if (node) currentObserver.observe(node);
-
-//       return () => currentObserver.disconnect();
-//     },
-//     [node, root, rootMargin, threshold]
-//   );
-
-//   return [setNode, entry];
-// };

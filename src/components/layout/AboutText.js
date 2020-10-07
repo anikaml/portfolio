@@ -13,12 +13,12 @@ import SocialMediaLink from '../socialMedia/SocialMediaLink';
 const useStyles = makeStyles((theme) => ({
   div: {
     backgroundColor: theme.palette.primary.dark,
-    //**clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
     clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 10%)',
     //padding: "4em 0em 30em 0em",
-    marginBottom: "-45em",
+    // marginBottom: "-45em",
+    marginBottom: "-80vh",
     marginTop: '-5em',
-    height: "200vh",
+    //height: "200vh",
     //marginTop: '10em',
     padding: "14em 0em 30em 0em",
     '@media (max-width:900px)': {
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     margin: "2em auto",
+    height: '100vh',
     '@media (max-width:900px)': {
       padding: "7em 1em 2em 1em",
     },
@@ -57,7 +58,7 @@ export default function AboutText() {
   return (
     <>
       <SectionTitle id="about" title="About"/>
-      <Parallax y={isMobileOnly? [10, -10] : [20, -20]} className={classes.parallaxFooter} tagOuter="section">
+      <Parallax y={isMobileOnly? [10, -10] : [20, -20]} className={classes.parallaxFooter} tagOuter="section" styleOuter={{margin: 0}}>
         <div id="about" className={classes.div}>
           <Container maxWidth="md" className={classes.container}>
             <FadeIn>
