@@ -35,12 +35,21 @@ const useStyles = makeStyles(() => ({
       maxHeight: "30vh",
       borderRadius: "1em",
     },
+     /* IpadPro  Portrait */
+     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+      borderRadius: '3em',
+      maxHeight: "35vh",
+    },
   },
   grid: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "flex-start",
     '@media (max-width:900px)': {
+      justifyContent: "center",
+    },
+     /* IpadPro  Portrait */
+     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       justifyContent: "center",
     },
   }

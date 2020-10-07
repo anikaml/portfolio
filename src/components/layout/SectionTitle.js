@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import { Parallax } from 'react-scroll-parallax';
+import { isTablet } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,7 +22,7 @@ const useStyles = makeStyles(() => ({
     paddingLeft: "0.5em",
     zIndex: 10,
     '@media (max-width:900px)': {
-      fontSize: "2.5rem",
+      fontSize: isTablet ? '4rem' : "2.5rem",
     },
   },
   wrapper: {

@@ -90,7 +90,7 @@ export default function LogoMotion() {
 
   const item = {
     hover: { scale: 1.1, rotate: 180},
-    pressed: { scale: isMobile ? 1.5 : 1.2, rotate: isMobile ? 0 : 360},
+    pressed: { scale: isMobile ? 1.5 : 1.2, rotate: isMobile ? 0 : 180 },
   }
   
   const icon = {
