@@ -2,7 +2,7 @@
 import React from 'react'
 import { useTrail, animated } from 'react-spring'
 
-import { isMobile } from 'react-device-detect';
+import { isMobile, isTablet } from 'react-device-detect';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
@@ -11,33 +11,53 @@ const useStyles = makeStyles(() => ({
   trailsDiv: {
     display: "block",
     '@media (max-width:900px)': {
-    display: "flex",
-    flexDirection: 'column',
-    minHeight: '35vh',
-    justifyContent: 'space-around',
+      display: "flex",
+      flexDirection: 'column',
+      minHeight: '35vh',
+      width: isTablet ? '60vw' : 'auto',
+      justifyContent: 'space-around',
+    },
+   /* IpadPro  Portrait */
+   '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+      width: '60vw',
     }
-  }
+  },
+  element2: {
+    /* IpadPro  Portrait */
+    '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+      fontSize: '4rem',
+    }
+  },
+  element3: {
+    /* IpadPro  Portrait */
+    '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+      fontSize: '3rem',
+    }
+  },
 }))
 
-const element1 = <Typography variant={isMobile? "h4":"h2"} display="inline" style={{fontWeight: 600}}>{"Hi, I'm Anika."}</Typography>
-const element2 = (<Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 600}}>
-                     {"A web designer & front-end developer"} 
-                  </Typography>)
-const element3 = (<Typography variant="h6" style={{marginTop: isMobile? 'unset' : "2em"}}>
-                    {"I design and develop clean and user-friendly websites."}
-                  </Typography>)
 
-const items = [ element1, element2, element3 ]
-// const config = { mass: 5, tension: 2000, friction: 200 }
-const config = { mass: 15, tension: 2000, friction: 200 }
 
 export default function Trails() {
   const classes = useStyles();
+
+  const element1 = <Typography variant={isTablet?'h1':isMobile?"h4":"h2"} display="inline" style={{fontWeight: 600}} className={classes.element1}>{"Hi, I'm Anika."}</Typography>
+  const element2 = (<Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 600}} className={classes.element2}>
+                     {"A web designer & front-end developer"} 
+                  </Typography>)
+  const element3 = (<Typography variant="h6" style={{marginTop: isMobile? 'unset' : "2em"}} className={classes.element3}>
+                    {"I design and develop clean and user-friendly websites."}
+                  </Typography>)
+
+  const items = [ element1, element2, element3 ]
+  // const config = { mass: 5, tension: 2000, friction: 200 }
+  const config = { mass: 15, tension: 2000, friction: 200 }
+
   const trail = useTrail(items.length, {
     config,
     opacity: 1,
     x: 20,
-    height: isMobile? 'auto' : 100,
+    height: 'auto',
     from: { opacity: 0, x: 0, height: 0 },
   })
 

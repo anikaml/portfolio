@@ -7,6 +7,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import Routes from './Routes';
 import theme from './utils/theme';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <CssBaseline />
           <Navbar />
           <Routes />
+          <Footer />
         </ParallaxProvider>
       </div>
     </MuiThemeProvider>
