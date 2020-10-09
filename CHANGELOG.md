@@ -1,3 +1,11 @@
+## 0.2.12
+
+NOTES:
+* Created logo animation using framer-motion
+* Style updates
+* Bug fixes
+* Added favicon
+
 ## 0.2.11
 
 NOTES:
