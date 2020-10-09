@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+import { motion } from "framer-motion"
 import { useMorph } from 'react-morph';
 
 import { Button, CircularProgress } from '@material-ui/core/';
@@ -49,18 +50,23 @@ export default function SubmitButton(props) {
           />
         </Button>
          ) : (
-          <Button {...morph}
-            disabled={props.isLoading}
-            className={ props.className ? props.className : classes.submitButton }
-            type="submit"
-            variant={ props.variant ? props.variant : "contained" }
-            color={ props.color ? props.color : "primary" }
-            disableElevation
-            style={{backgroundColor: props.success? successColor : props.error? errorColor : theme.palette.primary.main}}
-            endIcon={props.success? <DoneIcon/> : props.error? <PriorityHighIcon/> : <ArrowForwardIosIcon/>}
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.3 }}
           >
-            {props.children}
-          </Button>
+            <Button {...morph}
+              disabled={props.isLoading}
+              className={ props.className ? props.className : classes.submitButton }
+              type="submit"
+              variant={ props.variant ? props.variant : "contained" }
+              color={ props.color ? props.color : "primary" }
+              disableElevation
+              style={{backgroundColor: props.success? successColor : props.error? errorColor : theme.palette.primary.main}}
+              endIcon={props.success? <DoneIcon/> : props.error? <PriorityHighIcon/> : <ArrowForwardIosIcon/>}
+            >
+              {props.children}
+            </Button>
+          </motion.div>
         )
       }
     </div>

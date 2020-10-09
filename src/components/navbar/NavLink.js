@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
-    fontSize: "1em",
     color: greyColor,
     textTransform: "none",
     '@media (max-width:767px)': {

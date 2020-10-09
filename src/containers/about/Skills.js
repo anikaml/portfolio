@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SVG from 'react-inlinesvg';
-import { isMobile } from 'react-device-detect';
+import { isMobile, isTablet } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-evenly",
     flexWrap: "nowrap",
     '@media (max-width:900px)': {
-      flexWrap: "wrap",
+      flexWrap: isTablet?"nowrap": "wrap",
     },
   },
   fieldDiv: {

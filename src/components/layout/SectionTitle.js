@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import { Parallax } from 'react-scroll-parallax';
+import { isTablet } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,7 +22,7 @@ const useStyles = makeStyles(() => ({
     paddingLeft: "0.5em",
     zIndex: 10,
     '@media (max-width:900px)': {
-      fontSize: "2.5rem",
+      fontSize: isTablet ? '4rem' : "2.5rem",
     },
   },
   wrapper: {
@@ -48,11 +49,11 @@ export default function SectionTitle(props) {
   return (
     <>
       <div id={props.id} className={classes.wrapper}>
-        <Typography variant="h1" className={classes.title} style={{WebkitTextStroke: props.stroke ? '1px white': 'unset',}}>
-          {props.title}
-        </Typography>
-        <Parallax x={[-100, 0]} tagOuter="div" styleOuter={{margin: 0}}>
-          <div className={classes.highlight}/>
+        <Parallax x={[-30, 0]} tagOuter="div" styleOuter={{margin: 0}}>
+          {/* <div className={classes.highlight}/> */}
+          <Typography variant="h1" className={classes.title} style={{WebkitTextStroke: props.stroke ? '1px white': 'unset',}}>
+            {props.title}
+          </Typography>
         </Parallax>
       </div>
     </>

@@ -30,7 +30,7 @@ export const covers = {
     project: "Datette",
     colors: ["#FF9F79", "#3D444F"],
     tech_stack: ["ReactJS", "PWA", "Axios", "Material-UI", "Redux",],
-    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    details: "Datette is a platform designed for couples to discover new date night ideas and hobby suggestions. This was one of my first projects. It is a PWA website. My goal was to make it look and work good on desktop as well as on mobile devices. In the first phase I was responsible for UI designs, creating app mockups using AdobeXD. After design approval I started coding app components with ReactJS + Material-ui library.",
     url1: "exploded_mockup_datette.png",
     screenshots: ["datette_1.png", "datette_2.png", "datette_3.png", "datette_4.png", "datette_5.png", "datette_6.png",],
   },
