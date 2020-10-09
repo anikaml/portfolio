@@ -25,10 +25,9 @@ const useStyles = makeStyles(() => ({
     width: 200,
   },
   morphDiv: {
-    display: "inline-block",
+    display: "flex",
     justifyContent: "center",
     overflow: 'hidden',
-    // maxWidth: "10em",
   },
 }))
 
