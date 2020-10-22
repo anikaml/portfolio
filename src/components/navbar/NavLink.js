@@ -24,6 +24,10 @@ const useStyles = makeStyles(() => ({
       // fontSize: "unset",
       fontSize: 18,
     },
+    '@media (max-width:300px)': {
+      // fontSize: "unset",
+      fontSize: 14,
+    },
     "&:before": {
       content: "''",
       display: "block",
@@ -63,7 +67,7 @@ export default function NavLink(props) {
 
     return (
       <Link
-        href={`/#${props.title.toLowerCase()}`}
+        href={props.title === 'About' ? '/about' : `/#${props.title.toLowerCase()}`}
         style={{ textDecoration: 'none'}}
         rel="noopener noreferrer"
       >

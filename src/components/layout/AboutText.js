@@ -7,16 +7,16 @@ import { Parallax } from 'react-scroll-parallax';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Link, Typography } from '@material-ui/core/';
 import FadeIn from '../../containers/style/FadeIn';
-import SectionTitle from './SectionTitle';
+// import SectionTitle from './SectionTitle';
 import SocialMediaLink from '../socialMedia/SocialMediaLink';
 
 const useStyles = makeStyles((theme) => ({
   div: {
     backgroundColor: theme.palette.primary.dark,
-    clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 10%)',
+    clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 0%)',
     marginBottom: "-80vh",
     marginTop: '-5em',
-    padding: "14em 0em 30em 0em",
+    padding: "4em 0em 30em 0em",
     '@media (max-width:900px)': {
       clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 5%)',
       padding: "1em 1em 45em 1em",
@@ -65,7 +65,7 @@ export default function AboutText() {
   
   return (
     <>
-      <SectionTitle id="about" title="About"/>
+      {/* <SectionTitle id="about" title="About"/> */}
       <Parallax y={isMobileOnly? [10, -10] : [20, -20]} className={classes.parallaxFooter} tagOuter="section" styleOuter={{margin: 0}}>
         <div id="about" className={classes.div}>
           <Container maxWidth="md" className={classes.container}>
