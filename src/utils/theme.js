@@ -3,7 +3,19 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
     typography: {
       useNextVariants: true,
-      fontSize: 16,
+      fontSize: 18,
+      fontFamily: [
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
     },
     palette: {  
       type: "light",  

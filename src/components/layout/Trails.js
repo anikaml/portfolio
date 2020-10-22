@@ -41,8 +41,8 @@ const useStyles = makeStyles(() => ({
 export default function Trails() {
   const classes = useStyles();
 
-  const element1 = <Typography variant={isTablet?'h1':isMobile?"h4":"h2"} display="inline" style={{fontWeight: 600}} className={classes.element1}>{"Hi, I'm Anika."}</Typography>
-  const element2 = (<Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 600}} className={classes.element2}>
+  const element1 = <Typography variant={isTablet?'h1':isMobile?"h4":"h2"} display="inline" style={{fontWeight: 500}} className={classes.element1}>{"Hi, I'm Anika."}</Typography>
+  const element2 = (<Typography variant={isMobile? "h5":"h3"} display="inline" style={{fontWeight: 500}} className={classes.element2}>
                      {"A web designer & front-end developer"} 
                   </Typography>)
   const element3 = (<Typography variant="h6" style={{marginTop: isMobile? 'unset' : "2em"}} className={classes.element3}>

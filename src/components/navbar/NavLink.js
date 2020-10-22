@@ -21,7 +21,8 @@ const useStyles = makeStyles(() => ({
     color: greyColor,
     textTransform: "none",
     '@media (max-width:767px)': {
-      fontSize: "unset",
+      // fontSize: "unset",
+      fontSize: 18,
     },
     "&:before": {
       content: "''",

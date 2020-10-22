@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
+      overflow: 'hidden',
     }
   },
   trailsContainer: {
