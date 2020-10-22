@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from '@material-ui/core/';
+import { Link, Typography
+} from '@material-ui/core/';
 
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
+import { greyColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -60,6 +62,14 @@ const useStyles = makeStyles(() => ({
       height: "30vh",
     },
   },
+  text: {
+    width: '90vw',
+    fontWeight: 400,
+    paddingRight: "0.5em",
+  },
+  details: {
+    color: greyColor,
+  }
 }));
 
 export default function Projects() {
@@ -71,22 +81,38 @@ export default function Projects() {
       <div className={classes.container}>
         <div  className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <div
-              key={covers[project].name}
-              className={classes.parallaxDiv}
-            >
+            <div key={covers[project].name}>
+              <div
+                // key={covers[project].name}
+                className={classes.parallaxDiv}
+              >
+                <Link
+                  href={`/${covers[project].name}`}
+                  style={{textDecoration: 'none'}}
+                  rel="noopener noreferrer"
+                >
+                  <FadeIn>
+                    <Banner
+                      url={`/projects/${project}/${covers[project].url1}`}
+                      className={classes.banner}
+                    />
+                  </FadeIn>
+                </Link>
+              </div>
+            <>
+             <Typography variant="h6" className={classes.text}>
+                {covers[project].project}
+              </Typography>
               <Link
                 href={`/${covers[project].name}`}
                 style={{textDecoration: 'none'}}
                 rel="noopener noreferrer"
               >
-                <FadeIn>
-                  <Banner
-                    url={`/projects/${project}/${covers[project].url1}`}
-                    className={classes.banner}
-                  />
-                </FadeIn>
+                <Typography className={classes.details}>
+                  View details
+                </Typography>
               </Link>
+              </>
             </div>
           )}
         </div>

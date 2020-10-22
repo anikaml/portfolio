@@ -25,16 +25,16 @@ const useStyles = makeStyles(() => ({
     },
   },
   containerMobile: {
-    '@media (max-width:900px)': {
+    // '@media (max-width:900px)': {
       height: 'calc(100vh - 64px)',
       flexWrap: "wrap",
       margin: "1em",
       padding: "0em",
-      display: 'flex',
+      //display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
       overflow: 'hidden',
-    }
+    // }
   },
   trailsContainer: {
     margin: "2em auto",
