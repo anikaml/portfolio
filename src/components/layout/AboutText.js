@@ -7,7 +7,6 @@ import { Parallax } from 'react-scroll-parallax';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Link, Typography } from '@material-ui/core/';
 import FadeIn from '../../containers/style/FadeIn';
-// import SectionTitle from './SectionTitle';
 import SocialMediaLink from '../socialMedia/SocialMediaLink';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,11 +15,12 @@ const useStyles = makeStyles((theme) => ({
     clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 0%)',
     marginBottom: "-80vh",
     marginTop: '-5em',
-    padding: "4em 0em 30em 0em",
+    padding: "4em 0em 35em 0em",
     '@media (max-width:900px)': {
-      clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 5%)',
-      padding: "1em 1em 45em 1em",
+      clipPath: 'polygon(100% 0, 100% 80%, 0 100%, 0 0%)',
+      padding: "1em 1em 55em 1em",
       height: "auto",
+      marginTop: '-3em',
     },
     '@media (max-width:350px)': {
       padding: "1em 1em 100vh 1em",
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "2em auto",
     height: '100vh',
     '@media (max-width:900px)': {
-      padding: "7em 1em 2em 1em",
+      padding: "2em 1em 2em 1em",
     },
      /* IpadPro  Portrait */
      '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {

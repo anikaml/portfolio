@@ -6,9 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
   fadeDiv: {
     opacity: 0,
-    transform: "translateY(10vh)",
+    transform: "translateY(10vh) scaleY(1.2)",
     visibility: "hidden",
-    transition: "opacity 0.7s ease-out, transform 0.8s ease-out",
+    transition: "opacity 0.3s ease-out, transform 0.4s ease-out",
     willChange: "opacity, visibility",
   },
   '@keyframes fadeInAnimation': { 

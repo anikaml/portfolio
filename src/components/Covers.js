@@ -27,7 +27,7 @@ export const covers = {
   datette: {
     name: "datette",
     href: "https://datette.com",
-    project: "Datette",
+    project: "Datette - Dating ideas and checklist app for couples.",
     colors: ["#FF9F79", "#3D444F"],
     tech_stack: ["ReactJS", "PWA", "Axios", "Material-UI", "Redux",],
     details: "Datette is a platform designed for couples to discover new date night ideas and hobby suggestions. This was one of my first projects. It is a PWA website. My goal was to make it look and work good on desktop as well as on mobile devices. In the first phase I was responsible for UI designs, creating app mockups using AdobeXD. After design approval I started coding app components with ReactJS + Material-ui library.",

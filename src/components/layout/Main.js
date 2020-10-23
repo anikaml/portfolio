@@ -62,7 +62,7 @@ export default function Main() {
   const classes = useStyles();
 
   const illustration = (<SVG 
-                          src={process.env.PUBLIC_URL + "/icons/illustration_mobile.svg"} 
+                          src={process.env.PUBLIC_URL + "/icons/mobile_full.svg"} 
                           className={classes.icon}
                         />)
 

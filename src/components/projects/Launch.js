@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:600px)': {
       fontSize: "1.1rem",
       width: "unset",
-      borderBottom: "1px solid black",
+      borderBottom: props => `1px solid ${covers[props.index].colors[0]}`,
       paddingTop: '1em',
     },
     // underline from left to right and back
