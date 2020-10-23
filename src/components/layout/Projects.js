@@ -12,7 +12,7 @@ import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
 import { greyColor } from '../../utils/colors';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     margin: "2em",
     '@media (max-width:900px)': {
@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center", 
     alignItems: "center",
     flexWrap: "wrap",
-    borderRadius: 15,
+    // padding: '4em'
   },
   parallaxDiv: {
     width: "90vw",
@@ -64,12 +64,27 @@ const useStyles = makeStyles(() => ({
   },
   text: {
     width: '90vw',
-    fontWeight: 400,
+    //fontWeight: 400,
     paddingRight: "0.5em",
+    color: theme.palette.primary.dark,
+    display: 'inline',
+    '@media (max-width:900px)': {
+      display: 'inline-block',
+    },
   },
   details: {
+    display: 'inline',
     color: greyColor,
-  }
+    '@media (max-width:900px)': {
+      display: 'inline-block',
+      marginTop: "0.25em",
+    },
+  },
+  // mainDiv: {
+  //   width: '30rem',
+  //   height: 'auto',
+  //   margin: '2em',
+  // }
 }));
 
 export default function Projects() {
@@ -81,9 +96,8 @@ export default function Projects() {
       <div className={classes.container}>
         <div  className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <div key={covers[project].name}>
+            <div key={covers[project].name} style={{paddingBottom: "1em"}} className={classes.mainDiv}>
               <div
-                // key={covers[project].name}
                 className={classes.parallaxDiv}
               >
                 <Link
@@ -99,19 +113,29 @@ export default function Projects() {
                   </FadeIn>
                 </Link>
               </div>
-            <>
-             <Typography variant="h6" className={classes.text}>
-                {covers[project].project}
-              </Typography>
-              <Link
-                href={`/${covers[project].name}`}
-                style={{textDecoration: 'none'}}
-                rel="noopener noreferrer"
-              >
-                <Typography className={classes.details}>
-                  View details
-                </Typography>
-              </Link>
+              <>
+                <FadeIn>
+                  <Link
+                    href={`/${covers[project].name}`}
+                    style={{textDecoration: 'none'}}
+                    rel="noopener noreferrer"
+                  >
+                    <Typography variant="h6" className={classes.text}>
+                      {covers[project].project}
+                    </Typography>
+                  </Link>
+                </FadeIn>
+                <FadeIn>
+                  <Link
+                    href={`/${covers[project].name}`}
+                    style={{textDecoration: 'none'}}
+                    rel="noopener noreferrer"
+                  >
+                    <Typography className={classes.details}>
+                      View details
+                    </Typography>
+                  </Link>
+                </FadeIn>
               </>
             </div>
           )}

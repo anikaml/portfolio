@@ -22,11 +22,19 @@ const useStyles = makeStyles(() => ({
       width: '60vw',
     }
   },
+  element1: {
+    '@media (max-width:330px)': {
+      fontSize: '2rem',
+    },
+  },
   element2: {
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       fontSize: '4rem',
-    }
+    },
+    '@media (max-width:330px)': {
+      fontSize: '1.75rem',
+    },
   },
   element3: {
     /* IpadPro  Portrait */
