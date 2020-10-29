@@ -2,6 +2,7 @@ import React, { lazy, useState } from "react";
 import PropTypes from "prop-types";
 
 import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,7 +24,7 @@ const Stalue = lazy(() => import("./Stalue"))
 
 const useStyles = makeStyles(() => ({
   container: {
-    margin: "4em",
+    margin: "4em auto",
     width: "auto",
     '@media (max-width:600px)': {
       margin: "1em",
@@ -53,6 +54,10 @@ export default function ProjectTemplate(props) {
   } else if (name === 'datette') {
     body = <SuspenseContainer><Datette name={name}/></SuspenseContainer>
   }
+
+  React.useEffect(() => {
+      console.log('<ProjectTemplate> component')
+  }, []);
   
   return (
     <>

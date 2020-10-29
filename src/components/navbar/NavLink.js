@@ -5,9 +5,8 @@ import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import { greyColor } from "../../utils/colors";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   about: {
     margin: "0 2em",
     '@media (max-width:900px)': {
@@ -18,14 +17,12 @@ const useStyles = makeStyles(() => ({
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
-    color: greyColor,
+    color: theme.palette.primary.dark,
     textTransform: "none",
     '@media (max-width:767px)': {
-      // fontSize: "unset",
       fontSize: 18,
     },
     '@media (max-width:300px)': {
-      // fontSize: "unset",
       fontSize: 14,
     },
     "&:before": {

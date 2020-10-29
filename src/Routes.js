@@ -8,6 +8,7 @@ import { covers } from "./components/Covers";
 import SuspenseContainer from "./components/layout/SuspenseContainer";
 import AboutText from "./components/layout/AboutText";
 import Skills from "./containers/about/Skills";
+import ProjectTemplateSkeleton from "./components/projects/ProjectTemplateSkeleton";
 
 const ProjectTemplate = lazy(() => import("./containers/projects/ProjectTemplate"));
 
@@ -18,12 +19,15 @@ export default function Routes() {
         <Route exact path="/">
           <Landing />
         </Route>
+        
+        <Route exact path="/loader">
+          <ProjectTemplateSkeleton />
+        </Route>
+
         <Route exact path="/about">
-            <SuspenseContainer>
-              <AboutText />
-              <Skills />
-            </SuspenseContainer>
-          </Route>
+          <AboutText />
+          <Skills />
+        </Route>
         {Object.keys(covers).map(name => 
           <Route exact path={`/${name}`} key={name}>
             <SuspenseContainer>

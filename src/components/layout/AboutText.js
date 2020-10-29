@@ -28,8 +28,13 @@ const useStyles = makeStyles((theme) => ({
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       marginBottom: "-70vh",
-      marginTop: '-15em',
-    }
+    },
+    '@media (min-width:901px) and (max-width:1440px)': {
+      marginTop: '-3em',
+    },
+    '@media (min-width:1441px)': {
+      marginTop: '-2em',
+    },
   },
   container: {
     margin: "2em auto",
@@ -65,13 +70,12 @@ export default function AboutText() {
   
   return (
     <>
-      {/* <SectionTitle id="about" title="About"/> */}
       <Parallax y={isMobileOnly? [10, -10] : [20, -20]} className={classes.parallaxFooter} tagOuter="section" styleOuter={{margin: 0}}>
         <div id="about" className={classes.div}>
           <Container maxWidth="md" className={classes.container}>
             <FadeIn>
               <Typography variant={isTablet?"h2":isMobile?"h4":"h2"} className={classes.typography} style={{marginBottom: "0.5em"}}>
-              Hello there,
+              {"Hi,"}
             </Typography>
             </FadeIn>
             <FadeIn>
@@ -91,7 +95,7 @@ export default function AboutText() {
             </FadeIn>
             <FadeIn>
               <Typography variant={isTablet?"h5":isMobile? "h6":"h5"} style={{marginTop: "1em"}} className={classes.typography}>
-                {"Design have always been my true passion. Really! I have started my journey working as an Architectural Designer in NYC. After few years learning new skills and discovering new possibilities along the way, I've decided to use my creativity in a new field, so I've started creating beautiful, clean websites, and everything in between. This just felt right. And that's how I become web designer & front-end developer, a perfect mix between developer and designer." }
+                {"Design has been my true passion for as long as I remember. I have started my professional journey working as an Architectural Designer in NYC. After a few years of learning new skills and discovering new possibilities along the way, I've decided to try out a new creative outlet - Web Design. After many hours of learning, creating a handful of projects from scratch, and seeing the infinite possibilities for expression that this field offered, I knew that the next step in my career was to become a web designer & front-end developer."}
               </Typography>
             </FadeIn>
             <div className={classes.socialMediaDiv}>
@@ -100,7 +104,7 @@ export default function AboutText() {
                 name='GitHub'
               />
               <SocialMediaLink
-                href='https://github.com/anikaniescierewicz'
+                href='https://linkedin.com/in/anika-mlodzianowski'
                 name='LinkedIn'
               />
             </div>

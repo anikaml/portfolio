@@ -30,10 +30,8 @@ const useStyles = makeStyles(() => ({
       flexWrap: "wrap",
       margin: "1em",
       padding: "0em",
-      //display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
-      overflow: 'hidden',
     // }
   },
   trailsContainer: {
@@ -76,7 +74,7 @@ export default function Main() {
       <div className={classes.illustration}>
         {isMobile ? illustration : <Illustration />}
       </div>
-      <Scroll />
+        <Scroll />
     </div>
   )       
 }

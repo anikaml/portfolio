@@ -48,9 +48,15 @@ const useStyles = makeStyles(() => ({
   },
   bag: {
     height: "5em",
+    '@media (max-width:900px)': {
+      maxHeight: "3em",
+    },
   },
   cup: {
     opacity: "0.7",
+    '@media (max-width:900px)': {
+      maxHeight: "3em",
+    },
   },
   sofa: {
     maxHeight: "15em",
@@ -94,32 +100,30 @@ export default function Illustration() {
           src={process.env.PUBLIC_URL + "/icons/blob1.svg"} 
           className={classes.blob}
         />
-      <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+        <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
           <SVG
             src={process.env.PUBLIC_URL + "/icons/background_new.svg"} 
-            //src={process.env.PUBLIC_URL + "/icons/example-blob-full.svg"} 
             className={classes.background}
           />
-          
-        <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
-            className={classes.bag}
-          />
-        </animated.div>
-        <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: properties.xy.to(trans3) }} >
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
-            className={classes.cup}
-          />
-        </animated.div>
-        <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: properties.xy.to(trans4) }}>
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/example-me1.svg"} 
-            className={classes.sofa}
-          />
-        </animated.div>
-      </div>
+          <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
+              className={classes.bag}
+            />
+          </animated.div>
+          <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: properties.xy.to(trans3) }} >
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
+              className={classes.cup}
+            />
+          </animated.div>
+          <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: properties.xy.to(trans4) }}>
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/example-me1.svg"} 
+              className={classes.sofa}
+            />
+          </animated.div>
+        </div>
       </>
     )
   }

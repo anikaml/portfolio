@@ -92,16 +92,16 @@ export default function Skills() {
 
   const skills = {
     Dev: {
-      text: 'I like to code things, and enjoy bringing ideas to life in the browser.',
-      Languages: 'ReactJS, Javascript, CSS, HTML, Redux',
-      Tools: ['Material-ui', 'Github', 'Terminal'],
+      text: 'I value efficient, powerful, and maintainable solutions to quickly deliver results.',
+      'What I create': 'Responsive Websites, PWAs (Progressive Web Apps)',
+      Tech: ['ReactJS', 'Redux', 'Javascript', 'CSS3', 'HTML5','Material-UI', 'Git', 'AWS (S3, CloudFront, CodeBuild)'],
       svg: "/icons/dev.svg",
       color: theme.palette.primary.light,
     },
     Designer: {
-      text: 'I like clean design, easy navigation and adding custom touch.',
-      'What I design': 'Web, PWA ,Responsive Apps, Logos, Product design, App presentations',
-      Tools: ['Photoshop', 'AdobeXD', 'Illustrator', 'InDesign', 'Cinema4D', 'Pen & Paper'],
+      text: 'I like clean design, easy navigation, and adding a custom touch to all my projects.',
+      'What I design': 'Logos, Product design, App presentations',
+      Tools: ['Photoshop', 'AdobeXD', 'Inkscape/Illustrator', '3dsMax', 'Cinema4D', 'Pen & Paper'],
       svg: "/icons/designer.svg",
       color: theme.palette.primary.light,
     },
@@ -161,7 +161,7 @@ export default function Skills() {
                   </Typography>
                 </FadeIn>
                 <div className={classes.typography}>
-                  {(skills[field].Tools).map(tool =>
+                  {(Object.values(skills[field])[2]).map(tool =>
                     <FadeIn key={tool}>
                       <Typography style={{margin: "0.25em 0"}}>
                         {tool}
