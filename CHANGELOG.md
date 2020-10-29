@@ -1,3 +1,13 @@
+## 0.2.13
+
+NOTES:
+* Created ProjectTemplateSkeleton to load nicely my projects
+* Updated main illustration
+* Added project descriptions
+* Style updates
+* Lightbox bug in Bokiem project fixed!!
+* Moved About and Skills to /about route
+
 ## 0.2.12
 
 NOTES:
