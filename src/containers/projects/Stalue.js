@@ -17,7 +17,7 @@ import MultiFormatPhoto from "../../components/photos/MultiFormatPhoto";
 
 const useStyles = makeStyles(() => ({
   container: {
-    margin: "4em",
+    margin: "4em auto",
     width: "auto",
     '@media (max-width:600px)': {
       margin: "1em",

@@ -9,16 +9,6 @@ import SocialMediaLink from '../socialMedia/SocialMediaLink';
 import { isMobileOnly } from 'react-device-detect';
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    margin: "2em auto 0 auto",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "0 4em",
-    '@media (max-width:900px)': {
-      flexWrap: "wrap",
-      padding: "0 2em",
-    }
-  },
   footerDiv: {
     backgroundColor: theme.palette.primary.dark,
     padding: "4em 0 2em 0",
@@ -27,6 +17,16 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 3,
     '@media (max-width:900px)': {
       padding: "2em 0",
+    }
+  },
+  container: {
+    margin: "2em auto 0 auto",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "0 4em",
+    '@media (max-width:900px)': {
+      flexWrap: "wrap",
+      padding: "0 2em",
     }
   },
   divider: {
@@ -52,7 +52,7 @@ export default function Footer() {
         name='GitHub'
       />
       <SocialMediaLink
-        href='https://github.com/anikaniescierewicz'
+        href='https://linkedin.com/in/anika-mlodzianowski'
         name='LinkedIn'
       />
       <Divider variant="middle" className={classes.divider}/>
