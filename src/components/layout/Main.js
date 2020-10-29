@@ -25,15 +25,14 @@ const useStyles = makeStyles(() => ({
     },
   },
   containerMobile: {
-    '@media (max-width:900px)': {
+    // '@media (max-width:900px)': {
       height: 'calc(100vh - 64px)',
       flexWrap: "wrap",
       margin: "1em",
       padding: "0em",
-      display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
-    }
+    // }
   },
   trailsContainer: {
     margin: "2em auto",
@@ -61,7 +60,7 @@ export default function Main() {
   const classes = useStyles();
 
   const illustration = (<SVG 
-                          src={process.env.PUBLIC_URL + "/icons/illustration_mobile.svg"} 
+                          src={process.env.PUBLIC_URL + "/icons/mobile_full.svg"} 
                           className={classes.icon}
                         />)
 
@@ -75,7 +74,7 @@ export default function Main() {
       <div className={classes.illustration}>
         {isMobile ? illustration : <Illustration />}
       </div>
-      <Scroll />
+        <Scroll />
     </div>
   )       
 }

@@ -11,14 +11,15 @@ import FadeIn from "../../containers/style/FadeIn";
 
 const useStyles = makeStyles(() => ({
   launch: {
-    color: "black",
-    fontWeight: 600,
+    color: props => covers[props.index].colors[0],
+    fontWeight: 500,
     paddingBottom: "0.1em",
     marginBottom: "2em",
     '@media (max-width:600px)': {
       fontSize: "1.1rem",
       width: "unset",
-      borderBottom: "1px solid black",
+      borderBottom: props => `1px solid ${covers[props.index].colors[0]}`,
+      paddingTop: '1em',
     },
     // underline from left to right and back
     display: "inline-block",
@@ -30,7 +31,7 @@ const useStyles = makeStyles(() => ({
       display: "block",
       width: "0%",
       height: "2px",
-      background: "black",
+      background: props => covers[props.index].colors[0],
       transition: "width .3s",
       marginTop: "0.1em",
       '@media (max-width:600px)': {
@@ -42,7 +43,7 @@ const useStyles = makeStyles(() => ({
 
 export default function Launch(props) {
   
-  const classes = useStyles();
+  const classes = useStyles(props);
   
   return (
     <>

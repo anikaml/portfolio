@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     margin: "2em auto",
   },
   title: {
-    fontWeight: 700,
+    fontWeight: 500,
     transform: 'translate(10px, 35px)',
     //background: `linear-gradient(180deg, rgba(255,255,255,0) 70%, ${highlightColor} 65%)`,
     display: "inline",
