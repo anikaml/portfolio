@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
       animationIterationCount: 'infinite',
       animationName: '$scroll',
       animationDelay: '2s',
-    }
+    },
   },
   "@keyframes scroll": {
     "0%": {

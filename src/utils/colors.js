@@ -21,4 +21,5 @@ export const illustrationColors = {
   4: '#B684F1',
   5: '#B0C0F4',
   6: '#E5A4ED',
+  7: '#fbfbfd',
 }

@@ -6,6 +6,8 @@ import NotFound from "./containers/NotFound";
 
 import { covers } from "./components/Covers";
 import SuspenseContainer from "./components/layout/SuspenseContainer";
+import AboutText from "./components/layout/AboutText";
+import Skills from "./containers/about/Skills";
 
 const ProjectTemplate = lazy(() => import("./containers/projects/ProjectTemplate"));
 
@@ -15,6 +17,10 @@ export default function Routes() {
       <Switch>
         <Route exact path="/">
           <Landing />
+        </Route>
+        <Route exact path="/about">
+          <AboutText />
+          <Skills />
         </Route>
         {Object.keys(covers).map(name => 
           <Route exact path={`/${name}`} key={name}>

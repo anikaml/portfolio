@@ -8,12 +8,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
-    maxHeight: "500px",
+    //maxHeight: "500px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     margin: "0 auto",
-    overflow: "hidden",
+    overflow: "visible",
     '@media (max-width:1115px)': {
       maxHeight: "unset",
     },
@@ -40,19 +40,44 @@ const useStyles = makeStyles(() => ({
     opacity: "0.8"
   },
   background: {
-    maxHeight: "60em",
-    maxWidth: "60em",
     height: "auto",
+    zIndex: -1,
+    '@media (max-width:900px)': {
+      maxHeight: "25em",
+    },
   },
   bag: {
     height: "5em",
+    '@media (max-width:900px)': {
+      maxHeight: "3em",
+    },
   },
   cup: {
     opacity: "0.7",
+    '@media (max-width:900px)': {
+      maxHeight: "3em",
+    },
   },
   sofa: {
-    height: "15em"
+    maxHeight: "15em",
+    height: '100%',
+    zIndex: 5,
+    '@media (max-width:900px)': {
+      maxHeight: "10em",
+    },
   },
+  blob: {
+    position: 'absolute',
+    zIndex: -2,
+    top: -100,
+    right: -100,
+    height: '130%',
+    maxWidth: '70vw',
+    width: 'auto',
+    '@media (max-width:900px)': {
+      display: 'none',
+    },
+  }
 }))
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
@@ -70,29 +95,35 @@ export default function Illustration() {
   const classes = useStyles();
     const [properties, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
     return (
-      <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+      <>
+        <SVG
+          src={process.env.PUBLIC_URL + "/icons/blob1.svg"} 
+          className={classes.blob}
+        />
+        <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
           <SVG
-            src={process.env.PUBLIC_URL + "/icons/example-blob-full.svg"} 
+            src={process.env.PUBLIC_URL + "/icons/background_new.svg"} 
             className={classes.background}
           />
-        <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
-            className={classes.bag}
-          />
-        </animated.div>
-        <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: properties.xy.to(trans3) }} >
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
-            className={classes.cup}
-          />
-        </animated.div>
-        <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: properties.xy.to(trans4) }}>
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/example-me.svg"} 
-            className={classes.sofa}
-          />
-        </animated.div>
-      </div>
+          <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
+              className={classes.bag}
+            />
+          </animated.div>
+          <animated.div className={`${classes.card} ${classes.card3}`} style={{ transform: properties.xy.to(trans3) }} >
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/cup.svg"} 
+              className={classes.cup}
+            />
+          </animated.div>
+          <animated.div className={`${classes.card} ${classes.card4}`} style={{ transform: properties.xy.to(trans4) }}>
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/example-me1.svg"} 
+              className={classes.sofa}
+            />
+          </animated.div>
+        </div>
+      </>
     )
   }

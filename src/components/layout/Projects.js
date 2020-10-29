@@ -1,33 +1,28 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+//import SVG from 'react-inlinesvg';
+import { motion } from "framer-motion";
+//import { isMobile } from 'react-device-detect';
+
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from '@material-ui/core/';
+import { Link, Typography } from '@material-ui/core/';
 
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
+import { greyColor } from '../../utils/colors';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     margin: "2em",
     '@media (max-width:900px)': {
       margin: 0,
     },
   },
-  title: {
-    color: "black",
-    textShadow: "1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee",
-    caretColor:"#262626",
-    fontWeight: 700,
-    '@media (max-width:900px)': {
-      fontSize: "2.5rem",
-    },
-  },
   banner: {
-    //margin: "1em 0",
     display: "block",
     overflow: "hidden",
     transition: "all .2s ease-in-out",
@@ -46,7 +41,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center", 
     alignItems: "center",
     flexWrap: "wrap",
-    borderRadius: 15,
   },
   parallaxDiv: {
     width: "90vw",
@@ -60,7 +54,69 @@ const useStyles = makeStyles(() => ({
       height: "30vh",
     },
   },
+  text: {
+    width: '90vw',
+    paddingRight: "0.5em",
+    color: theme.palette.primary.dark,
+    display: 'inline',
+    '@media (max-width:900px)': {
+      display: 'inline-block',
+    },
+  },
+  details: {
+    display: 'inline',
+    color: greyColor,
+    '@media (max-width:900px)': {
+      display: 'inline-block',
+      marginTop: "0.25em",
+    },
+  },
+  arrowDiv: {
+    display: "inline-flex",
+    alignItems: 'center',
+  },
+  arrow: {
+    height: '2rem',
+    //position: 'absolute',
+    // background: `url(${process.env.PUBLIC_URL + "/icons/arrow_right.svg"})`,
+    //transform: 'translate(-50%, -50%)', //The translate value for transform is based off the size of the element, so that will center nicely
+    //width: '2.5em',
+    // "&:before": {
+    //   content: "''",
+    //   position: 'absolute',
+    //   left: '50%',
+    //   // width: '0.5em',
+    //   // height: '0.5em',
+    //   //backgroundImage: `url(${process.env.PUBLIC_URL + "/icons/arrow_right.svg"})`,
+    //   marginLeft: '-0.25em',
+    //   top: '0.5em',
+    //   borderRadius: '0.25em',
+    //   animationDuration: '1.5s',
+    //   animationIterationCount: 'infinite',
+    //   animationName: '$run',
+    //   animationDelay: '2s',
+    // },
+  },
+  "@keyframes run": {
+    "0%": {
+      opacity: 1,
+    },
+    "100%": {
+      opacity: 0,
+      transform: 'translateZ(3em)',
+    }
+  },
+  loader: {
+    overflow: 'visible',
+    stroke: greyColor,
+    strokeWidth: 0.5,
+    height: 'auto',
+    paddingLeft: '1em',
+    cursor: 'pointer',
+  },
 }));
+
+const d = "M73.77,34.02,85.23,45.48H.68v5.04H85.23L73.77,61.98l3.57,3.57L94.88,48,77.34,30.45Z"
 
 export default function Projects() {
   const classes = useStyles();
@@ -71,22 +127,82 @@ export default function Projects() {
       <div className={classes.container}>
         <div  className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <div
-              key={covers[project].name}
-              className={classes.parallaxDiv}
-            >
-              <Link
-                href={`/${covers[project].name}`}
-                style={{textDecoration: 'none'}}
-                rel="noopener noreferrer"
+            <div key={covers[project].name} style={{paddingBottom: "1em"}} className={classes.mainDiv}>
+              <div
+                className={classes.parallaxDiv}
               >
+                <Link
+                  href={`/${covers[project].name}`}
+                  style={{textDecoration: 'none'}}
+                  rel="noopener noreferrer"
+                >
+                  <FadeIn>
+                    <Banner
+                      url={`/projects/${project}/${covers[project].url1}`}
+                      className={classes.banner}
+                    />
+                  </FadeIn>
+                </Link>
+              </div>
+              <>
                 <FadeIn>
-                  <Banner
-                    url={`/projects/${project}/${covers[project].url1}`}
-                    className={classes.banner}
-                  />
+                  <Link
+                    href={`/${covers[project].name}`}
+                    style={{textDecoration: 'none'}}
+                    rel="noopener noreferrer"
+                  >
+                    <Typography variant="h6" className={classes.text}>
+                      {covers[project].project}
+                    </Typography>
+                  </Link>
                 </FadeIn>
-              </Link>
+                <FadeIn>
+                  <Link
+                    href={`/${covers[project].name}`}
+                    style={{textDecoration: 'none'}}
+                    rel="noopener noreferrer"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 1.1 }}
+                      className={classes.arrowDiv}
+                    >
+                      <Typography className={classes.details}>
+                        View details
+                      </Typography>
+                      <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={"50px"}
+                        height={"50px"}
+                        viewBox="0 0 96 96"
+                        className={classes.loader}
+                        //whileHover={{x: [0, 10]}}
+                        // whileTap={{ scale: [0.9, 0.8] }}
+                        whileTap={{x: [0, 30]}}
+                      >
+                        <motion.path
+                          d={d}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                            //times: [ 0.1, 0.2],
+                            //loop: Infinity,
+                            //repeatDelay: 1
+                          }}
+                          fill={greyColor}
+                        />
+                      </motion.svg>
+                    </motion.div>
+                      {/* <SVG
+                        src={process.env.PUBLIC_URL + "/icons/arrow_right.svg"}
+                        className={classes.arrow}
+                      /> */}
+              
+                    {/* </div> */}
+                   
+                  </Link>
+                </FadeIn>
+              </>
             </div>
           )}
         </div>
