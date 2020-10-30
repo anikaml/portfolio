@@ -2,6 +2,7 @@ import React from 'react';
 
 import SVG from 'react-inlinesvg';
 import { isMobile, isTablet } from 'react-device-detect';
+import { useInView } from 'react-intersection-observer';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -61,6 +62,7 @@ const useStyles = makeStyles(() => ({
   },
   icon: {
     transition: 'all .2s ease-in-out',
+    maxHeight: '5rem',
     '&:hover': {
       transform: 'scale(1.1)',
     },
@@ -73,7 +75,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
   circle: {
-    borderRadius: "50%",
+    //borderRadius: "50%",
     width: "12em",
     height: "12em",
     position: "absolute",
@@ -83,12 +85,48 @@ const useStyles = makeStyles(() => ({
     right: 0,
     marginLeft: 'auto',
     marginRight: 'auto',
-    
+
+    // animationPlayState: (isMobile&&inView)? "running" : "paused",
+    animationTimingFunction: 'linear',
+    animationDuration: "5000ms",
+    borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
+    //borderRadius: "50% 50% 50% 50% / 50% 50% 50% 50%",
+    animation: "$circleMorph 3s linear infinite",
+    '&:hover': {
+      cursor: "pointer",
+      animationPlayState: "running",
+    }
+  },
+  "@keyframes circleMorph":{
+    "0%, 100%": {
+    //borderRadius: "40% 60% 70% 30% / 40% 40% 60% 50%",
+    //borderRadius: "50% 50% 50% 50% / 50% 50% 50% 50%",
+    borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
+    },
+    "30%": {
+      borderRadius: "60% 40% 50% 50% / 30% 30% 70% 70%",
+    },
+    "70%": {
+      borderRadius: "100% 50% 50% 100% / 100% 100% 50% 50%",
+    },
+  },
+  skillsDiv: {
+    marginTop: '-65vh',
+    '@media (max-width:900px)': {
+      marginTop: '-50vh',
+    },
   }
 }));
 
 export default function Skills() {
   const classes = useStyles();
+  const [ref, inView] = useInView({
+    rootMargin: '-100px 0px',
+  });
+
+  React.useEffect(() => {
+    console.log(`inView: ${inView}`)
+  }, [inView]);
 
   const skills = {
     Dev: {
@@ -108,10 +146,11 @@ export default function Skills() {
   }
   
   return (
-    <>
+    <div className={classes.skillsDiv}>
       <SectionTitle title="Skills" stroke={true}/>
       <Container maxWidth="lg" className={classes.container}>
         <Grid
+          ref={ref}
           container
           spacing={isMobile? 2 : 8}
           className={classes.flexContainer}
@@ -126,7 +165,10 @@ export default function Skills() {
               <FadeIn>
                 <>
                   <div className={classes.colorDiv}>
-                    <div className={classes.circle} style={{backgroundColor: skills[field].color}}/>
+                    <div
+                      className={classes.circle}
+                      style={{backgroundColor: skills[field].color, animationPlayState: isMobile? (inView? "running" : "paused"): "running",}}
+                    />
                     <SVG
                       src={process.env.PUBLIC_URL + skills[field].svg}
                       className={classes.icon}
@@ -174,7 +216,7 @@ export default function Skills() {
           )}
         </Grid>
       </Container>
-    </>
+    </div>
   )
 }
 
