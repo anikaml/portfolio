@@ -72,7 +72,7 @@ const useStyles = makeStyles(() => ({
     top: -100,
     right: -100,
     height: '130%',
-    maxWidth: '70vw',
+    maxWidth: '87vw',
     width: 'auto',
     '@media (max-width:900px)': {
       display: 'none',

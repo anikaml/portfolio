@@ -1,11 +1,14 @@
 import React from "react";
+//import { Link as RouterLink} from 'react-router-dom';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
+import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
+
 import NavLink from "../navbar/NavLink";
 import LogoMotion from "../Logo/LogoMotion";
 
@@ -29,6 +32,11 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     // animationName: '$meltEnter',
     // animation: '2s meltEnter'
+  },
+  rootIconButton: {
+    "&:hover": {
+      background: "transparent",
+    }
   },
 //   meltEnter: { 
 //     animationName: '$meltEnter',
@@ -78,14 +86,18 @@ export default function Navbar() {
             <Container maxWidth="lg">
               <Toolbar className={classes.toolbar}>
                 <div className={classes.meltEnter}>
-                  <Link
+                  <IconButton 
+                    aria-label="home"
+                    component={Link}
                     href="/"
-                    style={{ textDecoration: 'none'}}
-                    color="secondary"
-                    rel="noopener noreferrer"
+                    disableRipple
+                    disableTouchRipple
+                    classes={{
+                      'root': classes.rootIconButton,
+                    }}
                   >
                     <LogoMotion />
-                  </Link>
+                  </IconButton>
                 </div>
                 <div className={classes.navRight}>
                   <NavLink title='Projects' />
