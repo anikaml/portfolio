@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 
 import { greyColor, shadowColor } from '../../utils/colors';
+import { isMobile } from 'react-device-detect';
 
 const useStyles = makeStyles(() => ({
   scroll: {
@@ -16,8 +17,9 @@ const useStyles = makeStyles(() => ({
     width: '2rem',
     height: '3.5rem',
     bottom: '1rem',
-    boxShadow: `inset 0 0 0 1px ${shadowColor}`,
+    boxShadow: `inset 0 0 0 1px white`,
     borderRadius: 25,
+    border: `1px solid ${shadowColor}`,
     "&:before": {
       content: "''",
       position: 'absolute',
@@ -32,6 +34,9 @@ const useStyles = makeStyles(() => ({
       animationIterationCount: 'infinite',
       animationName: '$scroll',
       animationDelay: '2s',
+    },
+    '@media (max-width:900px)': {
+      display: isMobile? 'initial' : 'none',
     },
   },
   "@keyframes scroll": {
@@ -60,7 +65,6 @@ export default function Scroll() {
   
   return (
     <>
-      {/* <Link href="/#projects" style={{ textDecoration: 'none'}} rel="noopener noreferrer"> */}
       <IconButton 
         aria-label="projects"
         component={Link}
@@ -73,7 +77,6 @@ export default function Scroll() {
       >
         <div className={classes.scroll} />
       </IconButton>
-      {/* </Link> */}
     </>
   )
 }

@@ -44,7 +44,7 @@ export default function MySwitch(props) {
   
   return (
     <div className={classes.switchDiv}>
-      <Typography>Web</Typography>
+      <Typography>Mobile</Typography>
       <div
         className={classes.switch}
         style={{justifyContent: props.toggle ? 'flex-start' : 'flex-end'}}
@@ -52,7 +52,7 @@ export default function MySwitch(props) {
       >
         <motion.div className={classes.circle} layout transition={spring} />
       </div>
-      <Typography>Mobile</Typography>
+      <Typography>Web</Typography>
     </div>
   )
 }

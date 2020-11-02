@@ -39,12 +39,16 @@ const useStyles = makeStyles(() => ({
   card4: { //sofa
     opacity: "0.8"
   },
+  backgroundDiv: {
+
+  },
   background: {
     height: "auto",
     zIndex: -1,
-    '@media (max-width:900px)': {
-      maxHeight: "25em",
-    },
+    maxHeight: '25rem',
+    // '@media (max-width:900px)': {
+    //   maxHeight: "25em",
+    // },
   },
   bag: {
     height: "5em",
@@ -68,12 +72,15 @@ const useStyles = makeStyles(() => ({
   },
   blob: {
     position: 'absolute',
+    display: 'block',
     zIndex: -2,
     top: -100,
-    right: -100,
-    height: '130%',
+    right: 0,
+    //height: '130%',
+    //height: '100vh',
     maxWidth: '87vw',
-    width: 'auto',
+    //width: 'auto',
+    overflow: 'hidden',
     '@media (max-width:900px)': {
       display: 'none',
     },
@@ -97,14 +104,18 @@ export default function Illustration() {
     return (
       <>
         <SVG
-          src={process.env.PUBLIC_URL + "/icons/blob1.svg"} 
+          src={process.env.PUBLIC_URL + "/icons/blob1.svg"}
+          preProcessor={code => code.replace(/width=".*?"/g, 'width="800px"').replace(/height=".*?"/g, 'height="900px"')}
           className={classes.blob}
         />
         <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+          <div className={classes.backgroundDiv}>
           <SVG
             src={process.env.PUBLIC_URL + "/icons/background_new.svg"} 
             className={classes.background}
           />
+          </div>
+          
           <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
             <SVG
               src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 

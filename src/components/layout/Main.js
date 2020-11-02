@@ -20,8 +20,16 @@ const useStyles = makeStyles(() => ({
     margin: "2em",
     padding: "4em 2em",
     height: 'calc(100vh - 64px)',
+    //width: '100vw',
+    // background: `url(${process.env.PUBLIC_URL + "/icons/blob1.svg"}) no-repeat`,
+    // backgroundSize:'cover',
+    // backgroundPosition: "100% -100px",
+    // overflow: 'hidden',
     '@media (max-width:900px)': {
       flexWrap: "wrap",
+      height: '100%',
+      margin: "1em",
+      padding: "2em",
     },
   },
   containerMobile: {
