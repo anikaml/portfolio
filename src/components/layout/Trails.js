@@ -23,11 +23,17 @@ const useStyles = makeStyles(() => ({
     }
   },
   element1: {
+    fontSize: 'calc(40px + 18 * ((100vw - 320px) / 680))', //68px
     '@media (max-width:330px)': {
       fontSize: '2rem',
     },
+    /* IpadPro  Portrait */
+    '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+      fontSize: '6rem',
+    },
   },
   element2: {
+    fontSize: 'calc(20px + (54 - 20) * ((100vw - 300px) / (1600 - 300)))', //54px 14px is the minimum size at the smallest viewport width of 300px and 26px is the maximum size at the largest viewport width of 1600px
     fontWeight: 500,
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
@@ -38,6 +44,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   element3: {
+    fontSize: 'calc(14px + (20 - 14) * ((100vw - 300px) / (1600 - 300)))', //40px 
     maxWidth: 450,
     lineHeight: 1.5,
     /* IpadPro  Portrait */
@@ -45,8 +52,9 @@ const useStyles = makeStyles(() => ({
       fontSize: '2rem',
     },
     '@media (max-width:900px)': {
-      lineHeight: 'normal',
+      //lineHeight: 'normal',
       fontWeight: 400,
+      fontSize: 'initial',
     },
   },
 }))

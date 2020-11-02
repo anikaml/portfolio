@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
-      marginBottom: "-70vh",
+      //marginBottom: "-70vh",
     },
     '@media (min-width:901px) and (max-width:1440px)': {
       marginTop: '-3em',
@@ -113,14 +113,11 @@ export default function AboutText() {
                 name='LinkedIn'
               />
             </div>
-      
           </Container>
-   
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#111030" fillOpacity="1" d="M0,64L48,85.3C96,107,192,149,288,192C384,235,480,277,576,277.3C672,277,768,235,864,197.3C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-</svg>
-                    
+          <path fill="#111030" fillOpacity="1" d="M0,64L48,85.3C96,107,192,149,288,192C384,235,480,277,576,277.3C672,277,768,235,864,197.3C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>           
       </Parallax>
     </>
   )

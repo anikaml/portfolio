@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteText: {
     color: theme.palette.primary.contrastText,
+    WebkitTextStroke: `1px ${theme.palette.primary.dark}`,
   },
 }));
 
