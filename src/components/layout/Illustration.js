@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
-    //maxHeight: "500px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -46,9 +45,6 @@ const useStyles = makeStyles(() => ({
     height: "auto",
     zIndex: -1,
     maxHeight: '25rem',
-    // '@media (max-width:900px)': {
-    //   maxHeight: "25em",
-    // },
   },
   bag: {
     height: "5em",
@@ -76,10 +72,7 @@ const useStyles = makeStyles(() => ({
     zIndex: -2,
     top: -100,
     right: 0,
-    //height: '130%',
-    //height: '100vh',
     maxWidth: '87vw',
-    //width: 'auto',
     overflow: 'hidden',
     '@media (max-width:900px)': {
       display: 'none',
@@ -88,10 +81,6 @@ const useStyles = makeStyles(() => ({
 }))
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-// const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
-// const trans2 = (x, y) => `translate3d(${x / 8 + 200}px,${y / 8 + 200}px,0)` //bag
-// const trans3 = (x, y) => `translate3d(${x / 6 - 90}px,${y / 6 - 0}px,0)` //cup
-// const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
 const trans2 = (x, y) => `translate3d(${x / 10 + 200}px,${y / 10 + 200}px,0)` //bag
 const trans3 = (x, y) => `translate3d(${x / 8 - 90}px,${y / 8 - 0}px,0)` //cup
 //const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa

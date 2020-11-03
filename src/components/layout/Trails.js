@@ -1,4 +1,3 @@
-// import React, { useState } from 'react'
 import React from 'react'
 import { useTrail, animated } from 'react-spring'
 
@@ -13,7 +12,6 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:900px)': {
       display: "flex",
       flexDirection: 'column',
-      minHeight: '35vh',
       width: isTablet ? '60vw' : 'auto',
       justifyContent: 'space-around',
     },
@@ -52,7 +50,6 @@ const useStyles = makeStyles(() => ({
       fontSize: '2rem',
     },
     '@media (max-width:900px)': {
-      //lineHeight: 'normal',
       fontWeight: 400,
       fontSize: 'initial',
     },

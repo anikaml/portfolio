@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-//import SVG from 'react-inlinesvg';
 import { motion } from "framer-motion";
-//import { isMobile } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -77,25 +75,6 @@ const useStyles = makeStyles((theme) => ({
   },
   arrow: {
     height: '2rem',
-    //position: 'absolute',
-    // background: `url(${process.env.PUBLIC_URL + "/icons/arrow_right.svg"})`,
-    //transform: 'translate(-50%, -50%)', //The translate value for transform is based off the size of the element, so that will center nicely
-    //width: '2.5em',
-    // "&:before": {
-    //   content: "''",
-    //   position: 'absolute',
-    //   left: '50%',
-    //   // width: '0.5em',
-    //   // height: '0.5em',
-    //   //backgroundImage: `url(${process.env.PUBLIC_URL + "/icons/arrow_right.svg"})`,
-    //   marginLeft: '-0.25em',
-    //   top: '0.5em',
-    //   borderRadius: '0.25em',
-    //   animationDuration: '1.5s',
-    //   animationIterationCount: 'infinite',
-    //   animationName: '$run',
-    //   animationDelay: '2s',
-    // },
   },
   "@keyframes run": {
     "0%": {
@@ -176,8 +155,6 @@ export default function Projects() {
                         height={"50px"}
                         viewBox="0 0 96 96"
                         className={classes.loader}
-                        //whileHover={{x: [0, 10]}}
-                        // whileTap={{ scale: [0.9, 0.8] }}
                         whileTap={{x: [0, 30]}}
                       >
                         <motion.path
@@ -185,21 +162,11 @@ export default function Projects() {
                           transition={{
                             duration: 1,
                             ease: "easeInOut",
-                            //times: [ 0.1, 0.2],
-                            //loop: Infinity,
-                            //repeatDelay: 1
                           }}
                           fill={greyColor}
                         />
                       </motion.svg>
                     </motion.div>
-                      {/* <SVG
-                        src={process.env.PUBLIC_URL + "/icons/arrow_right.svg"}
-                        className={classes.arrow}
-                      /> */}
-              
-                    {/* </div> */}
-                   
                   </Link>
                 </FadeIn>
               </>

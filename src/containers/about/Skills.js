@@ -75,7 +75,6 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
   circle: {
-    //borderRadius: "50%",
     width: "12em",
     height: "12em",
     position: "absolute",
@@ -85,12 +84,9 @@ const useStyles = makeStyles(() => ({
     right: 0,
     marginLeft: 'auto',
     marginRight: 'auto',
-
-    // animationPlayState: (isMobile&&inView)? "running" : "paused",
     animationTimingFunction: 'linear',
     animationDuration: "5000ms",
     borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
-    //borderRadius: "50% 50% 50% 50% / 50% 50% 50% 50%",
     animation: "$circleMorph 3s linear infinite",
     '&:hover': {
       cursor: "pointer",
@@ -99,9 +95,7 @@ const useStyles = makeStyles(() => ({
   },
   "@keyframes circleMorph":{
     "0%, 100%": {
-    //borderRadius: "40% 60% 70% 30% / 40% 40% 60% 50%",
-    //borderRadius: "50% 50% 50% 50% / 50% 50% 50% 50%",
-    borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
+      borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
     },
     "30%": {
       borderRadius: "60% 40% 50% 50% / 30% 30% 70% 70%",
@@ -113,7 +107,7 @@ const useStyles = makeStyles(() => ({
   skillsDiv: {
     marginTop: '-65vh',
     '@media (max-width:900px)': {
-      marginTop: '-50vh',
+      marginTop: '-40vh',
     },
   }
 }));
