@@ -1,3 +1,10 @@
+## 0.2.14
+
+NOTES:
+* cleaned code from comments
+* Fixed issues after Lighthouse audit
+
+
 ## 0.2.13
 
 NOTES:
