@@ -22,17 +22,18 @@ const useStyles = makeStyles(() => ({
     height: 'calc(100vh - 64px)',
     '@media (max-width:900px)': {
       flexWrap: "wrap",
+      height: '100%',
+      margin: "1em",
+      padding: "2em",
     },
   },
   containerMobile: {
-    // '@media (max-width:900px)': {
-      height: 'calc(100vh - 64px)',
-      flexWrap: "wrap",
-      margin: "1em",
-      padding: "0em",
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-    // }
+    height: 'calc(100vh - 64px)',
+    flexWrap: "wrap",
+    margin: "1em",
+    padding: "0em",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   trailsContainer: {
     margin: "2em auto",

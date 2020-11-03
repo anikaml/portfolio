@@ -55,17 +55,16 @@ const theme = createMuiTheme({
     },
     overrides: {
         MuiCssBaseline: {
-            '@global': {
-              html: {
-                height: "100%",
-                margin: 0,
-                padding: 0,
-              },
-              body: {
-                //backgroundColor: '#f7faff',
-                height: "100%",
-              },
-            }
+          '@global': {
+            html: {
+              height: "100%",
+              margin: 0,
+              padding: 0,
+            },
+            body: {
+              height: "100%",
+            },
+          }
         },
         MuiInput: {
           underline: {
@@ -99,9 +98,6 @@ const theme = createMuiTheme({
   theme.typography.h3 = {
     fontSize: '3.42rem',
     fontWeight: 400,
-    // '@media (max-width:640px)': {
-    //   fontSize: '2.5rem',
-    // },
     '@media (max-width:1140px)': {
       fontSize: '4vw',
     }

@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
-    //maxHeight: "500px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -39,12 +38,13 @@ const useStyles = makeStyles(() => ({
   card4: { //sofa
     opacity: "0.8"
   },
+  backgroundDiv: {
+
+  },
   background: {
     height: "auto",
     zIndex: -1,
-    '@media (max-width:900px)': {
-      maxHeight: "25em",
-    },
+    maxHeight: '25rem',
   },
   bag: {
     height: "5em",
@@ -68,12 +68,12 @@ const useStyles = makeStyles(() => ({
   },
   blob: {
     position: 'absolute',
+    display: 'block',
     zIndex: -2,
     top: -100,
-    right: -100,
-    height: '130%',
-    maxWidth: '70vw',
-    width: 'auto',
+    right: 0,
+    maxWidth: '87vw',
+    overflow: 'hidden',
     '@media (max-width:900px)': {
       display: 'none',
     },
@@ -81,10 +81,6 @@ const useStyles = makeStyles(() => ({
 }))
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-// const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
-// const trans2 = (x, y) => `translate3d(${x / 8 + 200}px,${y / 8 + 200}px,0)` //bag
-// const trans3 = (x, y) => `translate3d(${x / 6 - 90}px,${y / 6 - 0}px,0)` //cup
-// const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
 const trans2 = (x, y) => `translate3d(${x / 10 + 200}px,${y / 10 + 200}px,0)` //bag
 const trans3 = (x, y) => `translate3d(${x / 8 - 90}px,${y / 8 - 0}px,0)` //cup
 //const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
@@ -97,14 +93,18 @@ export default function Illustration() {
     return (
       <>
         <SVG
-          src={process.env.PUBLIC_URL + "/icons/blob1.svg"} 
+          src={process.env.PUBLIC_URL + "/icons/blob1.svg"}
+          preProcessor={code => code.replace(/width=".*?"/g, 'width="800px"').replace(/height=".*?"/g, 'height="900px"')}
           className={classes.blob}
         />
         <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+          <div className={classes.backgroundDiv}>
           <SVG
             src={process.env.PUBLIC_URL + "/icons/background_new.svg"} 
             className={classes.background}
           />
+          </div>
+          
           <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
             <SVG
               src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
