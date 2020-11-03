@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "4em 0 2em 0",
     marginTop: "2em",
     textAlign: "center",
-    letterSpacing: 3,
+    letterSpacing: isMobileOnly? 0 : 3,
     '@media (max-width:900px)': {
       padding: "2em 0",
     }
@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
   whiteText: {
     color: theme.palette.primary.contrastText,
   },
+  version: {
+
+  }
 }));
 
 export default function Footer() {
@@ -58,7 +61,7 @@ export default function Footer() {
       <Divider variant="middle" className={classes.divider}/>
       <div className={classes.container}>
         <div>
-          <Typography variant="caption" className={classes.whiteText}>
+          <Typography variant="caption" className={`${classes.whiteText} ${classes.version}`}>
             Version: {packageJson.version}
           </Typography>
         </div>

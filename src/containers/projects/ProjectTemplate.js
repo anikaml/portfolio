@@ -54,10 +54,6 @@ export default function ProjectTemplate(props) {
   } else if (name === 'datette') {
     body = <SuspenseContainer><Datette name={name}/></SuspenseContainer>
   }
-
-  React.useEffect(() => {
-      console.log('<ProjectTemplate> component')
-  }, []);
   
   return (
     <>

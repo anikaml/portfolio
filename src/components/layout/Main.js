@@ -20,11 +20,6 @@ const useStyles = makeStyles(() => ({
     margin: "2em",
     padding: "4em 2em",
     height: 'calc(100vh - 64px)',
-    //width: '100vw',
-    // background: `url(${process.env.PUBLIC_URL + "/icons/blob1.svg"}) no-repeat`,
-    // backgroundSize:'cover',
-    // backgroundPosition: "100% -100px",
-    // overflow: 'hidden',
     '@media (max-width:900px)': {
       flexWrap: "wrap",
       height: '100%',
@@ -33,14 +28,12 @@ const useStyles = makeStyles(() => ({
     },
   },
   containerMobile: {
-    // '@media (max-width:900px)': {
-      height: 'calc(100vh - 64px)',
-      flexWrap: "wrap",
-      margin: "1em",
-      padding: "0em",
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-    // }
+    height: 'calc(100vh - 64px)',
+    flexWrap: "wrap",
+    margin: "1em",
+    padding: "0em",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   trailsContainer: {
     margin: "2em auto",
