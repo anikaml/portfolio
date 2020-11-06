@@ -1,9 +1,15 @@
+## 0.2.15
+
+NOTES:
+* cleaned code from unused css styles
+* changed some photos to serve next gen formats
+* changed some links to icon buttons
+
 ## 0.2.14
 
 NOTES:
 * cleaned code from comments
 * Fixed issues after Lighthouse audit
-
 
 ## 0.2.13
 
