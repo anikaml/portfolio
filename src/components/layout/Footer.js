@@ -40,9 +40,6 @@ const useStyles = makeStyles((theme) => ({
   whiteText: {
     color: theme.palette.primary.contrastText,
   },
-  version: {
-
-  }
 }));
 
 export default function Footer() {
@@ -61,7 +58,7 @@ export default function Footer() {
       <Divider variant="middle" className={classes.divider}/>
       <div className={classes.container}>
         <div>
-          <Typography variant="caption" className={`${classes.whiteText} ${classes.version}`}>
+          <Typography variant="caption" className={classes.whiteText}>
             Version: {packageJson.version}
           </Typography>
         </div>

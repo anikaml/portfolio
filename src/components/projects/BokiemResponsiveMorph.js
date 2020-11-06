@@ -13,17 +13,6 @@ import FadeIn from "../../containers/style/FadeIn";
 import MySwitch from "./MySwitch";
 
 const useStyles = makeStyles(() => ({
-  image: {
-    width: "100%",
-  },
-  text: {
-    textAlign: "center",
-    margin: "2em 0",
-  },
-  responsiveMorph: {
-    height: 200,
-    width: 200,
-  },
   morphDiv: {
     display: "flex",
     justifyContent: "center",
@@ -50,7 +39,6 @@ export default function BokiemResponsiveMorph(props) {
                 src={process.env.PUBLIC_URL + '/projects/bokiem/' + covers[name].url3}
                 alt="mobile"
                 height={isMobileOnly ? "150" : "300"}
-                className={classes.img}
               />
             }
             {!toggle && 
@@ -59,7 +47,6 @@ export default function BokiemResponsiveMorph(props) {
                 src={process.env.PUBLIC_URL + '/projects/bokiem/' + covers[name].url2}
                 alt="desktop"
                 height={isMobileOnly ? "150" : "300"}
-                className={classes.img}
               />
             }
           </Grid>

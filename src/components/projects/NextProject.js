@@ -4,43 +4,20 @@ import PropTypes from "prop-types";
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Typography } from "@material-ui/core";
+import IconButton from '@material-ui/core/IconButton';
 
 import { covers } from '../../components/Covers';
 import FadeIn from "../../containers/style/FadeIn";
+import MultiFormatPhoto from "../photos/MultiFormatPhoto";
 
 const useStyles = makeStyles(() => ({
-  nextProject: {
-    margin: "1em 0",
-    zIndex: "1",
-  },
-  typography: {
-    zIndex: "9999",
-    position: "absolute",
-    opacity: 1,
-    height: "30vh",
-    width: "100%",
-    textAlign: "center",
-    display: "inline-flex",
-    justifyContent: "center",
-    alignItems: "center",
-    left: 0,
-    right: 0,
-    filter: "blur(0px)",
-    transition: "all .5s ease-in-out",
-  },
   blurDiv: {
-    height: "30vh",
     width: "100%",
-    position: "relative",
-    display: "block",
-    left: 0,
-    right: 0,
+    objectPosition: props => (props.name === 'datette')? "unset": "0px -15rem",
     zIndex: "1",
     transition: "all .2s ease-in-out",
     filter: "blur(4px)",
     overflow: "hidden",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
     '&:hover': {
       transform: "scale(1.05)",
       filter: "blur(0px)",
@@ -58,12 +35,20 @@ const useStyles = makeStyles(() => ({
   next: {
     marginTop: "2em",
     paddingBottom: "0.5em",
+  },
+  rootIconButton: {
+    "&:hover": {
+      background: "transparent",
+    }
+  },
+  link: {
+    padding: 0,
   }
 }))
 
 export default function NextProject(props) {
   
-  const classes = useStyles();
+  const classes = useStyles(props);
   const name = props.name;
   
 
@@ -85,14 +70,24 @@ export default function NextProject(props) {
           Next Project
         </Typography>
         <div className={classes.wrapper}>
-          <Link
+          <IconButton 
+            aria-label="next-project"
+            component={Link}
             href={`/${covers[nextProject].name}`}
-            style={{textDecoration: 'none'}}
-            rel="noopener noreferrer"
+            disableRipple
+            disableTouchRipple
             className={classes.link}
+            classes={{
+              'root': classes.rootIconButton,
+            }}
           >
-            <div className={classes.blurDiv} style={{backgroundImage: `url(${photosPath + covers[nextProject].url1})`,}}/>
-          </Link>
+            <MultiFormatPhoto
+              alt="next-project"
+              className={classes.blurDiv}
+              url={covers[nextProject].url1}
+              photoPath={photosPath}
+            />
+          </IconButton>
         </div>
       </FadeIn>
     </>
