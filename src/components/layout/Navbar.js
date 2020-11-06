@@ -22,14 +22,6 @@ const useStyles = makeStyles(() => ({
   navRight: {
     display: "flex",
   },
-  button: {
-    borderRadius: "25px",
-    fontSize: "2em"
-  },
-  logoDiv: {
-    display: "flex",
-    alignItems: "center",
-  },
   rootIconButton: {
     "&:hover": {
       background: "transparent",

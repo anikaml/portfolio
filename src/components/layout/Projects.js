@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Typography } from '@material-ui/core/';
+import IconButton from '@material-ui/core/IconButton';
 
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
@@ -73,9 +74,6 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-flex",
     alignItems: 'center',
   },
-  arrow: {
-    height: '2rem',
-  },
   "@keyframes run": {
     "0%": {
       opacity: 1,
@@ -92,6 +90,15 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
     paddingLeft: '1em',
     cursor: 'pointer',
+  },
+  iconButton: {
+    width: '100%',
+    padding: 0,
+  },
+  rootIconButton: {
+    "&:hover": {
+      background: "transparent",
+    }
   },
 }));
 
@@ -110,18 +117,22 @@ export default function Projects() {
               <div
                 className={classes.parallaxDiv}
               >
-                <Link
+                <IconButton 
+                  aria-label="project"
+                  component={Link}
                   href={`/${covers[project].name}`}
-                  style={{textDecoration: 'none'}}
-                  rel="noopener noreferrer"
+                  disableRipple
+                  disableTouchRipple
+                  className={classes.iconButton}
+                  classes={{
+                    'root': classes.rootIconButton,
+                  }}
                 >
-                  <FadeIn>
-                    <Banner
-                      url={`/projects/${project}/${covers[project].url1}`}
-                      className={classes.banner}
-                    />
-                  </FadeIn>
-                </Link>
+                  <Banner
+                    url={`/projects/${project}/${covers[project].url1}`}
+                    className={classes.banner}
+                  />
+                </IconButton>
               </div>
               <>
                 <FadeIn>
