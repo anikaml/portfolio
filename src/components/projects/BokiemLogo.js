@@ -20,9 +20,6 @@ const useStyles = makeStyles(() => ({
     alignItems: "center", 
     justifyContent: "center",
   },
-  logo: {
-    maxHeight: "10em",
-  },
 }))
 
 export default function BokiemLogo() {

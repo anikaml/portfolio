@@ -7,12 +7,8 @@ import { isTablet } from 'react-device-detect';
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
-import { highlightColor } from '../../utils/colors';
 
 const useStyles = makeStyles(() => ({
-  container: {
-    margin: "2em auto",
-  },
   title: {
     fontWeight: 500,
     fontSize: 'calc(54px + (54 - 20) * ((100vw - 300px) / (1600 - 300)))',
@@ -31,17 +27,6 @@ const useStyles = makeStyles(() => ({
     margin: "1em 0",
     display: "inline-block",
   },
-  highlight: {
-    height: '2em',
-    backgroundColor: highlightColor,
-    width: '100%',
-    marginTop: '-2.5em',
-    zIndex: 1,
-    '@media (max-width:900px)': {
-      height: '1em',
-      marginTop: '-1em',
-    },
-  }
 }));
 
 export default function SectionTitle(props) {
