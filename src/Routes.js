@@ -6,8 +6,8 @@ import NotFound from "./containers/NotFound";
 
 import { covers } from "./components/Covers";
 import SuspenseContainer from "./components/layout/SuspenseContainer";
-import AboutText from "./components/layout/AboutText";
-import Skills from "./containers/about/Skills";
+import AboutText from "./components/layout/about/AboutText";
+import Skills from "./components/layout/about/Skills";
 
 const ProjectTemplate = lazy(() => import("./containers/projects/ProjectTemplate"));
 

@@ -33,7 +33,7 @@ export default function Bokiem(props) {
     >
     <Grid item xs={12} >
       <FadeIn>
-      <Typography variant="h4" className={classes.text}>
+        <Typography variant="h4" className={classes.text}>
           Responsive Design
         </Typography>
       </FadeIn>

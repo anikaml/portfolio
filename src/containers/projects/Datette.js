@@ -12,13 +12,6 @@ import { covers } from '../../components/Covers';
 import LightboxImage from "../../components/projects/LightboxImage";
 
 const useStyles = makeStyles(() => ({
-  container: {
-    margin: "4em",
-    width: "auto",
-    '@media (max-width:600px)': {
-      margin: "1em",
-    },
-  },
   datetteImg: {
     margin: "1em",
     maxHeight: "45vh",

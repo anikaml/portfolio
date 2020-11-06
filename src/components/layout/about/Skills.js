@@ -8,10 +8,10 @@ import { useInView } from 'react-intersection-observer';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Typography } from '@material-ui/core/';
 
-import { shadowColor } from '../../utils/colors';
-import SectionTitle from '../../components/layout/SectionTitle';
-import FadeIn from '../../containers/style/FadeIn';
-import theme from '../../utils/theme';
+import { shadowColor } from '../../../utils/colors';
+import SectionTitle from '../SectionTitle';
+import theme from '../../../utils/theme';
+import FadeIn from '../../../containers/style/FadeIn';
 
 const useStyles = makeStyles(() => ({
   container: {

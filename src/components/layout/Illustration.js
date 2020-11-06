@@ -38,9 +38,6 @@ const useStyles = makeStyles(() => ({
   card4: { //sofa
     opacity: "0.8"
   },
-  backgroundDiv: {
-
-  },
   background: {
     height: "auto",
     zIndex: -1,
@@ -98,13 +95,12 @@ export default function Illustration() {
           className={classes.blob}
         />
         <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-          <div className={classes.backgroundDiv}>
-          <SVG
-            src={process.env.PUBLIC_URL + "/icons/background_new.svg"} 
-            className={classes.background}
-          />
+          <div>
+            <SVG
+              src={process.env.PUBLIC_URL + "/icons/background_new.svg"} 
+              className={classes.background}
+            />
           </div>
-          
           <animated.div className={`${classes.card} ${classes.card2}`} style={{ transform: properties.xy.to(trans2) }} >
             <SVG
               src={process.env.PUBLIC_URL + "/icons/example-bagX.svg"} 
