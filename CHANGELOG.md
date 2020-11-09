@@ -1,3 +1,8 @@
+## 0.2.16
+
+NOTES:
+* added google analytics
+
 ## 0.2.15
 
 NOTES:
