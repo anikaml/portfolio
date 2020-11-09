@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from "react-router-dom";
+// Google Analytics
+import GAListener from './utils/GAListener';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <GAListener trackingId="G-PLE75WN1SC">
+        <App />
+      </GAListener>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
