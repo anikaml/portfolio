@@ -13,7 +13,9 @@ import MultiFormatPhoto from "../photos/MultiFormatPhoto";
 const useStyles = makeStyles(() => ({
   blurDiv: {
     width: "100%",
-    objectPosition: props => (props.name === 'datette')? "unset": "0px -15rem",
+    minWidth: '100vw',
+    // objectPosition: props => (props.name === 'datette')? "unset": "0px -15rem",
+    objectPosition: "0px -15rem",
     zIndex: "1",
     transition: "all .2s ease-in-out",
     filter: "blur(4px)",
@@ -61,7 +63,7 @@ export default function NextProject(props) {
     nextProject = 'stalue'
   }
 
-  const photosPath = `/projects/${nextProject}/`
+  const photosPath = `/projects/${nextProject}`
   
   return (
     <>
