@@ -4,7 +4,7 @@ Welcome to my Portfolio repository. 👋
 
 This is my personal portfolio website, which you can see at  **[anikamlodzianowski.com](https://anikamlodzianowski.com)**
 
-![screen](https://github.com/anikaniescierewicz/portfolio/blob/feature/readme/public/screen.png?raw=true)
+![screen](https://github.com/anikaniescierewicz/portfolio/blob/master/public/screen.png?raw=true)
 
 
 ### Tech stack
