@@ -14,8 +14,7 @@ const useStyles = makeStyles(() => ({
   blurDiv: {
     width: "100%",
     minWidth: '100vw',
-    // objectPosition: props => (props.name === 'datette')? "unset": "0px -15rem",
-    objectPosition: "0px -15rem",
+    objectPosition: props => (props.name === 'bokiem' || props.name === 'stalue')? "0px -15rem" : "unset",
     zIndex: "1",
     transition: "all .2s ease-in-out",
     filter: "blur(4px)",
@@ -27,6 +26,7 @@ const useStyles = makeStyles(() => ({
     },
     '@media (max-width:600px)': {
       filter: "blur(0px)",
+      objectPosition: props => (props.name === 'datette')? "unset": "0px 0rem",
     },
   },
   wrapper: {
