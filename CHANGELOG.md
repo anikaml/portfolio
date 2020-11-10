@@ -1,3 +1,8 @@
+## 0.2.17
+
+NOTES:
+* fixed next project image position on mobile devices
+
 ## 0.2.16
 
 NOTES:
