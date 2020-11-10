@@ -1,3 +1,26 @@
+# Portfolio website
+
+Welcome to my Portfolio repository. 👋
+
+This is my personal portfolio website, which you can see at  **[anikamlodzianowski.com](https://anikamlodzianowski.com)**
+
+![screen](https://github.com/anikaniescierewicz/portfolio/blob/master/public/screen.png?raw=true)
+
+
+### Tech stack
+
+* ReactJS, 
+* Material-UI,
+* React-Router,
+* React Intersection Observer,
+* Axios,
+* Framer-motion,
+* React Spring,
+* React Scroll Parallax,
+* AWS (S3, CloudFront, CodeBuild)
+
+#
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
