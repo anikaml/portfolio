@@ -1,3 +1,8 @@
+## 0.2.18
+
+NOTES:
+* uninstalled unused npm packages
+
 ## 0.2.17
 
 NOTES:
