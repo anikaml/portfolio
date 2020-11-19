@@ -47,6 +47,10 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     height: "auto",
     maxWidth: '50vw',
+    margin: '0 auto',
+    '@media (max-width:900px)': {
+      maxWidth: '80vw',
+    },
   },
   icon: {
     maxWidth: "-webkit-fill-available",
