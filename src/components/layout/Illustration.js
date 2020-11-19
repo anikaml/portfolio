@@ -40,6 +40,7 @@ const useStyles = makeStyles(() => ({
   },
   background: {
     height: "auto",
+    width: 'auto',
     zIndex: -1,
     maxHeight: '25rem',
   },
