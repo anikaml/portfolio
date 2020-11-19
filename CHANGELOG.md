@@ -1,3 +1,10 @@
+## 0.2.19
+
+NOTES:
+* centered illustration on mobile
+* deleted console log in Skills component
+* uninstalled unused jquery package
+
 ## 0.2.18
 
 NOTES:
