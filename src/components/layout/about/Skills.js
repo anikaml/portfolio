@@ -118,10 +118,6 @@ export default function Skills() {
     rootMargin: '-100px 0px',
   });
 
-  React.useEffect(() => {
-    console.log(`inView: ${inView}`)
-  }, [inView]);
-
   const skills = {
     Dev: {
       text: 'I value efficient, powerful, and maintainable solutions to quickly deliver results.',
