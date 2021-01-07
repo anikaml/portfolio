@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer() {
   const classes = useStyles();
+  const currentDate = new Date()
+  const currentYear = currentDate.getFullYear()
   
   return (
     <div className={classes.footerDiv}>
@@ -64,7 +66,7 @@ export default function Footer() {
         </div>
         <div>
           <Typography variant="caption" className={classes.whiteText} style={{letterSpacing: isMobileOnly? 0 : 3}}>
-            &copy; 2020 Anika Mlodzianowski
+            &copy; {currentYear} Anika Mlodzianowski
           </Typography>
         </div>
       </div>
