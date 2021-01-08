@@ -1,3 +1,9 @@
+## 0.2.20
+
+NOTES:
+* updated axios 
+* updated year in footer
+
 ## 0.2.19
 
 NOTES:
