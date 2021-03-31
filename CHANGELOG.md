@@ -1,3 +1,14 @@
+## 1.0.0
+
+NOTES:
+* added F1app project 
+* updated Launch component - fixed styling on mobile
+* added GitHub component 
+* fixed Stalue component page to fit width on mobile
+* added styling to NextProject component
+* updated Skills with new skills that i've learned
+* converted screenshots of f1app to next gen 
+
 ## 0.2.20
 
 NOTES:
