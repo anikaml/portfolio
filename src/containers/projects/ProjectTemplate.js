@@ -17,10 +17,13 @@ import NextProject from "../../components/projects/NextProject";
 import TechStack from "../../components/projects/TechStack";
 import FadeIn from "../style/FadeIn";
 import SuspenseContainer from "../../components/layout/SuspenseContainer";
+import GitHubLink from "../../components/projects/GitHubLink";
+import { shadowColor } from "../../utils/colors";
 
 const Bokiem = lazy(() => import("./Bokiem"))
 const Datette = lazy(() => import("./Datette"))
 const Stalue = lazy(() => import("./Stalue"))
+const F1app = lazy(() => import("./F1app"))
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -36,7 +39,8 @@ const useStyles = makeStyles(() => ({
   banner: {
     '&:hover': {
       cursor: "pointer",
-    }
+    },
+    boxShadow: `0px 3px 10px 3px ${shadowColor}`
   }
 }))
 
@@ -53,6 +57,8 @@ export default function ProjectTemplate(props) {
     body = <SuspenseContainer><Bokiem name={name}/></SuspenseContainer>
   } else if (name === 'datette') {
     body = <SuspenseContainer><Datette name={name}/></SuspenseContainer>
+  } else if (name === 'f1app') {
+    body = <SuspenseContainer><F1app name={name}/></SuspenseContainer>
   }
   
   return (
@@ -70,6 +76,7 @@ export default function ProjectTemplate(props) {
       </FadeIn>
       <Container maxWidth="lg" className={classes.container}>
         <Launch index={name}/>
+        <GitHubLink index={name}/>
         <ProjectHeader index={name}/>
         <Grid
           container
