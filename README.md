@@ -20,6 +20,12 @@ This is my personal portfolio website, which you can see at  **[anikamlodzianows
 * AWS (S3, CloudFront, CodeBuild)
 
 #
+## Image Convert
+Convert images from .png to next-gen format (.jp2, .webp)
+```
+bash image_convert.sh
+```
+#
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
