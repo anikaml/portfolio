@@ -121,14 +121,14 @@ export default function Skills() {
   const skills = {
     Dev: {
       text: 'I value efficient, powerful, and maintainable solutions to quickly deliver results.',
-      'What I create': 'Responsive Websites, PWAs (Progressive Web Apps)',
-      Tech: ['ReactJS', 'Redux', 'Javascript', 'CSS3', 'HTML5','Material-UI', 'Git', 'AWS (S3, CloudFront, CodeBuild)'],
+      'What I create': 'Responsive Websites, SPAs (Single Page Applications), PWAs (Progressive Web Apps)',
+      Tech: ['Javascript', 'ReactJS', 'Typescript', 'Redux', 'CSS3', 'HTML5', 'Material-UI','REST API (Axios)', 'Jest', 'React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)'],
       svg: "/icons/dev.svg",
       color: theme.palette.primary.light,
     },
     Designer: {
       text: 'I like clean design, easy navigation, and adding a custom touch to all my projects.',
-      'What I design': 'Logos, Product design, App presentations',
+      'What I design': 'Websites, Website Prototypes, Logos, App presentations',
       Tools: ['Photoshop', 'AdobeXD', 'Inkscape/Illustrator', '3dsMax', 'Cinema4D', 'Pen & Paper'],
       svg: "/icons/designer.svg",
       color: theme.palette.primary.light,
