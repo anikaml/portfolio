@@ -17,9 +17,10 @@ const useStyles = makeStyles(() => ({
     display: "inline",
     position: "relative",
     paddingLeft: "0.5em",
+    maxWidth: '10rem',
     zIndex: 10,
     '@media (max-width:900px)': {
-      fontSize: isTablet ? '4rem' : "2.5rem",
+      fontSize: isTablet ? '4rem' : 'calc(54px + (54 - 20) * ((100vw - 300px) / (1600 - 300)))',
     },
   },
   wrapper: {

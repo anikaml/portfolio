@@ -9,12 +9,13 @@ import IconButton from '@material-ui/core/IconButton';
 import { covers } from '../../components/Covers';
 import FadeIn from "../../containers/style/FadeIn";
 import MultiFormatPhoto from "../photos/MultiFormatPhoto";
+import { shadowColor } from "../../utils/colors";
 
 const useStyles = makeStyles(() => ({
   blurDiv: {
     width: "100%",
     minWidth: '100vw',
-    objectPosition: props => (props.name === 'bokiem' || props.name === 'stalue')? "0px -15rem" : "unset",
+    objectPosition: props => (props.name === 'datette')? '-2em -2.5em' : (props.name === 'bokiem' || props.name === 'stalue')? "0px -15rem" : "unset",
     zIndex: "1",
     transition: "all .2s ease-in-out",
     filter: "blur(4px)",
@@ -26,13 +27,15 @@ const useStyles = makeStyles(() => ({
     },
     '@media (max-width:600px)': {
       filter: "blur(0px)",
-      objectPosition: props => (props.name === 'datette')? "unset": "0px 0rem",
+      objectPosition: props => (props.name === 'datette')? "-14em -2.5em": "0px 0rem",
+      minWidth: props => (props.name === 'datette')? '150vh' : (props.name === 'f1app')? '200vw' : '100vw',
     },
   },
   wrapper: {
     height: "30vh",
     width: "100%",
     overflow: "hidden",
+    boxShadow: `0px 3px 10px 3px ${shadowColor}`,
   },
   next: {
     marginTop: "2em",
@@ -60,6 +63,8 @@ export default function NextProject(props) {
   } else if (name === 'bokiem') {
     nextProject = 'datette'
   } else if (name === 'datette') {
+    nextProject = 'f1app'
+  } else if (name === 'f1app') {
     nextProject = 'stalue'
   }
 
