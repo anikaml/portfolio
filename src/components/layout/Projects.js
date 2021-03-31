@@ -12,7 +12,7 @@ import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
-import { greyColor } from '../../utils/colors';
+import { greyColor, greyBorderColor } from '../../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     width: "90vw",
     margin: "1em 0",
     overflow: "hidden",
+    border: `1px solid ${greyBorderColor}`,
     '@media (max-width:900px)': {
       height: "30vh",
     },

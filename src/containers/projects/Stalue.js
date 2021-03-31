@@ -36,6 +36,7 @@ const useStyles = makeStyles(() => ({
     animationName: '$float',
     animation: "float 6s ease-in-out infinite",
     maxHeight: "10em",
+    width: "100%",
   },
   '@keyframes float': { 
     "0%": { 
