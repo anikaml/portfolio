@@ -119,7 +119,7 @@ export default function Projects() {
                 className={classes.parallaxDiv}
               >
                 <IconButton 
-                  aria-label="project"
+                  aria-label={`project-${covers[project].name}`}
                   component={Link}
                   href={`/${covers[project].name}`}
                   disableRipple
@@ -141,6 +141,7 @@ export default function Projects() {
                     href={`/${covers[project].name}`}
                     style={{textDecoration: 'none'}}
                     rel="noopener noreferrer"
+                    data-testid={`test-link-${covers[project].name}`}
                   >
                     <Typography variant="h6" className={classes.text}>
                       {covers[project].project}
