@@ -1,3 +1,9 @@
+## 1.1.0
+
+NOTES:
+* added tests to pipeline
+* created tests for links and contact form
+
 ## 1.0.0
 
 NOTES:
