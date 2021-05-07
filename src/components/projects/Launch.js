@@ -48,6 +48,7 @@ export default function Launch(props) {
   
   return (
     <>
+    {covers[props.index].href && 
       <FadeIn>
         <Link
           href={covers[props.index].href}
@@ -60,6 +61,7 @@ export default function Launch(props) {
           </Typography>
         </Link>
       </FadeIn>
+      }
     </>
   )
 }

@@ -37,7 +37,6 @@ export const covers = {
   },
   datette: {
     name: "datette",
-    href: "https://datette.com",
     project: "Datette - Dating ideas and checklist app for couples.",
     colors: ["#FF9F79", "#3D444F"],
     tech_stack: ["ReactJS", "PWA", "Axios", "Material-UI", "Redux",],
