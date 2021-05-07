@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, Typography } from '@material-ui/core/';
+import { Grid, Link, Typography, useMediaQuery } from '@material-ui/core/';
 import IconButton from '@material-ui/core/IconButton';
 
 import Banner from '../projects/Banner';
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     transition: "all .2s ease-in-out",
     zIndex: "1",
+    borderRadius: "25px",
     '&:hover': {
       transform: "scale(1.05)",
       transition: "0.6s all ease-in-out",
@@ -36,16 +37,18 @@ const useStyles = makeStyles((theme) => ({
   },
   containerDiv: {
     display: "flex",
-    flexDirection: "column",
+    //flexDirection: "column",
     justifyContent: "center", 
-    alignItems: "center",
+    //alignItems: "center",
     flexWrap: "wrap",
+    padding: "1em",
   },
   parallaxDiv: {
-    width: "90vw",
+    //width: "30vw",
     margin: "1em 0",
     overflow: "hidden",
     border: `1px solid ${greyBorderColor}`,
+    borderRadius: '25px',
     '@media (max-width:900px)': {
       height: "30vh",
     },
@@ -95,26 +98,36 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     width: '100%',
     padding: 0,
+    borderRadius: "25px",
   },
   rootIconButton: {
+    borderRadius: "25px",
     "&:hover": {
       background: "transparent",
     }
   },
+  mainDiv: {
+    paddingBottom: "1em",
+    width: "30vw",
+    //margin: "2em",
+    //overflow: "hidden",
+  }
 }));
 
 const d = "M73.77,34.02,85.23,45.48H.68v5.04H85.23L73.77,61.98l3.57,3.57L94.88,48,77.34,30.45Z"
 
 export default function Projects() {
   const classes = useStyles();
+
+  let largeSize = useMediaQuery('(min-width:900px)')
   
   return (
     <>
      <SectionTitle id="projects" title="Projects"/>
       <div className={classes.container}>
-        <div  className={classes.containerDiv}>
+        {/* <div  className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <div key={covers[project].name} style={{paddingBottom: "1em"}} className={classes.mainDiv}>
+            <div key={covers[project].name} className={classes.mainDiv}>
               <div
                 className={classes.parallaxDiv}
               >
@@ -185,7 +198,82 @@ export default function Projects() {
               </>
             </div>
           )}
-        </div>
+        </div> */}
+
+<Grid container spacing={largeSize ? 6 : 2} className={classes.containerDiv}>
+          {Object.keys(covers).map(project => 
+            <Grid item key={covers[project].name} className={classes.mainDiv} xs={10} md={6}>
+              <div
+                className={classes.parallaxDiv}
+              >
+                <IconButton 
+                  aria-label={`project-${covers[project].name}`}
+                  component={Link}
+                  href={`/${covers[project].name}`}
+                  disableRipple
+                  disableTouchRipple
+                  className={classes.iconButton}
+                  classes={{
+                    'root': classes.rootIconButton,
+                  }}
+                >
+                  <Banner
+                    url={`/projects/${project}/${covers[project].url1}`}
+                    className={classes.banner}
+                  />
+                </IconButton>
+              </div>
+              <>
+                <FadeIn>
+                  <Link
+                    href={`/${covers[project].name}`}
+                    style={{textDecoration: 'none'}}
+                    rel="noopener noreferrer"
+                    data-testid={`test-link-${covers[project].name}`}
+                  >
+                    <Typography variant="h6" className={classes.text}>
+                      {covers[project].project}
+                    </Typography>
+                  </Link>
+                </FadeIn>
+                <FadeIn>
+                  <Link
+                    href={`/${covers[project].name}`}
+                    style={{textDecoration: 'none'}}
+                    rel="noopener noreferrer"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 1.1 }}
+                      className={classes.arrowDiv}
+                    >
+                      <Typography className={classes.details}>
+                        View details
+                      </Typography>
+                      <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={"50px"}
+                        height={"50px"}
+                        viewBox="0 0 96 96"
+                        className={classes.loader}
+                        whileTap={{x: [0, 30]}}
+                      >
+                        <motion.path
+                          d={d}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          fill={greyColor}
+                        />
+                      </motion.svg>
+                    </motion.div>
+                  </Link>
+                </FadeIn>
+              </>
+            </Grid>
+          )}
+        </Grid>
       </div>
     </>
   )
