@@ -1,3 +1,8 @@
+## 1.1.1
+
+NOTES:
+* fixed components which dont have website links
+
 ## 1.1.0
 
 NOTES:
