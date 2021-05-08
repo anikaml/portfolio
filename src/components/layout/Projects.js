@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import { motion } from "framer-motion";
+//import { isSafari } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,32 +24,40 @@ const useStyles = makeStyles((theme) => ({
   },
   banner: {
     display: "block",
-    overflow: "hidden",
+    overflow: "hidden!important",
+    overflowY: "hidden",
     transition: "all .2s ease-in-out",
     zIndex: "1",
     borderRadius: "25px",
     '&:hover': {
       transform: "scale(1.05)",
       transition: "0.6s all ease-in-out",
+      zIndex: "-1",
+      overflow: "hidden",
     },
     '@media (max-width:900px)': {
       height: "30vh",
+      zIndex: "-3",
+      overflow: "hidden",
+      borderRadius: "25px",
+      overflowY: "hidden",
     },
   },
   containerDiv: {
     display: "flex",
-    //flexDirection: "column",
     justifyContent: "center", 
-    //alignItems: "center",
     flexWrap: "wrap",
     padding: "1em",
   },
   parallaxDiv: {
-    //width: "30vw",
     margin: "1em 0",
     overflow: "hidden",
     border: `1px solid ${greyBorderColor}`,
     borderRadius: '25px',
+    '-webkit-backface-visibility': "hidden",
+    '-moz-backface-visibility': "hidden",
+    '-webkit-transform': "translate3d(0, 0, 0)",
+    '-moz-transform': "translate3d(0, 0, 0)",
     '@media (max-width:900px)': {
       height: "30vh",
     },
@@ -64,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline',
     '@media (max-width:900px)': {
       display: 'inline-block',
+      width: "auto",
     },
   },
   details: {
@@ -99,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     padding: 0,
     borderRadius: "25px",
+    'webkit-border-radius': "25px",
   },
   rootIconButton: {
     borderRadius: "25px",
@@ -109,8 +120,6 @@ const useStyles = makeStyles((theme) => ({
   mainDiv: {
     paddingBottom: "1em",
     width: "30vw",
-    //margin: "2em",
-    //overflow: "hidden",
   }
 }));
 
@@ -200,7 +209,7 @@ export default function Projects() {
           )}
         </div> */}
 
-<Grid container spacing={largeSize ? 6 : 2} className={classes.containerDiv}>
+<Grid container spacing={largeSize ? 6 : 0} className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
             <Grid item key={covers[project].name} className={classes.mainDiv} xs={10} md={6}>
               <div

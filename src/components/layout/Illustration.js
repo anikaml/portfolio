@@ -25,8 +25,8 @@ const useStyles = makeStyles(() => ({
     willChange: "transform",
   },
   card2: { //bag
-    width: "15em",
-    height: "15em",
+    width: "10em",
+    height: "10em",
     zIndex: "1",
     opacity: "0.7"
   },
@@ -79,7 +79,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans2 = (x, y) => `translate3d(${x / 10 + 200}px,${y / 10 + 200}px,0)` //bag
+const trans2 = (x, y) => `translate3d(${x / 10 + 150}px,${y / 10 + 150}px,0)` //bag
 const trans3 = (x, y) => `translate3d(${x / 8 - 90}px,${y / 8 - 0}px,0)` //cup
 //const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)` //sofa
 const trans4 = (x, y) => `translate3d(${x / 20}px,${y / 20 + 20}px,0)` //sofa 
