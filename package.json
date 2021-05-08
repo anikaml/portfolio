@@ -26,7 +26,7 @@
     "react-morph": "^0.4.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-scroll-parallax": "^2.3.4",
+    "react-scroll-parallax": "^2.4.0",
     "react-spring": "^9.0.0-beta.34",
     "react-use-gesture": "^7.0.15"
   },
