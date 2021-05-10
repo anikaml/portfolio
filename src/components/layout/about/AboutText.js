@@ -85,7 +85,7 @@ export default function AboutText() {
             </FadeIn>
             <FadeIn>
               <Typography variant={isTablet?"h3":isMobile? "h5":"h4"} className={classes.typography}>
-                {"I'm Anika. A web designer & front-end developer, currently working at "} 
+                {"I'm Anika. A front-end developer & web designer, currently working at "} 
                   <Link
                     href="https://bokiem.solutions"
                     style={{ textDecoration: 'none'}}
