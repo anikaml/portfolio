@@ -122,7 +122,7 @@ export default function Skills() {
     Dev: {
       text: 'I value efficient, powerful, and maintainable solutions to quickly deliver results.',
       'What I create': 'Responsive Websites, SPAs (Single Page Applications), PWAs (Progressive Web Apps)',
-      Tech: ['Javascript', 'ReactJS', 'Typescript', 'Redux', 'CSS3', 'HTML5', 'Material-UI','REST API (Axios)', 'Jest', 'React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)'],
+      Tech: ['Javascript', 'ReactJS', 'Typescript', 'Redux', 'CSS3', 'HTML5', 'Material-UI','REST API (Axios)', 'Jest', 'React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)', 'D3.js / Chart.js'],
       svg: "/icons/dev.svg",
       color: theme.palette.primary.light,
     },
