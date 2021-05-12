@@ -136,7 +136,7 @@ export default function Projects() {
       <div className={classes.container}>
         <Grid container spacing={largeSize ? 6 : 3} className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <Grid item key={covers[project].name} className={classes.mainDiv} xs={9} md={5}>
+            <Grid item key={covers[project].name} className={classes.mainDiv} xs={11} md={5}>
               <div
                 className={classes.parallaxDiv}
               >
