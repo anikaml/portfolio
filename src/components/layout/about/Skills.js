@@ -36,11 +36,13 @@ const useStyles = makeStyles(() => ({
   fieldDiv: {
     textAlign: "center",
     padding: "1em",
-    border: `1px solid ${shadowColor}`,
     borderRadius: 40,
-    //boxShadow: `0px 3px 5px 3px ${shadowColor}`,
+    boxShadow: `0px 3px 5px 3px ${shadowColor}`,
     margin: "2em 1em",
-    backgroundColor: "white",
+    background: "rgba( 255, 255, 255, 0.05 )",
+    backdropFilter: "blur( 4px )",
+    '-webkit-backdrop-filter': "blur( 4px )",
+    border: "1px solid rgba( 255, 255, 255, 0.18 )",
     maxWidth: "40vw",
     zIndex: 10,
     transition: 'all .2s ease-in-out',
@@ -105,7 +107,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   skillsDiv: {
-    marginTop: '-65vh',
+    marginTop: isTablet ? '-35vh' : '-65vh',
     '@media (max-width:900px)': {
       marginTop: '-40vh',
     },
@@ -122,7 +124,7 @@ export default function Skills() {
     Dev: {
       text: 'I value efficient, powerful, and maintainable solutions to quickly deliver results.',
       'What I create': 'Responsive Websites, SPAs (Single Page Applications), PWAs (Progressive Web Apps)',
-      Tech: ['Javascript', 'ReactJS', 'Typescript', 'Redux', 'CSS3', 'HTML5', 'Material-UI','REST API (Axios)', 'Jest', 'React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)'],
+      Tech: ['Javascript', 'ReactJS', 'Typescript', 'Redux', 'CSS3', 'HTML5', 'Material-UI','REST API (Axios)', 'Jest / React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)', 'D3.js / Chart.js', 'React Spring / Framer Motion'],
       svg: "/icons/dev.svg",
       color: theme.palette.primary.light,
     },

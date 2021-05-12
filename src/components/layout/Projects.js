@@ -5,47 +5,55 @@ import { motion } from "framer-motion";
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, Typography } from '@material-ui/core/';
+import { Grid, Link, Typography, useMediaQuery } from '@material-ui/core/';
 import IconButton from '@material-ui/core/IconButton';
 
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
-import { greyColor, greyBorderColor } from '../../utils/colors';
+import { greyBorderColor, greyColor, shadowColor } from '../../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     margin: "2em",
-    '@media (max-width:900px)': {
-      margin: 0,
-    },
   },
   banner: {
     display: "block",
-    overflow: "hidden",
+    overflow: "hidden!important",
+    overflowY: "hidden",
     transition: "all .2s ease-in-out",
     zIndex: "1",
+    borderRadius: "25px",
     '&:hover': {
       transform: "scale(1.05)",
       transition: "0.6s all ease-in-out",
+      zIndex: "-1",
+      overflow: "hidden",
     },
     '@media (max-width:900px)': {
       height: "30vh",
+      zIndex: "-3",
+      overflow: "hidden",
+      borderRadius: "25px",
+      overflowY: "hidden",
     },
   },
   containerDiv: {
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center", 
-    alignItems: "center",
     flexWrap: "wrap",
   },
   parallaxDiv: {
-    width: "90vw",
     margin: "1em 0",
     overflow: "hidden",
     border: `1px solid ${greyBorderColor}`,
+   
+    borderRadius: '25px',
+    '-webkit-backface-visibility': "hidden",
+    '-moz-backface-visibility': "hidden",
+    '-webkit-transform': "translate3d(0, 0, 0)",
+    '-moz-transform': "translate3d(0, 0, 0)",
     '@media (max-width:900px)': {
       height: "30vh",
     },
@@ -61,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline',
     '@media (max-width:900px)': {
       display: 'inline-block',
+      width: "auto",
     },
   },
   details: {
@@ -95,26 +104,39 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     width: '100%',
     padding: 0,
+    borderRadius: "25px",
+    'webkit-border-radius': "25px",
+    
   },
   rootIconButton: {
+    borderRadius: "25px",
     "&:hover": {
       background: "transparent",
     }
   },
+  mainDiv: {
+    paddingBottom: "1em",
+    width: "30vw",
+    boxShadow: `0px 3px 5px 3px ${shadowColor}`,
+    borderRadius: "25px",
+    margin: "1em"
+  }
 }));
 
 const d = "M73.77,34.02,85.23,45.48H.68v5.04H85.23L73.77,61.98l3.57,3.57L94.88,48,77.34,30.45Z"
 
 export default function Projects() {
   const classes = useStyles();
+
+  let largeSize = useMediaQuery('(min-width:900px)')
   
   return (
     <>
      <SectionTitle id="projects" title="Projects"/>
       <div className={classes.container}>
-        <div  className={classes.containerDiv}>
+        <Grid container spacing={largeSize ? 6 : 3} className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <div key={covers[project].name} style={{paddingBottom: "1em"}} className={classes.mainDiv}>
+            <Grid item key={covers[project].name} className={classes.mainDiv} xs={11} md={5}>
               <div
                 className={classes.parallaxDiv}
               >
@@ -183,9 +205,9 @@ export default function Projects() {
                   </Link>
                 </FadeIn>
               </>
-            </div>
+            </Grid>
           )}
-        </div>
+        </Grid>
       </div>
     </>
   )
