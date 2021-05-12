@@ -39,7 +39,7 @@ export default function SocialMediaLink(props) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Typography variant={isMobile? "h4" : "h3"} className={`${classes.typography} ${classes.whiteText}`}>
+        <Typography variant={isMobile? "h4" : "h3"} className={props.className ? props.className : `${classes.typography} ${classes.whiteText}`}>
           {props.name === 'GitHub' ? <GitHubIcon /> : <LinkedInIcon />} {props.name}
         </Typography>
       </Link>
@@ -48,6 +48,7 @@ export default function SocialMediaLink(props) {
 }
 
 SocialMediaLink.propTypes = {
+  className: PropTypes.string,
   href: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
