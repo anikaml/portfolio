@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
       marginTop: '-3em',
     },
-    // '@media (max-width:350px)': {
-    //   padding: "1em 1em 100vh 1em",
-    // },
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       //marginBottom: "-70vh",
@@ -56,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
      '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       padding: "7em 3em 3em 3em",
       height: 'auto',
-    }
+    },
+    
   },
   typography: {
     color: theme.palette.primary.contrastText,
@@ -76,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontWeight: 300,
-    fontSize: 'calc(16px + 6 * ((100vw - 320px) / 680))',
+    //fontSize: 'calc(16px + 6 * ((100vw - 320px) / 680))',
     '@media (max-width:900px)': {
       fontSize: '1.25rem',
       fontWeight: 400,
@@ -92,11 +90,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   text: {
-    padding: '1em 6em',
+    padding: '4em 6em',
+    margin: '2em',
     '@media (max-width:900px)': {
-      padding: '1em',
+      padding: '2em',
+      margin: "0em",
     },
-  }
+    //// glassmorphism
+     //background: "rgba( 255, 255, 255, 0.05 )",
+    // boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    // backdropFilter: "blur( 25px )",
+    // '-webkit-backdrop-filter': "blur( 4px )",
+    // borderRadius: "25px",
+    // border: "1px solid rgba( 255, 255, 255, 0.18 )",
+    //// neuromorphism
+    borderRadius: "50px",
+    boxShadow:  "-20px 20px 51px #070613, 20px -20px 51px #1b1a4d",
+  },
 }));
 
 export default function AboutText() {
@@ -108,16 +118,16 @@ export default function AboutText() {
         <div id="about" className={classes.div}>
           <Grid container maxWidth="md" className={classes.container}>
             <Grid item lg={4}>
-              <SVG src={process.env.PUBLIC_URL + "/icons/computer2.svg"} className={classes.comp}/>   
+              <SVG src={process.env.PUBLIC_URL + "/icons/computer.svg"} className={classes.comp}/>   
             </Grid>
-            <Grid item lg={8} className={classes.text}>
+            <Grid item lg={7} className={classes.text}>
               <FadeIn>
-                <Typography variant={isTablet?"h2":isMobile?"h4":"h2"} className={classes.typography} style={{marginBottom: "0.5em"}}>
+                <Typography variant={isTablet?"h2":isMobile?"h4":"h3"} className={classes.typography} style={{marginBottom: "0.5em"}}>
                 {"Hi,"}
               </Typography>
               </FadeIn>
               <FadeIn>
-                <Typography variant={isTablet?"h3":isMobile? "h5":"h4"} className={classes.typography}>
+                <Typography variant={isTablet?"h3":"h5"} className={classes.typography}>
                   {"I'm Anika. A front-end developer & web designer, currently working at "} 
                     <Link
                       href="https://bokiem.solutions"
@@ -132,7 +142,7 @@ export default function AboutText() {
                 </Typography>
               </FadeIn>
               <FadeIn>
-                <Typography variant={isTablet?"h5":isMobile? "h6":"h5"} style={{margin: "1em auto"}} className={`${classes.typography} ${classes.description}`}>
+                <Typography variant={isTablet?"h5":"h6"} style={{margin: "1em auto"}} className={`${classes.typography} ${classes.description}`}>
                   {"Design has been my true passion for as long as I remember. I have started my professional journey working as an Architectural Designer in NYC. After a few years of learning new skills and discovering new possibilities along the way, I've decided to try out a new creative outlet - Web Design and Development. After many hours of learning, creating a handful of projects from scratch, and seeing the infinite possibilities for expression that this field offered, I knew that the next step in my career was to become a web designer & front-end developer."}
                 </Typography>
               </FadeIn>
