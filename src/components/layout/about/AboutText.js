@@ -118,7 +118,7 @@ export default function AboutText() {
         <div id="about" className={classes.div}>
           <Grid container maxWidth="md" className={classes.container}>
             <Grid item lg={4}>
-              <SVG src={process.env.PUBLIC_URL + "/icons/computer.svg"} className={classes.comp}/>   
+              <SVG src={process.env.PUBLIC_URL + "/icons/Computer.svg"} className={classes.comp}/>   
             </Grid>
             <Grid item lg={7} className={classes.text}>
               <FadeIn>
