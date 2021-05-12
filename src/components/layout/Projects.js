@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import { motion } from "framer-motion";
-//import { isSafari } from 'react-device-detect';
 
 // Material UI Components
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,14 +12,11 @@ import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
-import { greyColor, greyBorderColor } from '../../utils/colors';
+import { greyBorderColor, greyColor, shadowColor } from '../../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     margin: "2em",
-    '@media (max-width:900px)': {
-      margin: 0,
-    },
   },
   banner: {
     display: "block",
@@ -47,12 +43,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center", 
     flexWrap: "wrap",
-    padding: "1em",
   },
   parallaxDiv: {
     margin: "1em 0",
     overflow: "hidden",
     border: `1px solid ${greyBorderColor}`,
+   
     borderRadius: '25px',
     '-webkit-backface-visibility': "hidden",
     '-moz-backface-visibility': "hidden",
@@ -110,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     borderRadius: "25px",
     'webkit-border-radius': "25px",
+    
   },
   rootIconButton: {
     borderRadius: "25px",
@@ -120,6 +117,9 @@ const useStyles = makeStyles((theme) => ({
   mainDiv: {
     paddingBottom: "1em",
     width: "30vw",
+    boxShadow: `0px 3px 5px 3px ${shadowColor}`,
+    borderRadius: "25px",
+    margin: "1em"
   }
 }));
 
@@ -134,9 +134,9 @@ export default function Projects() {
     <>
      <SectionTitle id="projects" title="Projects"/>
       <div className={classes.container}>
-        <Grid container spacing={largeSize ? 6 : 0} className={classes.containerDiv}>
+        <Grid container spacing={largeSize ? 6 : 3} className={classes.containerDiv}>
           {Object.keys(covers).map(project => 
-            <Grid item key={covers[project].name} className={classes.mainDiv} xs={10} md={6}>
+            <Grid item key={covers[project].name} className={classes.mainDiv} xs={9} md={5}>
               <div
                 className={classes.parallaxDiv}
               >
