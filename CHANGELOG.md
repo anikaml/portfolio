@@ -1,3 +1,8 @@
+## 1.2.1
+
+NOTES:
+* about illustration path fixed
+
 ## 1.2.0
 
 NOTES:
