@@ -116,7 +116,7 @@ export default function AboutText() {
     <>
       <Parallax y={isMobileOnly? [10, -10] : [20, -20]} className={classes.parallaxFooter} tagOuter="section" styleOuter={{margin: 0}}>
         <div id="about" className={classes.div}>
-          <Grid container maxWidth="md" className={classes.container}>
+          <Grid container className={classes.container}>
             <Grid item lg={4}>
               <SVG src={process.env.PUBLIC_URL + "/icons/Computer.svg"} className={classes.comp}/>   
             </Grid>
