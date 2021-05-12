@@ -1,3 +1,9 @@
+## 1.2.0
+
+NOTES:
+* new design for projects on landing page
+* fresher design for about page and skills
+
 ## 1.1.1
 
 NOTES:

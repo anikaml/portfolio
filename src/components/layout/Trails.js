@@ -63,7 +63,7 @@ export default function Trails() {
 
   const element1 = <Typography variant={isTablet?'h1':isMobile?"h4":"h2"} display="inline" style={{fontWeight: 500}} className={classes.element1}>{"Hi, I'm Anika."}</Typography>
   const element2 = (<Typography variant={isMobile? "h5":"h3"} display="inline" className={classes.element2}>
-                     {"A web designer & front-end developer"} 
+                     {"A front-end developer & web designer"} 
                   </Typography>)
   const element3 = (<Typography variant="h6" style={{marginTop: isMobile? '1em' : "2em"}} className={classes.element3}>
                     {"I create clean and user-friendly websites, utilizing my multidisciplinary design background to facilitate unique designs."}
