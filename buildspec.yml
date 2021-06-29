@@ -1,7 +1,9 @@
 #Used to deploy compiled React files to S3/CloudFront
 
 version: 0.2
-
+env:
+  parameter-store:
+    CYPRESS_RECORD_KEY: cypress-key
 phases:
   install:
     runtime-versions:
@@ -10,9 +12,18 @@ phases:
     on-failure: ABORT
     commands:
       - echo Installing source NPM dependencies...
+      - export COMMIT_INFO_BRANCH="$(git rev-parse HEAD | xargs git name-rev | cut -d' ' -f2 | sed 's/remotes\/origin\///g')"
+      - export COMMIT_INFO_MESSAGE="$(git log -1 --pretty=%B)"
+      - export COMMIT_INFO_EMAIL="$(git log -1 --pretty=%ae)"
+      - export COMMIT_INFO_AUTHOR="$(git log -1 --pretty=%an)"
+      - export COMMIT_INFO_SHA="$(git log -1 --pretty=%H)"
+      - export COMMIT_INFO_REMOTE="$(git config --get remote.origin.url)"
       - npm ci
       - npm dedupe
       - npm test -- --watchAll=false
+      - npx cypress verify
+      - npx cypress info
+      - npm run cy:test
   build:
     commands:
       - echo Build started on `date`
