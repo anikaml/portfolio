@@ -42,11 +42,14 @@ export default function Email(props) {
       validators={['required', 'isEmail']}
       value={props.value}
       variant={props.variant ? props.variant : "standard" }
+      inputProps={{'aria-label': props.ariaLabel}}
+      
     />
   );
 }
 
 Email.propTypes = {
+  ariaLabel: PropTypes.string,
   className: PropTypes.string,
   color: PropTypes.string,
   disabled: PropTypes.bool.isRequired,
