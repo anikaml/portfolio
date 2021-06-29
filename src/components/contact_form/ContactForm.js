@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
       color: greyColor,
       letterSpacing: 1.5,
     },
+    emailInput: {
+
+    }
   }
 }));
 
@@ -117,6 +120,7 @@ export default function ContactForm() {
             onChange={textChange}
             value={text.email}
             variant="outlined"
+            ariaLabel="email field"
           /> 
         </FadeIn>
         <FadeIn>

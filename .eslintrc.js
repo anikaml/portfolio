@@ -6,8 +6,9 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:jest/recommended"
+        "plugin:cypress/recommended",
+        "plugin:jest/recommended",
+        "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -22,8 +23,9 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "jest"
+        "cypress",
+        "jest",
+        "react"
     ],
     "rules": {
         "no-console": 0
@@ -32,5 +34,13 @@ module.exports = {
         "react": {
             "version": "detect"
         }
-    }
+    },
+    "overrides": [
+      {
+        "files": ["cypress/**"],
+        "rules": {
+          "jest/expect-expect": "off"
+        }
+      }
+    ]
 };
