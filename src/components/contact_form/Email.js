@@ -43,7 +43,6 @@ export default function Email(props) {
       value={props.value}
       variant={props.variant ? props.variant : "standard" }
       inputProps={{'aria-label': props.ariaLabel}}
-      
     />
   );
 }

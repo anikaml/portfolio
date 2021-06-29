@@ -46,9 +46,6 @@ const useStyles = makeStyles((theme) => ({
       color: greyColor,
       letterSpacing: 1.5,
     },
-    emailInput: {
-
-    }
   }
 }));
 
