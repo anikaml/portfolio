@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 image_convert.sh
+cypress/videos
+cypress/screenshots
