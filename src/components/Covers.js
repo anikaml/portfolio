@@ -12,7 +12,6 @@ export const covers = {
   },
   stalue: {
     name: "stalue",
-    href: "https://stalue.com",
     project: "Stalue Machine Learning powered Stock & Crypto Value Forecasts.",
     details: "Stalue is a platform built to create and update price predictions for assets such as stocks and cryptocurrencies using the power of machine learning. The main component of the website is a stock price chart, done using ChartJS. One of the biggest challenges was to design a chart which will show current and historical prices in a clean readable way. I have done it splitting chart into two tabs. The default is a current tab showing Tesla stock price. User can also switch to historical tab and select the historical date to see previous prices on a given day. How much stock options is showed depends on the user plan. After signing up, user can buy pro tier, cancel subscription or renew it using Stripe components.",
     tech_stack: ["ReactJS", "PWA", "AWS Amplify", "Redux", "Stripe", "Material-UI", "Chart.js"],
@@ -25,7 +24,6 @@ export const covers = {
   },
   bokiem: {
     name: "bokiem",
-    href: "https://bokiem.solutions",
     project: "Bokiem Solutions",
     details: "Bokiem Solutions is a San Diego based company specializing in Progressive Web App development and deep expertise at running AWS-based workloads at scale.",
     tech_stack: ["ReactJS", "Redux", "Axios", "Material-UI"],
