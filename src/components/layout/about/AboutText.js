@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     },
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
-      //marginBottom: "-70vh",
     },
     '@media (min-width:901px) and (max-width:1440px)': {
       marginTop: isTablet ? '2em' : '-4em',
@@ -62,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: 'none',
     transition: 'all .2s ease-in-out',
-    //boxShadow: `${highlightColor} 0px -3px 0px inset`, //another way to do the highlight
     '&:hover': {
       boxShadow: 'rgb(255, 188, 162) 0px -46px inset',
     }
@@ -74,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontWeight: 300,
-    //fontSize: 'calc(16px + 6 * ((100vw - 320px) / 680))',
     '@media (max-width:900px)': {
       fontSize: '1.25rem',
       fontWeight: 400,
@@ -96,14 +93,6 @@ const useStyles = makeStyles((theme) => ({
       padding: '2em',
       margin: "0em",
     },
-    //// glassmorphism
-     //background: "rgba( 255, 255, 255, 0.05 )",
-    // boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-    // backdropFilter: "blur( 25px )",
-    // '-webkit-backdrop-filter': "blur( 4px )",
-    // borderRadius: "25px",
-    // border: "1px solid rgba( 255, 255, 255, 0.18 )",
-    //// neuromorphism
     borderRadius: "50px",
     boxShadow:  "-20px 20px 51px #070613, 20px -20px 51px #1b1a4d",
   },
@@ -128,17 +117,17 @@ export default function AboutText() {
               </FadeIn>
               <FadeIn>
                 <Typography variant={isTablet?"h3":"h5"} className={classes.typography}>
-                  {"I'm Anika. A front-end developer & web designer, currently working at "} 
-                    <Link
-                      href="https://bokiem.solutions"
-                      style={{ textDecoration: 'none'}}
-                      className={classes.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {"Bokiem Solutions"}
-                    </Link>
-                  {" San Diego, CA"}
+                  {"I'm Anika. A Software Engineer, Front End (React), currently working at "} 
+                  <Link
+                    href="https://www.losant.com/"
+                    style={{ textDecoration: 'none'}}
+                    className={classes.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {"Losant"}
+                  </Link>
+                  {"."}
                 </Typography>
               </FadeIn>
               <FadeIn>
