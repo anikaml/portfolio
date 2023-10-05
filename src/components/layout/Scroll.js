@@ -1,15 +1,30 @@
 import React from 'react';
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import IconButton from '@material-ui/core/IconButton';
-
+import { styled } from '@mui/material/styles';
+import { keyframes } from "@emotion/react";
+import Link from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
 import { greyColor, shadowColor } from '../../utils/colors';
 import { isMobile } from 'react-device-detect';
 
-const useStyles = makeStyles(() => ({
-  scroll: {
+const PREFIX = 'Scroll';
+
+const classes = {
+  scroll: `${PREFIX}-scroll`,
+  rootIconButton: `${PREFIX}-rootIconButton`
+};
+
+const customScroll = keyframes({
+  '0%': {
+    opacity: 1,
+  },
+  '100%': {
+    opacity: 0,
+    transform: 'translateY(2rem)',
+  }
+})
+
+const Root = styled('div')(() => ({
+  [`& .${classes.scroll}`]: {
     position: 'absolute',
     left: '50%',
     right: '50%',
@@ -32,23 +47,14 @@ const useStyles = makeStyles(() => ({
       borderRadius: '0.25rem',
       animationDuration: '1.5s',
       animationIterationCount: 'infinite',
-      animationName: '$scroll',
+      animationName: customScroll,
       animationDelay: '2s',
     },
     '@media (max-width:900px)': {
-      display: isMobile? 'initial' : 'none',
-    },
-  },
-  "@keyframes scroll": {
-    "0%": {
-      opacity: 1,
-    },
-    "100%": {
-      opacity: 0,
-      transform: 'translateY(2rem)',
+      display: isMobile ? 'initial' : 'none',
     }
   },
-  rootIconButton: {
+  [`& .${classes.rootIconButton}`]: {
     padding: 0,
     position: 'absolute',
     bottom: '0rem',
@@ -57,15 +63,13 @@ const useStyles = makeStyles(() => ({
     "&:hover": {
       background: "transparent",
     }
-  },
+  }
 }));
 
 export default function Scroll() {
-  const classes = useStyles();
-  
   return (
-    <>
-      <IconButton 
+    (<Root>
+      <IconButton
         aria-label="projects"
         component={Link}
         href="/#projects"
@@ -77,7 +81,7 @@ export default function Scroll() {
       >
         <div className={classes.scroll} />
       </IconButton>
-    </>
-  )
+    </Root>)
+  );
 }
 

@@ -1,35 +1,43 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-import { TextValidator} from 'react-material-ui-form-validator';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextValidator } from 'react-material-ui-form-validator';
 
 import { greyColor } from '../../utils/colors';
 
-const useStyles = makeStyles(() => ({
-  textField: {
-    width: "100%",
-    borderRadius: "4px",
-    transition: "box-shadow 150ms ease",
-    '& .MuiInput-underline:before': { // field underline
-      borderBottom: `1px solid ${greyColor}`,
-    },
-    '& .MuiInputLabel-formControl': {
-      color: greyColor,
-    },
-    '& .MuiIconButton-label': {
-      color: greyColor,
-    },
-    '& .MuiFormHelperText-root ': {
-      color: greyColor,
-    },
-  },
-}))
+const PREFIX = 'Email';
+
+const classes = {
+  textField: `${PREFIX}-textField`
+};
+
+const StyledTextValidator
+  = styled(TextValidator
+  )(() => ({
+    [`& .${classes.textField}`]: {
+      width: "100%",
+      borderRadius: "4px",
+      transition: "box-shadow 150ms ease",
+      '& .MuiInput-underline:before': { // field underline
+        borderBottom: `1px solid ${greyColor}`,
+      },
+      '& .MuiInputLabel-formControl': {
+        color: greyColor,
+      },
+      '& .MuiIconButton-label': {
+        color: greyColor,
+      },
+      '& .MuiFormHelperText-root ': {
+        color: greyColor,
+      },
+    }
+  }));
 
 export default function Email(props) {
-  const classes = useStyles();
+
   return (
-    <TextValidator
+    <StyledTextValidator
       className={props.className ? props.className : classes.textField}
       color={props.color ? props.color : "secondary"}
       disabled={props.disabled}
@@ -41,8 +49,8 @@ export default function Email(props) {
       type="email"
       validators={['required', 'isEmail']}
       value={props.value}
-      variant={props.variant ? props.variant : "standard" }
-      inputProps={{'aria-label': props.ariaLabel}}
+      variant={props.variant ? props.variant : "standard"}
+      inputProps={{ 'aria-label': props.ariaLabel }}
     />
   );
 }

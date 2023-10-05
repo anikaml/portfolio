@@ -1,21 +1,30 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Link, Typography } from "@material-ui/core";
-import IconButton from '@material-ui/core/IconButton';
+import { Link, Typography } from "@mui/material";
+import IconButton from '@mui/material/IconButton';
 
 import { covers } from '../../components/Covers';
 import FadeIn from "../../containers/style/FadeIn";
 import MultiFormatPhoto from "../photos/MultiFormatPhoto";
 import { shadowColor } from "../../utils/colors";
 
-const useStyles = makeStyles(() => ({
-  blurDiv: {
+const PREFIX = 'NextProject';
+
+const classes = {
+  blurDiv: `${PREFIX}-blurDiv`,
+  wrapper: `${PREFIX}-wrapper`,
+  next: `${PREFIX}-next`,
+  rootIconButton: `${PREFIX}-rootIconButton`,
+  link: `${PREFIX}-link`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.blurDiv}`]: {
     width: "100%",
     minWidth: '100vw',
-    objectPosition: props => (props.name === 'datette')? '-2em -2.5em' : (props.name === 'bokiem' || props.name === 'stalue')? "0px -15rem" : "unset",
+    objectPosition: props => (props.name === 'datette') ? '-2em -2.5em' : (props.name === 'bokiem' || props.name === 'stalue') ? "0px -15rem" : "unset",
     zIndex: "1",
     transition: "all .2s ease-in-out",
     filter: "blur(4px)",
@@ -27,35 +36,42 @@ const useStyles = makeStyles(() => ({
     },
     '@media (max-width:600px)': {
       filter: "blur(0px)",
-      objectPosition: props => (props.name === 'datette')? "-14em -2.5em": "0px 0rem",
-      minWidth: props => (props.name === 'datette')? '150vh' : (props.name === 'f1app')? '200vw' : '100vw',
+      objectPosition: props => (props.name === 'datette') ? "-14em -2.5em" : "0px 0rem",
+      minWidth: props => (props.name === 'datette') ? '150vh' : (props.name === 'f1app') ? '200vw' : '100vw',
     },
   },
-  wrapper: {
+
+  [`& .${classes.wrapper}`]: {
     height: "30vh",
     width: "100%",
     overflow: "hidden",
     boxShadow: `0px 3px 10px 3px ${shadowColor}`,
+    '@media (max-width:600px)': {
+      height: "20vh",
+    }
   },
-  next: {
+
+  [`& .${classes.next}`]: {
     marginTop: "2em",
     paddingBottom: "0.5em",
   },
-  rootIconButton: {
+
+  [`& .${classes.rootIconButton}`]: {
     "&:hover": {
       background: "transparent",
     }
   },
-  link: {
+
+  [`& .${classes.link}`]: {
     padding: 0,
   }
-}))
+}));
 
 export default function NextProject(props) {
-  
-  const classes = useStyles(props);
+
+
   const name = props.name;
-  
+
 
   let nextProject = null;
   if (name === 'stalue') {
@@ -69,15 +85,15 @@ export default function NextProject(props) {
   }
 
   const photosPath = `/projects/${nextProject}`
-  
+
   return (
-    <>
+    (<Root>
       <FadeIn>
         <Typography variant="h6" className={classes.next}>
           Next Project
         </Typography>
         <div className={classes.wrapper}>
-          <IconButton 
+          <IconButton
             aria-label="next-project"
             component={Link}
             href={`/${covers[nextProject].name}`}
@@ -97,8 +113,8 @@ export default function NextProject(props) {
           </IconButton>
         </div>
       </FadeIn>
-    </>
-  )
+    </Root>)
+  );
 }
 
 NextProject.propTypes = {
