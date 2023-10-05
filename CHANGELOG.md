@@ -1,3 +1,14 @@
+## 1.3.0
+
+NOTES:
+* migrated to React 18
+* updated all project dependencies
+
+## 1.2.3
+
+NOTES:
+* updated about text
+
 ## 1.2.1
 
 NOTES:

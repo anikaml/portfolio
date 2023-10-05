@@ -1,19 +1,26 @@
 import React from "react";
-
+import { styled } from '@mui/material/styles';
 import { isMobile } from 'react-device-detect';
 import SVG from 'react-inlinesvg';
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core/';
+import { Container } from '@mui/material/';
 import Illustration from "./Illustration";
 import Trails from './Trails';
 import Scroll from "./Scroll";
 
-const useStyles = makeStyles(() => ({
-  container: {
+const PREFIX = 'Main';
+
+const classes = {
+  container: `${PREFIX}-container`,
+  containerMobile: `${PREFIX}-containerMobile`,
+  trailsContainer: `${PREFIX}-trailsContainer`,
+  illustration: `${PREFIX}-illustration`,
+  icon: `${PREFIX}-icon`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.container}`]: {
     display: "flex",
-    justifyContent: "center", 
+    justifyContent: "center",
     margin: "2em",
     padding: "4em 2em",
     height: 'calc(100vh - 64px)',
@@ -24,15 +31,17 @@ const useStyles = makeStyles(() => ({
       padding: "2em",
     },
   },
-  containerMobile: {
-    height: 'calc(100vh - 64px)',
+
+  [`& .${classes.containerMobile}`]: {
+    height: 'auto',
     flexWrap: "wrap",
     margin: "1em",
     padding: "0em",
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
-  trailsContainer: {
+
+  [`& .${classes.trailsContainer}`]: {
     margin: "2em auto",
     paddingLeft: "4em",
     '@media (max-width:900px)': {
@@ -42,7 +51,8 @@ const useStyles = makeStyles(() => ({
       width: "auto",
     },
   },
-  illustration: {
+
+  [`& .${classes.illustration}`]: {
     overflow: "visible",
     textAlign: "center",
     height: "auto",
@@ -52,7 +62,8 @@ const useStyles = makeStyles(() => ({
       maxWidth: '80vw',
     },
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     maxWidth: "-webkit-fill-available",
     height: "auto",
     maxHeight: '40vh',
@@ -60,24 +71,24 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Main() {
-  const classes = useStyles();
-
-  const illustration = (<SVG 
-                          src={process.env.PUBLIC_URL + "/icons/mobile_full.svg"} 
-                          className={classes.icon}
-                        />)
+  const illustration = (<SVG
+    src={process.env.PUBLIC_URL + "/icons/mobile_full.svg"}
+    className={classes.icon}
+  />)
 
   return (
-    <div className={isMobile ? classes.containerMobile : classes.container}>
-      <div className={classes.text}>
-        <Container maxWidth="lg" className={classes.trailsContainer}>
-          <Trails />
-        </Container>
+    <Root>
+      <div className={isMobile ? classes.containerMobile : classes.container}>
+        <div className={classes.text}>
+          <Container maxWidth="lg" className={classes.trailsContainer}>
+            <Trails />
+          </Container>
+        </div>
+        <div className={classes.illustration}>
+          {isMobile ? illustration : <Illustration />}
+        </div>
+        {isMobile ? null : <Scroll />}
       </div>
-      <div className={classes.illustration}>
-        {isMobile ? illustration : <Illustration />}
-      </div>
-        <Scroll />
-    </div>
-  )       
+    </Root>
+  );
 }

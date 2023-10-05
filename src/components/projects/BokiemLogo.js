@@ -1,32 +1,41 @@
 import React from "react";
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core/';
+import { styled } from '@mui/material/styles';
+import { Grid, Typography } from '@mui/material/';
 import FadeIn from "../../containers/style/FadeIn";
 import BokiemLogoAnimation from "./BokiemLogoAnimation";
 
-const useStyles = makeStyles(() => ({
-  text: {
+const PREFIX = 'BokiemLogo';
+
+const classes = {
+  text: `${PREFIX}-text`,
+  logoContainer: `${PREFIX}-logoContainer`,
+  logoGrid: `${PREFIX}-logoGrid`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.text}`]: {
     textAlign: "center",
     margin: "2em 0",
   },
-  logoContainer: {
+
+  [`& .${classes.logoContainer}`]: {
     marginTop: "2em",
   },
-  logoGrid: {
+
+  [`& .${classes.logoGrid}`]: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center", 
+    alignItems: "center",
     justifyContent: "center",
-  },
-}))
+  }
+}));
 
 export default function BokiemLogo() {
-  const classes = useStyles();
-  
+
+
   return (
-    <>
+    (<Root>
       <Grid
         container
         className={classes.logoContainer}
@@ -43,6 +52,6 @@ export default function BokiemLogo() {
           <BokiemLogoAnimation />
         </Grid>
       </Grid>
-    </>
-  )
+    </Root>)
+  );
 }
