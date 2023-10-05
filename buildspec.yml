@@ -11,6 +11,8 @@ phases:
   pre_build:
     on-failure: ABORT
     commands:
+      - echo Installing source Cypress dependencies...
+      - yum install -y xorg-x11-server-Xvfb gtk2-devel gtk3-devel libnotify-devel GConf2 nss libXScrnSaver alsa-lib
       - echo Installing source NPM dependencies...
       - export COMMIT_INFO_BRANCH="$(git rev-parse HEAD | xargs git name-rev | cut -d' ' -f2 | sed 's/remotes\/origin\///g')"
       - export COMMIT_INFO_MESSAGE="$(git log -1 --pretty=%B)"
