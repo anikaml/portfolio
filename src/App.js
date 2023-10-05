@@ -1,26 +1,26 @@
 import React from 'react';
 
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
-import Routes from './Routes';
+import AppRoutes from './Routes';
 import theme from './utils/theme';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <div className="App">
         <ParallaxProvider>
           <CssBaseline />
           <Navbar />
-          <Routes />
+          <AppRoutes />
           <Footer />
         </ParallaxProvider>
       </div>
-    </MuiThemeProvider>
+    </ThemeProvider>
   );
 }
 

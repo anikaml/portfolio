@@ -1,17 +1,22 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
 import { covers } from '../../components/Covers';
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Link, Typography } from '@material-ui/core/';
+import { Link, Typography } from '@mui/material/';
 import FadeIn from "../../containers/style/FadeIn";
 
+const PREFIX = 'Launch';
 
-const useStyles = makeStyles(() => ({
-  launch: {
-    color: props => covers[props.index].colors[0],
+const classes = {
+  launch: `${PREFIX}-launch`
+};
+
+const Root = styled('span', {
+  shouldForwardProp: (prop) => prop !== "projectName"
+})(({ projectName }) => ({
+
+  [`& .${classes.launch}`]: {
+    color: covers[projectName].colors[0],
     fontWeight: 500,
     paddingBottom: "0.1em",
     marginBottom: "1em",
@@ -19,7 +24,7 @@ const useStyles = makeStyles(() => ({
       paddingBottom: "0em",
       fontSize: "1.1rem",
       width: "unset",
-      borderBottom: props => `1px solid ${covers[props.index].colors[0]}`,
+      borderBottom: `1px solid ${covers[projectName].colors[0]}`,
       paddingTop: '1em',
     },
     // underline from left to right and back
@@ -32,38 +37,35 @@ const useStyles = makeStyles(() => ({
       display: "block",
       width: "0%",
       height: "2px",
-      background: props => covers[props.index].colors[0],
+      background: covers[projectName].colors[0],
       transition: "width .3s",
       marginTop: "0.1em",
       '@media (max-width:600px)': {
         background: "white",
-      },
-    },
-  },
-}))
+      }
+    }
+  }
+}));
 
 export default function Launch(props) {
-  
-  const classes = useStyles(props);
-  
   return (
-    <>
-    {covers[props.index].href && 
-      <FadeIn>
-        <Link
-          href={covers[props.index].href}
-          style={{textDecoration: 'none'}}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Typography variant="h6" className={classes.launch}>
-            Visit the website
-          </Typography>
-        </Link>
-      </FadeIn>
+    (<Root projectName={props.index}>
+      {covers[props.index].href &&
+        <FadeIn>
+          <Link
+            href={covers[props.index].href}
+            style={{ textDecoration: 'none' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography variant="h6" className={classes.launch}>
+              Visit the website
+            </Typography>
+          </Link>
+        </FadeIn>
       }
-    </>
-  )
+    </Root>)
+  );
 }
 
 Launch.propTypes = {

@@ -1,28 +1,42 @@
-import React, { useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { styled } from '@mui/material/styles';
 import axios from "axios";
-
-import { Container } from '@material-ui/core/';
-import { makeStyles } from '@material-ui/core/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
-
 import ContactMessage from "./ContactMessage";
 import Email from './Email';
 import SubmitButton from "./SubmitButton";
 import { greyColor, shadowColor } from "../../utils/colors";
 import FadeIn from "../../containers/style/FadeIn";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = 'ContactForm';
+
+const classes = {
+  container: `${PREFIX}-container`,
+  input: `${PREFIX}-input`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.container}`]: {
     margin: "2em auto",
     padding: "5em",
     boxShadow: `0px 3px 5px 3px ${shadowColor}`,
     borderRadius: 15,
+    width: '40vw',
     '@media (max-width:900px)': {
-      boxShadow: "none",
+      padding: "2em",
+    },
+    '@media (max-width:600px)': {
+      width: '100%',
       padding: "1em",
+      margin: '0 1em'
     }
   },
-  input: {
+
+  [`& .${classes.input}`]: {
     width: "100%",
     transition: "box-shadow 150ms ease",
     borderRadius: 15,
@@ -50,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ContactForm() {
-  const classes = useStyles();
   const timer = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -60,7 +73,7 @@ export default function ContactForm() {
     message: ""
   });
   const [submitButtonText, setSubmitButtonText] = useState("Submit");
-  
+
   useEffect(() => {
     return () => {
       clearTimeout(timer.current);
@@ -72,23 +85,23 @@ export default function ContactForm() {
     try {
       await axios.post("https://api.anikamlodzianowski.com/emailer", text)
       setSuccess(true);
-      setSubmitButtonText("Sent successfully");
+      setSubmitButtonText("Success");
       timer.current = setTimeout(() => {
         clearState()
       }, 5000);
       setText({
         email: "",
-        message: "" 
+        message: ""
       })
       setIsLoading(false);
     } catch (e) {
-        console.log(e)
-        setError(true)
-        setSubmitButtonText("Error, try again")
-        timer.current = setTimeout(() => {
-          clearState()
-        }, 5000);
-        setIsLoading(false);
+      console.log(e)
+      setError(true)
+      setSubmitButtonText("Error, try again")
+      timer.current = setTimeout(() => {
+        clearState()
+      }, 5000);
+      setIsLoading(false);
     }
   }
 
@@ -107,21 +120,20 @@ export default function ContactForm() {
   }
 
   return (
-    <Container maxWidth="sm" className={classes.container}> 
+    <Root className={classes.container}>
       <ValidatorForm noValidate onSubmit={handleSubmit}>
         <FadeIn>
-          <Email 
+          <Email
             autoFocus
             disabled={isLoading}
             className={classes.input}
             onChange={textChange}
             value={text.email}
             variant="outlined"
-            ariaLabel="email field"
-          /> 
+          />
         </FadeIn>
         <FadeIn>
-          <ContactMessage 
+          <ContactMessage
             disabled={isLoading}
             className={classes.input}
             onChange={textChange}
@@ -139,6 +151,6 @@ export default function ContactForm() {
           </SubmitButton>
         </FadeIn>
       </ValidatorForm>
-    </Container>
+    </Root>
   );
 }

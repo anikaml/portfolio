@@ -1,17 +1,23 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
+import { Grid } from '@mui/material/';
 
 import { covers } from '../../components/Covers';
 import FadeIn from "../style/FadeIn";
 import MultiFormatPhoto from "../../components/photos/MultiFormatPhoto";
 import { greyBorderColor } from "../../utils/colors";
 
-const useStyles = makeStyles(() => ({
-  grid: {
+const PREFIX = 'F1app';
+
+const classes = {
+  grid: `${PREFIX}-grid`,
+  image: `${PREFIX}-image`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.grid}`]: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "flex-start",
@@ -19,23 +25,24 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:900px)': {
       justifyContent: "center",
     },
-     /* IpadPro  Portrait */
-     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+    /* IpadPro  Portrait */
+    '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       justifyContent: "center",
     },
   },
-  image: {
+
+  [`& .${classes.image}`]: {
     width: "100%",
     border: `1px solid ${greyBorderColor}`
-  },
-}))
+  }
+}));
 
 export default function F1app(props) {
-  const classes = useStyles();
+
   const name = props.name
-  
+
   return (
-    <>
+    (<Root>
       <Grid className={classes.grid}>
         <FadeIn>
           <MultiFormatPhoto
@@ -46,8 +53,8 @@ export default function F1app(props) {
           />
         </FadeIn>
       </Grid>
-    </>
-  )
+    </Root>)
+  );
 }
 
 F1app.propTypes = {

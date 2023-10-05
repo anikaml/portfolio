@@ -1,25 +1,38 @@
 import React from 'react';
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider, Typography } from '@material-ui/core/';
+import { styled } from '@mui/material/styles';
+import { Divider, Typography } from '@mui/material/';
 
 import packageJson from '../../../package.json';
 import SocialMediaLink from '../socialMedia/SocialMediaLink';
 import { isMobileOnly } from 'react-device-detect';
 
-const useStyles = makeStyles((theme) => ({
-  footerDiv: {
+const PREFIX = 'Footer';
+
+const classes = {
+  footerDiv: `${PREFIX}-footerDiv`,
+  container: `${PREFIX}-container`,
+  divider: `${PREFIX}-divider`,
+  whiteText: `${PREFIX}-whiteText`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.footerDiv}`]: {
     backgroundColor: theme.palette.primary.dark,
     padding: "4em 0 2em 0",
     marginTop: "2em",
     textAlign: "center",
-    letterSpacing: isMobileOnly? 0 : 3,
+    letterSpacing: isMobileOnly ? 0 : 3,
     '@media (max-width:900px)': {
       padding: "2em 0",
     }
   },
-  container: {
+
+  [`& .${classes.container}`]: {
     margin: "2em auto 0 auto",
     display: "flex",
     justifyContent: "space-between",
@@ -29,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 2em",
     }
   },
-  divider: {
+
+  [`& .${classes.divider}`]: {
     margin: "2em 4em",
     backgroundColor: theme.palette.primary.contrastText,
     opacity: 0.5,
@@ -37,27 +51,28 @@ const useStyles = makeStyles((theme) => ({
       margin: "2em 1em 0 1em",
     }
   },
-  whiteText: {
+
+  [`& .${classes.whiteText}`]: {
     color: theme.palette.primary.contrastText,
-  },
+  }
 }));
 
 export default function Footer() {
-  const classes = useStyles();
+
   const currentDate = new Date()
   const currentYear = currentDate.getFullYear()
-  
+
   return (
-    <div className={classes.footerDiv}>
+    <Root className={classes.footerDiv}>
       <SocialMediaLink
-        href='https://github.com/anikaniescierewicz'
+        href='https://github.com/anikaml'
         name='GitHub'
       />
       <SocialMediaLink
         href='https://linkedin.com/in/anika-mlodzianowski'
         name='LinkedIn'
       />
-      <Divider variant="middle" className={classes.divider}/>
+      <Divider variant="middle" className={classes.divider} />
       <div className={classes.container}>
         <div>
           <Typography variant="caption" className={classes.whiteText}>
@@ -65,12 +80,12 @@ export default function Footer() {
           </Typography>
         </div>
         <div>
-          <Typography variant="caption" className={classes.whiteText} style={{letterSpacing: isMobileOnly? 0 : 3}}>
+          <Typography variant="caption" className={classes.whiteText} style={{ letterSpacing: isMobileOnly ? 0 : 3 }}>
             &copy; {currentYear} Anika Mlodzianowski
           </Typography>
         </div>
       </div>
-    </div>
-  )
+    </Root>
+  );
 }
 
