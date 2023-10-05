@@ -1,61 +1,57 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core/';
+import { Grid, Typography } from '@mui/material/';
 
 import { covers } from '../../components/Covers';
 import { greyColor } from '../../utils/colors';
 import FadeIn from "../../containers/style/FadeIn";
 
-const useStyles = makeStyles(() => ({
-  grid: {
+const PREFIX = 'ProjectHeader';
+
+const classes = {
+  grid: `${PREFIX}-grid`,
+  title: `${PREFIX}-title`,
+  text: `${PREFIX}-text`
+};
+
+const Root = styled('span')(() => ({
+  [`& .${classes.grid}`]: {
     display: "flex",
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     color: greyColor,
     paddingBottom: "0.5em",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     fontWeight: 300,
-  },
-}))
+  }
+}));
 
 export default function ProjectHeader(props) {
-  
-  const classes = useStyles();
-  
   return (
-    <>
+    (<Root>
       <Grid
         container
         className={classes.grid}
         spacing={2}
       >
-        <Grid item xs={12} sm={3}>
-        <FadeIn>
-          <Typography variant="subtitle2" className={classes.title}>
-            PROJECT
-          </Typography>
-          <Typography variant="subtitle2" className={classes.text} style={{fontWeight: 400, paddingRight: "0.5em"}}>
-            {covers[props.index].project}
-          </Typography>
-          </FadeIn>
-        </Grid>
         <Grid item xs={12} sm={9} zeroMinWidth>
-        <FadeIn>
-          <Typography variant="subtitle2" className={classes.title}>
-            DETAILS
-          </Typography>
-          <Typography variant="subtitle2" className={classes.text}>
-            {covers[props.index].details}
-          </Typography>
+          <FadeIn>
+            <Typography variant="subtitle2" className={classes.title}>
+              DETAILS
+            </Typography>
+            <Typography variant="subtitle2" className={classes.text}>
+              {covers[props.index].details}
+            </Typography>
           </FadeIn>
         </Grid>
       </Grid>
-    </>
-  )
+    </Root>)
+  );
 }
 
 ProjectHeader.propTypes = {

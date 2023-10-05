@@ -12,7 +12,7 @@ export default function MultiFormatPhoto(props) {
     <>
       <picture>
         {['webp', 'jp2'].map(format => (
-          <source 
+          <source
             key={format}
             className={props.className}
             alt={props.alt}

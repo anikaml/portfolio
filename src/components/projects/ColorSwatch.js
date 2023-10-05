@@ -1,15 +1,22 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Paper } from '@material-ui/core/';
+import { Typography, Paper } from '@mui/material/';
 
 import { covers } from '../../components/Covers';
 import { shadowColor, darkGreyColor } from "../../utils/colors";
 
-const useStyles = makeStyles(() => ({
-  paper: {
+const PREFIX = 'ColorSwatch';
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  background: `${PREFIX}-background`,
+  colorText: `${PREFIX}-colorText`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.paper}`]: {
     width: "fit-content",
     maxWidth: "9em",
     borderRadius: 15,
@@ -17,31 +24,33 @@ const useStyles = makeStyles(() => ({
     margin: "0em 1em",
     paddingBottom: "1em",
   },
-  background: {
+
+  [`& .${classes.background}`]: {
     height: "6em",
     width: "9em",
     borderRadius: "15px 15px 0px 0px",
     marginBottom: "1em",
   },
-  colorText: {
+
+  [`& .${classes.colorText}`]: {
     letterSpacing: 4,
     color: darkGreyColor,
   }
-}))
+}));
 
 export default function ColorSwatch(props) {
-  
-  const classes = useStyles();
-  
+
+
+
   return (
-    <>
+    (<Root>
       <Paper
         elevation={3}
         className={props.className ? props.className : classes.paper}
       >
         <div
           className={classes.background}
-          style={{backgroundColor: covers[props.name].colors[props.colorIndex]}}
+          style={{ backgroundColor: covers[props.name].colors[props.colorIndex] }}
         />
         <Typography
           variant="caption"
@@ -50,8 +59,8 @@ export default function ColorSwatch(props) {
           {covers[props.name].colors[props.colorIndex]}
         </Typography>
       </Paper>
-    </>
-  )
+    </Root>)
+  );
 }
 
 ColorSwatch.propTypes = {

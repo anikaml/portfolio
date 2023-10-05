@@ -1,35 +1,41 @@
 import React from "react";
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid } from '@material-ui/core/';
-import Skeleton from '@material-ui/lab/Skeleton';
+import { styled } from '@mui/material/styles';
+import { Container, Grid, Skeleton } from '@mui/material/';
 import FadeIn from "../../containers/style/FadeIn";
 
-const useStyles = makeStyles(() => ({
-  container: {
+const PREFIX = 'ProjectTemplateSkeleton';
+
+const classes = {
+  container: `${PREFIX}-container`,
+  grid: `${PREFIX}-grid`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.container}`]: {
     margin: "4em auto",
     width: "auto",
     '@media (max-width:600px)': {
       margin: "1em",
     },
   },
-  grid: {
+
+  [`& .${classes.grid}`]: {
     display: "flex",
-  },
-}))
+  }
+}));
 
 export default function ProjectTemplateSkeleton() {
-  const classes = useStyles();
-  
+
+
   return (
-    <>
+    (<Root>
       <FadeIn>
         <Skeleton variant="rect" width={'100%'} height={360} />
       </FadeIn>
       <Container maxWidth="lg" className={classes.container}>
         <FadeIn>
-          <Skeleton variant="text" width={'20%'} style={{margin: '4em 0'}}/>
+          <Skeleton variant="text" width={'20%'} style={{ margin: '4em 0' }} />
         </FadeIn>
         <Grid
           container
@@ -48,6 +54,6 @@ export default function ProjectTemplateSkeleton() {
           </Grid>
         </Grid>
       </Container>
-    </>
-  )
+    </Root>)
+  );
 }

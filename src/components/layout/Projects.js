@@ -1,24 +1,45 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
 import { motion } from "framer-motion";
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Link, Typography, useMediaQuery } from '@material-ui/core/';
-import IconButton from '@material-ui/core/IconButton';
-
+import { Link, Typography } from '@mui/material/';
+import IconButton from '@mui/material/IconButton';
 import Banner from '../projects/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../containers/style/FadeIn';
 import { greyBorderColor, greyColor, shadowColor } from '../../utils/colors';
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    margin: "2em",
+const PREFIX = 'Projects';
+
+const classes = {
+  container: `${PREFIX}-container`,
+  banner: `${PREFIX}-banner`,
+  containerDiv: `${PREFIX}-containerDiv`,
+  parallaxDiv: `${PREFIX}-parallaxDiv`,
+  text: `${PREFIX}-text`,
+  details: `${PREFIX}-details`,
+  arrowDiv: `${PREFIX}-arrowDiv`,
+  loader: `${PREFIX}-loader`,
+  iconButton: `${PREFIX}-iconButton`,
+  rootIconButton: `${PREFIX}-rootIconButton`,
+  mainDiv: `${PREFIX}-mainDiv`,
+  projectsGrid: `${PREFIX}-projectsGrid`,
+  gridItem: `${PREFIX}-gridItem`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.container}`]: {
+    margin: "3em",
+    display: 'flex',
+    justifyContent: 'center'
   },
-  banner: {
+
+  [`& .${classes.banner}`]: {
     display: "block",
     overflow: "hidden!important",
     overflowY: "hidden",
@@ -39,30 +60,23 @@ const useStyles = makeStyles((theme) => ({
       overflowY: "hidden",
     },
   },
-  containerDiv: {
-    display: "flex",
-    justifyContent: "center", 
-    flexWrap: "wrap",
-  },
-  parallaxDiv: {
+
+  [`& .${classes.parallaxDiv}`]: {
     margin: "1em 0",
     overflow: "hidden",
     border: `1px solid ${greyBorderColor}`,
-   
     borderRadius: '25px',
-    '-webkit-backface-visibility': "hidden",
-    '-moz-backface-visibility': "hidden",
-    '-webkit-transform': "translate3d(0, 0, 0)",
-    '-moz-transform': "translate3d(0, 0, 0)",
     '@media (max-width:900px)': {
       height: "30vh",
     },
     /* IpadPro  Portrait */
-    '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
+    [`@media only screen and (min-width: 1024px) and (max-height: 1366px) and
+    (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)`]: {
       height: "30vh",
     },
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     width: '90vw',
     paddingRight: "0.5em",
     color: theme.palette.primary.dark,
@@ -72,7 +86,8 @@ const useStyles = makeStyles((theme) => ({
       width: "auto",
     },
   },
-  details: {
+
+  [`& .${classes.details}`]: {
     display: 'inline',
     color: greyColor,
     '@media (max-width:900px)': {
@@ -80,20 +95,13 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "0.25em",
     },
   },
-  arrowDiv: {
+
+  [`& .${classes.arrowDiv}`]: {
     display: "inline-flex",
     alignItems: 'center',
   },
-  "@keyframes run": {
-    "0%": {
-      opacity: 1,
-    },
-    "100%": {
-      opacity: 0,
-      transform: 'translateZ(3em)',
-    }
-  },
-  loader: {
+
+  [`& .${classes.loader}`]: {
     overflow: 'visible',
     stroke: greyColor,
     strokeWidth: 0.5,
@@ -101,46 +109,54 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '1em',
     cursor: 'pointer',
   },
-  iconButton: {
+
+  [`& .${classes.iconButton}`]: {
     width: '100%',
     padding: 0,
     borderRadius: "25px",
-    'webkit-border-radius': "25px",
-    
+    webkitBorderRadius: "25px",
+
   },
-  rootIconButton: {
+
+  [`& .${classes.rootIconButton}`]: {
     borderRadius: "25px",
     "&:hover": {
       background: "transparent",
     }
   },
-  mainDiv: {
-    paddingBottom: "1em",
-    width: "30vw",
+
+  [`& .${classes.projectsGrid}`]: {
+    display: 'grid',
+    gridTemplateColumns: 'minmax(auto, 40vw) minmax(auto, 40vw) ',
+    gridTemplateRows: '1fr',
+    columnGap: '2em',
+    rowGap: '2em',
+    '@media (max-width:900px)': {
+      gridTemplateColumns: '1fr',
+    },
+  },
+
+  [`& .${classes.gridItem}`]: {
+    padding: "2em",
     boxShadow: `0px 3px 5px 3px ${shadowColor}`,
-    borderRadius: "25px",
-    margin: "1em"
+    borderRadius: "25px"
   }
 }));
 
 const d = "M73.77,34.02,85.23,45.48H.68v5.04H85.23L73.77,61.98l3.57,3.57L94.88,48,77.34,30.45Z"
 
 export default function Projects() {
-  const classes = useStyles();
-
-  let largeSize = useMediaQuery('(min-width:900px)')
-  
   return (
-    <>
-     <SectionTitle id="projects" title="Projects"/>
+    (<Root>
+      <SectionTitle id="projects" title="Projects" />
       <div className={classes.container}>
-        <Grid container spacing={largeSize ? 6 : 3} className={classes.containerDiv}>
-          {Object.keys(covers).map(project => 
-            <Grid item key={covers[project].name} className={classes.mainDiv} xs={11} md={5}>
+        <div className={classes.projectsGrid}>
+          {Object.keys(covers).map(project =>
+            <div key={covers[project].name} className={classes.gridItem}>
               <div
                 className={classes.parallaxDiv}
               >
-                <IconButton 
+                <IconButton
                   aria-label={`project-${covers[project].name}`}
                   component={Link}
                   href={`/${covers[project].name}`}
@@ -161,7 +177,7 @@ export default function Projects() {
                 <FadeIn>
                   <Link
                     href={`/${covers[project].name}`}
-                    style={{textDecoration: 'none'}}
+                    style={{ textDecoration: 'none' }}
                     rel="noopener noreferrer"
                     data-testid={`test-link-${covers[project].name}`}
                   >
@@ -173,7 +189,7 @@ export default function Projects() {
                 <FadeIn>
                   <Link
                     href={`/${covers[project].name}`}
-                    style={{textDecoration: 'none'}}
+                    style={{ textDecoration: 'none' }}
                     rel="noopener noreferrer"
                   >
                     <motion.div
@@ -190,7 +206,7 @@ export default function Projects() {
                         height={"50px"}
                         viewBox="0 0 96 96"
                         className={classes.loader}
-                        whileTap={{x: [0, 30]}}
+                        whileTap={{ x: [0, 30] }}
                       >
                         <motion.path
                           d={d}
@@ -205,12 +221,12 @@ export default function Projects() {
                   </Link>
                 </FadeIn>
               </>
-            </Grid>
+            </div>
           )}
-        </Grid>
+        </div>
       </div>
-    </>
-  )
+    </Root>)
+  );
 }
 
 Projects.propTypes = {

@@ -1,35 +1,40 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
-
+import { Grid } from '@mui/material/';
 import { covers } from '../../components/Covers';
 import FadeIn from "../../containers/style/FadeIn";
 import MultiFormatPhoto from "../photos/MultiFormatPhoto";
 import { isMobileOnly } from "react-device-detect";
 
-const useStyles = makeStyles(() => ({
-  img: {
+const PREFIX = 'BokiemResponsive';
+
+const classes = {
+  img: `${PREFIX}-img`,
+  gridContainer: `${PREFIX}-gridContainer`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.img}`]: {
     maxHeight: isMobileOnly ? 150 : 300,
     padding: '0.5em',
     display: 'block',
   },
-  morphDiv: {
+
+  [`& .${classes.gridContainer}`]: {
     display: "flex",
     justifyContent: "center",
     flexWrap: 'wrap',
-  },
-}))
+  }
+}));
 
 export default function BokiemResponsive(props) {
-  const classes = useStyles();
-  const name = props.name;
-  
+
+  const { name } = props;
+
   return (
-    <>
-      <Grid item className={classes.morphDiv}>
+    (<Root>
+      <Grid item className={classes.gridContainer}>
         <FadeIn>
           <MultiFormatPhoto
             alt="desktop"
@@ -47,8 +52,8 @@ export default function BokiemResponsive(props) {
           />
         </FadeIn>
       </Grid>
-    </>
-  )
+    </Root>)
+  );
 }
 
 BokiemResponsive.propTypes = {
