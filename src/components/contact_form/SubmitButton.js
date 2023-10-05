@@ -1,28 +1,31 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
-import { motion } from "framer-motion"
-import { useMorph } from 'react-morph';
-
-import { Button, CircularProgress } from '@material-ui/core/';
-import { makeStyles } from '@material-ui/core/styles';
-import DoneIcon from '@material-ui/icons/Done';
-import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
+import { Button, CircularProgress } from '@mui/material/';
+import DoneIcon from '@mui/icons-material/Done';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { shadowColor, successColor, errorColor } from "../../utils/colors";
 import theme from '../../utils/theme';
 
-const useStyles = makeStyles(() => ({
-  buttonDiv: {
+const PREFIX = 'SubmitButton';
+
+const classes = {
+  buttonDiv: `${PREFIX}-buttonDiv`,
+  submitButton: `${PREFIX}-submitButton`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.buttonDiv}`]: {
     marginTop: "1em",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-  submitButton: {
-    borderRadius: 50,
-    minWidth: 250,
+
+  [`& .${classes.submitButton}`]: {
+    borderRadius: '25px',
+    width: 250,
     fontSize: "1.25em",
     textTransform: "none",
     padding: "0.25em 2em",
@@ -30,53 +33,50 @@ const useStyles = makeStyles(() => ({
     transition: 'all .2s ease-in-out',
     '&:hover': {
       filter: `drop-shadow(5px 5px 10px rgba(0,0,0,.25))`,
+    },
+    '@media (max-width:900px)': {
+      width: 'auto'
     }
-  },
+  }
 }));
 
 export default function SubmitButton(props) {
-  const classes = useStyles();
-  const morph = useMorph();
 
   let submitButton = (
     <div className={classes.buttonDiv}>
       {props.isLoading ? (
-        <Button {...morph}
+        <Button
           disabled={props.isLoading}
-          className={ props.className ? props.className : classes.submitButton }
+          className={props.className ? props.className : classes.submitButton}
         >
-          <CircularProgress 
+          <CircularProgress
             size={33}
           />
         </Button>
-         ) : (
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 1.3 }}
-          >
-            <Button {...morph}
-              disabled={props.isLoading}
-              className={ props.className ? props.className : classes.submitButton }
-              type="submit"
-              variant={ props.variant ? props.variant : "contained" }
-              color={ props.color ? props.color : "primary" }
-              disableElevation
-              style={{backgroundColor: props.success? successColor : props.error? errorColor : theme.palette.primary.main}}
-              endIcon={props.success? <DoneIcon/> : props.error? <PriorityHighIcon/> : <ArrowForwardIosIcon/>}
-            >
-              {props.children}
-            </Button>
-          </motion.div>
-        )
+      ) : (
+        <Button
+          disabled={props.isLoading}
+          className={props.className ? props.className : classes.submitButton}
+          type="submit"
+          variant={props.variant ? props.variant : "contained"}
+          color={props.color ? props.color : "primary"}
+          disableElevation
+          style={{ backgroundColor: props.success ? successColor : props.error ? errorColor : theme.palette.primary.main, borderRadius: '25px' }}
+          endIcon={props.success ? <DoneIcon /> : props.error ? <PriorityHighIcon /> : <ArrowForwardIosIcon />}
+          aria-label="Submit"
+        >
+          {props.children}
+        </Button>
+      )
       }
     </div>
   )
- 
+
   return (
-    <>
+    (<Root>
       {submitButton}
-    </>
-  )
+    </Root>)
+  );
 }
 
 SubmitButton.propTypes = {

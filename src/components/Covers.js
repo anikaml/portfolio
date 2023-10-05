@@ -2,7 +2,7 @@ export const covers = {
   f1app: {
     name: "f1app",
     href: "https://f1.anikamlodzianowski.com",
-    github: "https://github.com/anikaniescierewicz/f1",
+    github: "https://github.com/anikaml/f1",
     project: "F1 Stats- Hobby Project",
     details: "This is a single-page Javascript application showing F1 stats (location of races, drivers wins, constructor wins). Select on the calendar which time period interests you and the map will visualize each F1 race chronologically and the bar chart will show you even more statistics.",
     tech_stack: ["ReactJS", "Typescript", "d3", "Jest", "@testing-library/react", "Material-UI", "GraphQL", "AWS Amplify via Apollo Client", "AWS S3", "AWS CloudFront", "AWS CodeBuild", "AWS CertificateManager", "AWS Lambda", "AWS IAM", "AWS Route53"],

@@ -1,39 +1,68 @@
 import React from 'react';
-
+import { styled } from '@mui/material/styles';
+import { keyframes } from "@emotion/react";
 import SVG from 'react-inlinesvg';
 import { isMobile, isTablet } from 'react-device-detect';
 import { useInView } from 'react-intersection-observer';
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Typography } from '@material-ui/core/';
-
+import { Container, Grid, Typography } from '@mui/material/';
 import { shadowColor } from '../../../utils/colors';
 import SectionTitle from '../SectionTitle';
 import theme from '../../../utils/theme';
 import FadeIn from '../../../containers/style/FadeIn';
 
-const useStyles = makeStyles(() => ({
-  container: {
+const PREFIX = 'Skills';
+
+const classes = {
+  container: `${PREFIX}-container`,
+  title: `${PREFIX}-title`,
+  field: `${PREFIX}-field`,
+  flexContainer: `${PREFIX}-flexContainer`,
+  fieldDiv: `${PREFIX}-fieldDiv`,
+  typography: `${PREFIX}-typography`,
+  icon: `${PREFIX}-icon`,
+  colorDiv: `${PREFIX}-colorDiv`,
+  circle: `${PREFIX}-circle`,
+  skillsDiv: `${PREFIX}-skillsDiv`
+};
+
+const circleMotion = keyframes({
+  '0%, 100%': {
+    borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
+  },
+  '30%': {
+    borderRadius: "60% 40% 50% 50% / 30% 30% 70% 70%",
+  },
+  '70%': {
+    borderRadius: "100% 50% 50% 100% / 100% 100% 50% 50%",
+  }
+})
+
+const Root = styled('div')(() => ({
+  [`& .${classes.container}`]: {
     margin: "2em auto",
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     fontWeight: 700,
   },
-  field: {
+
+  [`& .${classes.field}`]: {
     fontWeight: 700,
     background: 'linear-gradient(180deg, rgba(255,255,255,0) 70%, #FFe359 65%)',
     display: "inline",
+    WebkitTextStroke: '1px white'
   },
-  flexContainer: {
+
+  [`& .${classes.flexContainer}`]: {
     display: "flex",
     justifyContent: "space-evenly",
     flexWrap: "nowrap",
     '@media (max-width:900px)': {
-      flexWrap: isTablet?"nowrap": "wrap",
+      flexWrap: isTablet ? "nowrap" : "wrap",
     },
   },
-  fieldDiv: {
+
+  [`& .${classes.fieldDiv}`]: {
     textAlign: "center",
     padding: "1em",
     borderRadius: 40,
@@ -41,7 +70,7 @@ const useStyles = makeStyles(() => ({
     margin: "2em 1em",
     background: "rgba( 255, 255, 255, 0.05 )",
     backdropFilter: "blur( 4px )",
-    '-webkit-backdrop-filter': "blur( 4px )",
+    webkitBackdropFilter: "blur( 4px )",
     border: "1px solid rgba( 255, 255, 255, 0.18 )",
     maxWidth: "40vw",
     zIndex: 10,
@@ -53,7 +82,8 @@ const useStyles = makeStyles(() => ({
       filter: `drop-shadow(5px 5px 10px rgba(0,0,0,.25))`
     },
   },
-  typography: {
+
+  [`& .${classes.typography}`]: {
     margin: "0.25em",
     lineHeight: "1.5em",
     fontWeight: 300,
@@ -62,21 +92,24 @@ const useStyles = makeStyles(() => ({
       padding: "inherit",
     },
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     transition: 'all .2s ease-in-out',
     maxHeight: '5rem',
     '&:hover': {
       transform: 'scale(1.1)',
     },
   },
-  colorDiv: {
+
+  [`& .${classes.colorDiv}`]: {
     margin: "3em",
     position: "relative",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-  circle: {
+
+  [`& .${classes.circle}`]: {
     width: "12em",
     height: "12em",
     position: "absolute",
@@ -89,33 +122,20 @@ const useStyles = makeStyles(() => ({
     animationTimingFunction: 'linear',
     animationDuration: "5000ms",
     borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
-    animation: "$circleMorph 3s linear infinite",
+    animation: `${circleMotion} 10s linear infinite`,
     '&:hover': {
       cursor: "pointer",
       animationPlayState: "running",
     }
   },
-  "@keyframes circleMorph":{
-    "0%, 100%": {
-      borderRadius: "56% 44% 68% 32% / 45% 54% 46% 55% ",
-    },
-    "30%": {
-      borderRadius: "60% 40% 50% 50% / 30% 30% 70% 70%",
-    },
-    "70%": {
-      borderRadius: "100% 50% 50% 100% / 100% 100% 50% 50%",
-    },
-  },
-  skillsDiv: {
-    marginTop: isTablet ? '-35vh' : '-65vh',
-    '@media (max-width:900px)': {
-      marginTop: '-40vh',
-    },
+
+  [`&.${classes.skillsDiv}`]: {
+    marginTop: isTablet ? '-35vh' : 0
   }
 }));
 
 export default function Skills() {
-  const classes = useStyles();
+
   const [ref, inView] = useInView({
     rootMargin: '-100px 0px',
   });
@@ -124,7 +144,7 @@ export default function Skills() {
     Dev: {
       text: 'I value efficient, powerful, and maintainable solutions to quickly deliver results.',
       'What I create': 'Responsive Websites, SPAs (Single Page Applications), PWAs (Progressive Web Apps)',
-      Tech: ['Javascript', 'ReactJS', 'Typescript', 'Redux', 'CSS3', 'HTML5', 'Material-UI','REST API (Axios)', 'Jest / React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)', 'D3.js / Chart.js', 'React Spring / Framer Motion'],
+      Tech: ['JavaScript', 'React', 'TypeScript', 'Redux', 'CSS3', 'HTML5', 'Next.js', 'REST API (Axios)', 'Jest / React Testing Library', 'Git', 'AWS (S3, CloudFront, CodeBuild, CertificateManager, Lambda, IAM, Route53)', 'GraphQL (AWS Amplify via Apollo Client)', 'D3.js / Chart.js', 'React Spring / Framer Motion'],
       svg: "/icons/dev.svg",
       color: theme.palette.primary.light,
     },
@@ -136,18 +156,16 @@ export default function Skills() {
       color: theme.palette.primary.light,
     },
   }
-  
+
   return (
-    <div className={classes.skillsDiv}>
-      <SectionTitle title="Skills" stroke={true}/>
-      <Container maxWidth="lg" className={classes.container}>
-        <Grid
+    <Root className={classes.skillsDiv}>
+      <SectionTitle title="Skills" stroke={true} />
+      <div className={classes.container}>
+        <div
           ref={ref}
-          container
-          spacing={isMobile? 2 : 8}
           className={classes.flexContainer}
         >
-          {Object.keys(skills).map(field => 
+          {Object.keys(skills).map(field =>
             <Grid
               item
               key={field}
@@ -159,25 +177,25 @@ export default function Skills() {
                   <div className={classes.colorDiv}>
                     <div
                       className={classes.circle}
-                      style={{backgroundColor: skills[field].color, animationPlayState: isMobile? (inView? "running" : "paused"): "running",}}
+                      style={{ backgroundColor: skills[field].color, animationPlayState: isMobile ? (inView ? "running" : "paused") : "running" }}
                     />
                     <SVG
                       src={process.env.PUBLIC_URL + skills[field].svg}
                       className={classes.icon}
                     />
                   </div>
-                  <Typography variant={isMobile? "h4" : "h3"} className={classes.field} style={{margin: 0, fontWeight: 600}}>
+                  <Typography variant={isMobile ? "h4" : "h3"} className={classes.field} style={{ margin: 0, fontWeight: 600 }}>
                     {field}
                   </Typography>
                 </>
               </FadeIn>
-              <div style={{padding: "1em 2em"}}>
+              <div style={{ padding: "1em 2em" }}>
                 <FadeIn>
                   <Typography className={classes.typography}>
                     {skills[field].text}
                   </Typography>
                 </FadeIn>
-                <div style={{margin: "2em 0"}}>
+                <div style={{ margin: "2em 0" }}>
                   <FadeIn>
                     <Typography variant="h5" className={classes.title}>
                       {Object.keys(skills[field])[1]}:&nbsp;
@@ -197,7 +215,7 @@ export default function Skills() {
                 <div className={classes.typography}>
                   {(Object.values(skills[field])[2]).map(tool =>
                     <FadeIn key={tool}>
-                      <Typography style={{margin: "0.25em 0"}}>
+                      <Typography style={{ margin: "0.25em 0" }}>
                         {tool}
                       </Typography>
                     </FadeIn>
@@ -206,9 +224,9 @@ export default function Skills() {
               </div>
             </Grid>
           )}
-        </Grid>
-      </Container>
-    </div>
-  )
+        </div>
+      </div>
+    </Root>
+  );
 }
 

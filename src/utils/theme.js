@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
     typography: {
       useNextVariants: true,
       fontSize: 18,
@@ -36,7 +36,7 @@ const theme = createMuiTheme({
       },
       error: {
         main: '#ff0033',
-        // success: '#00BF8B'
+        success: '#00BF8B'
       },
       background: {
         default: '#FFF',

@@ -1,18 +1,22 @@
 import React, { useState } from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-import Lightbox from 'react-image-lightbox';
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
+import Lightbox from 'react-18-image-lightbox';
 
 import { covers } from '../Covers';
 import { shadowColor } from "../../utils/colors";
 import FadeIn from "../../containers/style/FadeIn";
 import MultiFormatPhoto from "../photos/MultiFormatPhoto";
 
-const useStyles = makeStyles(() => ({
-  image: {
+const PREFIX = 'LightboxImage';
+
+const classes = {
+  image: `${PREFIX}-image`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.image}`]: {
     width: "100%",
     '&:hover': {
       cursor: "pointer",
@@ -20,11 +24,11 @@ const useStyles = makeStyles(() => ({
       transition: "all 0.5s ease-in-out",
       transform: "translateY(-2px)",
     }
-  },
-}))
+  }
+}));
 
 export default function LightboxImage(props) {
-  const classes = useStyles();
+
   const [lightbox_open, setLightbox_open] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(props.url);
 
@@ -34,7 +38,7 @@ export default function LightboxImage(props) {
   )
 
   return (
-    <>
+    (<Root>
       <FadeIn>
         <div className={props.classNameInner ? props.classNameInner : null}>
           <MultiFormatPhoto
@@ -56,8 +60,8 @@ export default function LightboxImage(props) {
           onCloseRequest={() => setLightbox_open(false)}
         />
       )}
-    </>
-  )
+    </Root>)
+  );
 }
 
 LightboxImage.propTypes = {

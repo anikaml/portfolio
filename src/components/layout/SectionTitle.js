@@ -1,15 +1,21 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
 import { Parallax } from 'react-scroll-parallax';
-import { isTablet } from 'react-device-detect';
+import { isTablet, isMobile } from 'react-device-detect';
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core/';
+import { Typography } from '@mui/material/';
 
-const useStyles = makeStyles(() => ({
-  title: {
+const PREFIX = 'SectionTitle';
+
+const classes = {
+  title: `${PREFIX}-title`,
+  wrapper: `${PREFIX}-wrapper`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.title}`]: {
     fontWeight: 500,
     fontSize: 'calc(54px + (54 - 20) * ((100vw - 300px) / (1600 - 300)))',
     transform: 'translate(10px, 35px)',
@@ -20,30 +26,37 @@ const useStyles = makeStyles(() => ({
     maxWidth: '10rem',
     zIndex: 10,
     '@media (max-width:900px)': {
-      fontSize: isTablet ? '4rem' : 'calc(54px + (54 - 20) * ((100vw - 300px) / (1600 - 300)))',
+      fontSize: isTablet ? '4rem' : 'calc(40px + 18 * ((100vw - 320px) / 680))',
     },
   },
-  wrapper: {
+
+  [`& .${classes.wrapper}`]: {
     position: "relative",
     margin: "1em 0",
     display: "inline-block",
-  },
+  }
 }));
 
 export default function SectionTitle(props) {
-  const classes = useStyles();
-  
+  let typography = (<Typography variant="h1" className={classes.title} style={{ WebkitTextStroke: props.stroke ? '1px white' : 'unset' }}>
+    {props.title}
+  </Typography>)
+
+  let content = (<Parallax translateX={[-30, 0]} style={{ margin: 0 }}>
+    {typography}
+  </Parallax>)
+
+  if (isMobile) {
+    content = typography
+  }
+
   return (
-    <>
+    (<Root>
       <div id={props.id} className={classes.wrapper}>
-        <Parallax x={[-30, 0]} tagOuter="div" styleOuter={{margin: 0}}>
-          <Typography variant="h1" className={classes.title} style={{WebkitTextStroke: props.stroke ? '1px white': 'unset',}}>
-            {props.title}
-          </Typography>
-        </Parallax>
+        {content}
       </div>
-    </>
-  )
+    </Root>)
+  );
 }
 
 SectionTitle.propTypes = {

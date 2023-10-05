@@ -1,21 +1,26 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Link, Typography } from '@material-ui/core/';
-import GitHubIcon from '@material-ui/icons/GitHub';
-
+import { Link, Typography } from '@mui/material/';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { covers } from '../../components/Covers';
 import FadeIn from "../../containers/style/FadeIn";
 
 
-const useStyles = makeStyles(() => ({
-  github: {
-    color: props => covers[props.index].colors[1],
+const PREFIX = 'GitHubLink';
+
+const classes = {
+  github: `${PREFIX}-github`
+};
+
+const Root = styled('span', {
+  shouldForwardProp: (prop) => prop !== "projectName"
+})(({ projectName }) => ({
+  [`& .${classes.github}`]: {
+    color: covers[projectName].colors[1],
     fontWeight: 500,
     paddingBottom: "0.1em",
-    marginBottom: "2em",
+    marginBottom: "1.5em",
     '@media (max-width:600px)': {
       fontSize: "1.1rem",
       width: "unset",
@@ -31,39 +36,37 @@ const useStyles = makeStyles(() => ({
       display: "block",
       width: "0%",
       height: "2px",
-      background: props => covers[props.index].colors[1],
+      background: covers[projectName].colors[1],
       transition: "width .3s",
       marginTop: "0.1em",
       '@media (max-width:600px)': {
         background: "white",
       },
     },
-  },
-}))
+  }
+}));
 
 export default function GitHubLink(props) {
-  
-  const classes = useStyles(props);
-  
   return (
-    <>
-     {covers[props.index].github && (<FadeIn>
+    (<Root projectName={props.index}>
+      {covers[props.index].github && (<FadeIn>
         <Link
           href={covers[props.index].github}
-          style={{textDecoration: 'none'}}
+          style={{ textDecoration: 'none' }}
           target="_blank"
           rel="noopener noreferrer"
         >
           <Typography variant="subtitle2" className={classes.github}>
-            <GitHubIcon fontSize="small" style={{paddingTop: "0.25em"}}/>
-            {` Project's GitHub`}
+            <GitHubIcon fontSize="small" style={{ verticalAlign: 'middle', paddingBottom: 3 }} />
+            {"Project's GitHub"}
           </Typography>
         </Link>
       </FadeIn>)}
-    </>
-  )
+    </Root>)
+  );
 }
 
 GitHubLink.propTypes = {
   index: PropTypes.string.isRequired,
+  iconOnly: PropTypes.bool
 };

@@ -1,78 +1,98 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
+import { keyframes } from "@emotion/react";
 import SVG from 'react-inlinesvg';
 import { useInView } from 'react-intersection-observer';
 import { motion } from "framer-motion"
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core/';
-
+import { Grid, Typography } from '@mui/material/';
 import { covers } from '../../components/Covers';
 import LightboxImage from "../../components/projects/LightboxImage";
 import { greyColor, shadowColor } from "../../utils/colors";
 import FadeIn from "../style/FadeIn";
 import MultiFormatPhoto from "../../components/photos/MultiFormatPhoto";
 
-const useStyles = makeStyles(() => ({
-  image: {
+const PREFIX = 'Stalue';
+
+const classes = {
+  image: `${PREFIX}-image`,
+  text: `${PREFIX}-text`,
+  logoContainer: `${PREFIX}-logoContainer`,
+  logoGrid: `${PREFIX}-logoGrid`,
+  logo: `${PREFIX}-logo`,
+  shadow: `${PREFIX}-shadow`,
+  grid: `${PREFIX}-grid`,
+  screenshot: `${PREFIX}-screenshot`
+};
+
+const float = keyframes({
+  '0%': {
+    transform: 'translatey(0px)'
+  },
+  '50%': {
+    transform: 'translatey(-20px)'
+  },
+  '100%': {
+    transform: 'translatey(0px)'
+  }
+});
+
+const shadow = keyframes({
+  '0%': {
+    width: 120,
+    boxShadow: `0px 10px 8px ${greyColor}`,
+  },
+  '50%': {
+    width: 100,
+    boxShadow: `0px 10px 8px ${greyColor}`,
+    opacity: 0.8,
+  },
+  '100%': {
+    width: 120,
+    boxShadow: `0px 10px 8px ${greyColor}`,
+  }
+});
+
+
+const Root = styled('div')(() => ({
+  [`& .${classes.image}`]: {
     width: "100%",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     textAlign: "center",
+    marginTop: '1em',
   },
-  logoContainer: {
+
+  [`& .${classes.logoContainer}`]: {
     marginTop: "2em",
   },
-  logoGrid: {
+
+  [`& .${classes.logoGrid}`]: {
     marginTop: "4em",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center", 
+    alignItems: "center",
     justifyContent: "center",
   },
-  logo: {
-    animationName: '$float',
-    animation: "float 6s ease-in-out infinite",
+
+  [`& .${classes.logo}`]: {
+    animationName: float,
+    animation: `${float} 6s ease-in-out infinite`,
     maxHeight: "10em",
     width: "100%",
   },
-  '@keyframes float': { 
-    "0%": { 
-      transform: 'translatey(0px)'
-    }, 
-    "50%": { 
-      transform: 'translatey(-20px)'
-    }, 
-    "100%": {
-      transform: 'translatey(0px)'
-    }
-  },
-  shadow: {
+
+  [`& .${classes.shadow}`]: {
     height: 2,
     display: "block",
     margin: "15px auto",
-    animationName: '$shadow',
+    animationName: shadow,
     animationDelay: "1s",
-    animation: "shadow 6s ease-in-out infinite",
+    animation: `${shadow} 6s ease-in-out infinite`,
   },
-  '@keyframes shadow': {
-    '0%': {
-      width: 120,
-      boxShadow: `0px 10px 8px ${greyColor}`,
-    },
-    '50%': {
-      width: 100,
-      boxShadow: `0px 10px 8px ${greyColor}`,
-      opacity: 0.8,
-    },
-    '100%': {
-      width: 120,
-      boxShadow: `0px 10px 8px ${greyColor}`,
-    },
-  },
-  grid: {
+
+  [`& .${classes.grid}`]: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "flex-start",
@@ -80,7 +100,8 @@ const useStyles = makeStyles(() => ({
       justifyContent: "center",
     },
   },
-  screenshot: {
+
+  [`& .${classes.screenshot}`]: {
     width: '100%',
     display: "flex",
     '&:hover': {
@@ -89,10 +110,10 @@ const useStyles = makeStyles(() => ({
       transition: "all 0.1s ease-in-out",
     }
   }
-}))
+}));
 
 export default function Stalue(props) {
-  const classes = useStyles();
+
   const name = props.name
 
   const [ref, inView] = useInView({
@@ -125,17 +146,17 @@ export default function Stalue(props) {
       }
     }
   };
-  
+
   return (
-    <>
+    (<Root>
       <Grid
         container
         className={classes.grid}
         spacing={2}
         alignItems="center"
       >
-         <Grid item xs={12}>
-           <FadeIn>
+        <Grid item xs={12}>
+          <FadeIn>
             <Typography variant="h4" className={classes.text}>
               Responsive design
             </Typography>
@@ -163,7 +184,7 @@ export default function Stalue(props) {
         </Grid>
       </Grid>
       <motion.div
-        ref={ref} 
+        ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={container}
@@ -173,9 +194,9 @@ export default function Stalue(props) {
           className={classes.grid}
           spacing={2}
         >
-          {covers[name].screenshots.map((screenshot, index) => 
+          {covers[name].screenshots.map((screenshot, index) =>
             <Grid key={screenshot} item xs={12} md={6}>
-              <motion.div key={screenshot} variants={item} whileHover={{ scale: 1.03 }} whileTap={{scale: 1.1}}>
+              <motion.div key={screenshot} variants={item} whileHover={{ scale: 1.03 }} whileTap={{ scale: 1.1 }}>
                 <LightboxImage
                   name={name}
                   url={index}
@@ -208,8 +229,8 @@ export default function Stalue(props) {
           </FadeIn>
         </Grid>
       </Grid>
-    </>
-  )
+    </Root>)
+  );
 }
 
 Stalue.propTypes = {

@@ -7,28 +7,32 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:cypress/recommended",
-        "plugin:jest/recommended",
         "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
-    "parser": "babel-eslint",
+    "parser": '@babel/eslint-parser',
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
+        "allowImportExportEverywhere": true,
+        "requireConfigFile": false,
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+        },
     },
     "plugins": [
         "cypress",
-        "jest",
         "react"
     ],
     "rules": {
-        "no-console": 0
+        "no-console": 0,
+        "no-unused-vars": 0
     },
     "settings": {
         "react": {
@@ -36,11 +40,17 @@ module.exports = {
         }
     },
     "overrides": [
-      {
-        "files": ["cypress/**"],
-        "rules": {
-          "jest/expect-expect": "off"
+        {
+            "files": ["cypress/**"]
+        },
+        {
+            "files": [
+                "**/*.test.js",
+                "**/*.test.jsx"
+            ],
+            "env": {
+                "jest": true
+            }
         }
-      }
     ]
 };

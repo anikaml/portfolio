@@ -1,17 +1,14 @@
 import React, { lazy, useState } from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
-
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid } from '@material-ui/core/';
-
+import Lightbox from 'react-18-image-lightbox';
+import 'react-18-image-lightbox/style.css'; // This only needs to be imported once in your app
+import { Grid } from '@mui/material/';
 import { covers } from '../../components/Covers';
 import Banner from "../../components/projects/Banner";
 import Launch from "../../components/projects/Launch";
 import ProjectHeader from "../../components/projects/ProjectHeader";
+import ProjectName from "../../components/projects/ProjectName";
 import Colors from "../../components/projects/Colors";
 import NextProject from "../../components/projects/NextProject";
 import TechStack from "../../components/projects/TechStack";
@@ -20,52 +17,62 @@ import SuspenseContainer from "../../components/layout/SuspenseContainer";
 import GitHubLink from "../../components/projects/GitHubLink";
 import { shadowColor } from "../../utils/colors";
 
-const Bokiem = lazy(() => import("./Bokiem"))
-const Datette = lazy(() => import("./Datette"))
-const Stalue = lazy(() => import("./Stalue"))
-const F1app = lazy(() => import("./F1app"))
+const PREFIX = 'ProjectTemplate';
 
-const useStyles = makeStyles(() => ({
-  container: {
-    margin: "4em auto",
+const classes = {
+  container: `${PREFIX}-container`,
+  grid: `${PREFIX}-grid`,
+  banner: `${PREFIX}-banner`
+};
+
+const Root = styled('div')(() => ({
+  [`& .${classes.container}`]: {
+    margin: "4em",
     width: "auto",
     '@media (max-width:600px)': {
       margin: "1em",
     },
   },
-  grid: {
+
+  [`& .${classes.grid}`]: {
     display: "flex",
   },
-  banner: {
+
+  [`& .${classes.banner}`]: {
     '&:hover': {
       cursor: "pointer",
     },
     boxShadow: `0px 3px 10px 3px ${shadowColor}`
   }
-}))
+}));
+
+const Bokiem = lazy(() => import("./Bokiem"))
+const Datette = lazy(() => import("./Datette"))
+const Stalue = lazy(() => import("./Stalue"))
+const F1app = lazy(() => import("./F1app"))
 
 export default function ProjectTemplate(props) {
   const [lightbox_open, setLightbox_open] = useState(false);
-  const classes = useStyles();
+
   const name = props.name;
   const photosPath = `/projects/${name}/`
 
   let body = null;
   if (name === 'stalue') {
-    body = <SuspenseContainer><Stalue name={name}/></SuspenseContainer>
+    body = <SuspenseContainer><Stalue name={name} /></SuspenseContainer>
   } else if (name === 'bokiem') {
-    body = <SuspenseContainer><Bokiem name={name}/></SuspenseContainer>
+    body = <SuspenseContainer><Bokiem name={name} /></SuspenseContainer>
   } else if (name === 'datette') {
-    body = <SuspenseContainer><Datette name={name}/></SuspenseContainer>
+    body = <SuspenseContainer><Datette name={name} /></SuspenseContainer>
   } else if (name === 'f1app') {
-    body = <SuspenseContainer><F1app name={name}/></SuspenseContainer>
+    body = <SuspenseContainer><F1app name={name} /></SuspenseContainer>
   }
-  
+
   return (
-    <>
+    (<Root>
       <FadeIn>
         <div onClick={() => setLightbox_open(true)}>
-          <Banner url={photosPath + covers[name].url1} className={classes.banner}/>
+          <Banner url={photosPath + covers[name].url1} className={classes.banner} />
         </div>
         {lightbox_open && (
           <Lightbox
@@ -74,27 +81,32 @@ export default function ProjectTemplate(props) {
           />
         )}
       </FadeIn>
-      <Container maxWidth="lg" className={classes.container}>
-        <Launch index={name}/>
-        <GitHubLink index={name}/>
-        <ProjectHeader index={name}/>
+      <div className={classes.container}>
         <Grid
           container
           className={classes.grid}
           spacing={2}
         >
           <Grid item xs={12} sm={3}>
-            <TechStack name={name}/>
+            <Launch index={name} />
+            <GitHubLink index={name} />
+            <ProjectName index={name} />
           </Grid>
           <Grid item xs={12} sm={9}>
-            <Colors name={name}/>
+            <ProjectHeader index={name} />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TechStack name={name} />
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <Colors name={name} />
           </Grid>
         </Grid>
         {body}
-        <NextProject name={name}/>
-      </Container>
-    </>
-  )
+        <NextProject name={name} />
+      </div>
+    </Root>)
+  );
 }
 
 ProjectTemplate.propTypes = {

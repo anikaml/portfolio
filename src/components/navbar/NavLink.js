@@ -1,19 +1,42 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
+import { keyframes } from "@emotion/react";
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
-// Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
+const PREFIX = 'NavLink';
 
-const useStyles = makeStyles((theme) => ({
-  about: {
+const classes = {
+  about: `${PREFIX}-about`,
+  underline: `${PREFIX}-underline`
+};
+
+const gradient = keyframes({
+  '0%': {
+    backgroundPosition: "0% 50%",
+  },
+  '50%': {
+    backgroundPosition: "100% 50%",
+  },
+  '100%': {
+    backgroundPosition: "0% 50%",
+  }
+})
+
+const StyledLink = styled(Link)((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.about}`]: {
     margin: "0 2em",
     '@media (max-width:900px)': {
       margin: "0 1em",
     },
   },
-  underline: { 
+
+  [`& .${classes.underline}`]: {
     display: "inline-block",
     position: "relative",
     borderBottom: "2px solid rgba(0, 0, 0, 0)",
@@ -33,10 +56,9 @@ const useStyles = makeStyles((theme) => ({
       left: "0",
       height: "5px",
       width: "100%",
-      //background: "linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
       background: "linear-gradient(-90deg, #FF9F79, #E5A4ED, #B684F1, #B0C0F4)",
       backgroundSize: "400% 400%",
-      animation: "$gradient 5s ease infinite",
+      animation: `${gradient} 5s ease infinite`,
       transformOrigin: "right top",
       transform: "scale(0, 1)",
       transition: "color 0.1s, transform 0.3s ease-out",
@@ -45,40 +67,29 @@ const useStyles = makeStyles((theme) => ({
       transformOrigin: "left top",
       transform: "scale(1, 1)",
     }
-  },
-  "@keyframes gradient": {
-    "0%": {
-      backgroundPosition: "0% 50%",
-    },
-    "50%": {
-      backgroundPosition: "100% 50%",
-    },
-    "100%": {
-      backgroundPosition: "0% 50%",
-    }
   }
 }));
 
 export default function NavLink(props) {
-  const classes = useStyles(); 
 
-    return (
-      <Link
-        href={props.title === 'About' ? '/about' : `/#${props.title.toLowerCase()}`}
-        style={{ textDecoration: 'none'}}
-        rel="noopener noreferrer"
+
+  return (
+    <StyledLink
+      href={props.title === 'About' ? '/about' : `/#${props.title.toLowerCase()}`}
+      style={{ textDecoration: 'none' }}
+      rel="noopener noreferrer"
+    >
+      <Typography
+        variant="button"
+        className={props.middle ? `${classes.underline} ${classes.about}` : `${classes.underline}`}
       >
-        <Typography 
-          variant="button" 
-          className={props.middle ? `${classes.underline} ${classes.about}` : `${classes.underline}`}
-        >
-          {props.title}
-        </Typography> 
-      </Link>
-    )       
-  }
+        {props.title}
+      </Typography>
+    </StyledLink>
+  );
+}
 
-  NavLink.propTypes = {
-    middle: PropTypes.bool,
-    title: PropTypes.string.isRequired,
-  };
+NavLink.propTypes = {
+  middle: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+};
