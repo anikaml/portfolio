@@ -21,7 +21,7 @@ This is my personal portfolio website, which you can see at  **[anikamlodzianows
 
 #
 ## Image Convert
-Convert images from .png to next-gen format (.jp2, .webp)
+Convert images from `.png/.jpg` to next-gen formats (`.jp2/.webp`) using [ImageMagick](https://imagemagick.org/index.php)
 ```
 bash image_convert.sh
 ```
