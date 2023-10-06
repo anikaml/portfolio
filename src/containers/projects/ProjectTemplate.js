@@ -72,7 +72,7 @@ export default function ProjectTemplate(props) {
     (<Root>
       <FadeIn>
         <div onClick={() => setLightbox_open(true)}>
-          <Banner url={photosPath + covers[name].url1} className={classes.banner} />
+          <Banner url={photosPath + covers[name].url1} className={classes.banner} name={name} />
         </div>
         {lightbox_open && (
           <Lightbox

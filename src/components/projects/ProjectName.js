@@ -35,7 +35,7 @@ const ProjectName = ({ index }) => {
           <Typography
             variant="subtitle2"
             className={classes.text}
-            style={{ fontWeight: 400, paddingRight: "0.5em" }}
+            style={{ fontWeight: 400, paddingRight: "0.5em", overflowWrap: 'break-word' }}
           >
             {covers[index].project}
           </Typography>
