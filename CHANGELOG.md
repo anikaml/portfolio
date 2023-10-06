@@ -1,3 +1,8 @@
+## 1.3.1
+
+NOTES:
+* added new project - PineyTrails
+
 ## 1.3.0
 
 NOTES:

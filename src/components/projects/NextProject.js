@@ -69,19 +69,27 @@ const Root = styled('div')(() => ({
 
 export default function NextProject(props) {
 
-
   const name = props.name;
-
-
   let nextProject = null;
-  if (name === 'stalue') {
-    nextProject = 'bokiem'
-  } else if (name === 'bokiem') {
-    nextProject = 'datette'
-  } else if (name === 'datette') {
-    nextProject = 'f1app'
-  } else if (name === 'f1app') {
-    nextProject = 'stalue'
+
+  switch (name) {
+    case 'datette':
+      nextProject = 'pineyTrails'
+      break;
+    case 'bokiem':
+      nextProject = 'datette'
+      break;
+    case 'stalue':
+      nextProject = 'bokiem'
+      break;
+    case 'f1app':
+      nextProject = 'stalue'
+      break;
+    case 'pineyTrails':
+      nextProject = 'f1app'
+      break;
+    default:
+      nextProject = 'f1app'
   }
 
   const photosPath = `/projects/${nextProject}`
