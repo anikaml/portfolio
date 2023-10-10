@@ -1,10 +1,6 @@
 import React from 'react';
-
 import { styled } from '@mui/material/styles';
-
 import { motion } from "framer-motion";
-
-import { isMobile } from 'react-device-detect';
 
 const PREFIX = 'LogoLoader';
 
@@ -36,8 +32,8 @@ export default function LogoLoader() {
     <Root>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
-        width={isMobile ? 20 : 40}
-        height={isMobile ? 20 : 40}
+        width={30}
+        height={30}
         viewBox="0 0 40 40"
         className={classes.loader}
       >
@@ -47,7 +43,7 @@ export default function LogoLoader() {
             scale: [1, 2, 2, 1, 1],
             rotate: [0, 0, 360, 360, 0],
           }}
-          strokeWidth={isMobile ? 1 : 1.5}
+          strokeWidth={1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
           transition={{

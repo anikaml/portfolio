@@ -2,6 +2,7 @@ import React from "react";
 import Image from 'next/image'
 import { styled } from '@mui/material/styles';
 import { useSpring, animated } from '@react-spring/web'
+import { MOBILE, MOBILE_SM } from "../../utils/constants";
 
 const PREFIX = 'Illustration';
 
@@ -28,6 +29,9 @@ const Root = styled('div')(() => ({
     '@media (max-width:1115px)': {
       maxHeight: "unset",
     },
+    [`@media (max-width:${MOBILE_SM})`]: {
+      display: 'none'
+    }
   },
 
   [`& .${classes.card}`]: {
@@ -68,7 +72,7 @@ const Root = styled('div')(() => ({
     position: 'relative',
     height: "5em",
     width: '100%',
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       maxHeight: "3em",
       bottom: '20px',
       left: '-100px'
@@ -82,7 +86,7 @@ const Root = styled('div')(() => ({
     opacity: "0.7",
     top: '40px',
     right: '30px',
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       maxHeight: "3em",
       top: '10px'
     },
@@ -93,7 +97,7 @@ const Root = styled('div')(() => ({
     width: '100%',
     height: '15em',
     zIndex: 5,
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       maxHeight: "10em",
     },
   },
@@ -106,7 +110,7 @@ const Root = styled('div')(() => ({
     top: '-80px',
     right: '0px',
     overflow: 'hidden',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       display: 'none',
     },
   }

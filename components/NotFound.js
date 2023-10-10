@@ -1,7 +1,6 @@
 import React from "react";
 import { styled } from '@mui/material/styles';
 import { keyframes } from "@emotion/react";
-import { isMobileOnly } from 'react-device-detect';
 import { Browser } from 'react-kawaii';
 import Typography from '@mui/material/Typography';
 
@@ -34,6 +33,7 @@ const Root = styled('div')(() => ({
     justifyContent: "center",
     '@media (max-width:600px)': {
       padding: "1em",
+      height: '60vh'
     }
   },
 
@@ -46,7 +46,7 @@ const Root = styled('div')(() => ({
 
   [`& .${classes.browser}`]: {
     animationName: float,
-    animation: `${float} 6s ease-in-out infinite`,
+    animation: `${float} 6s ease-in-out infinite`
   }
 }));
 
@@ -54,7 +54,7 @@ export default function NotFound() {
   return (
     (<Root>
       <div className={classes.errorDiv}>
-        <Browser size={isMobileOnly ? 100 : 200} mood="ko" color="#4bc0c0" className={classes.browser} />
+        <Browser size={200} mood="ko" color="#4bc0c0" className={classes.browser} />
         <Typography variant="subtitle1" className={classes.errorTyph} >
           Sorry, page not found!
         </Typography>

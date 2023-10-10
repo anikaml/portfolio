@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.0.2
+
+NOTES:
+
+* remove react-device-detect package
+* adjust mobile styles
+
 ## 2.0.1
 
 NOTES:

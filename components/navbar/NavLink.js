@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { keyframes } from "@emotion/react";
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import { MOBILE } from "../../utils/constants";
 
 const PREFIX = 'NavLink';
 
@@ -31,7 +32,7 @@ const StyledLink = styled(Link)((
 ) => ({
   [`& .${classes.about}`]: {
     margin: "0 2em",
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       margin: "0 1em",
     },
   },

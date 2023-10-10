@@ -2,13 +2,13 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { keyframes } from "@emotion/react";
 import Image from 'next/image'
-import { isMobile, isTablet } from 'react-device-detect';
 import { useInView } from 'react-intersection-observer';
 import { Typography } from '@mui/material/';
 import { shadowColor } from '../../../utils/colors';
 import SectionTitle from '../SectionTitle';
 import { theme } from '../../../utils/theme';
 import FadeIn from '../../../components/style/FadeIn';
+import { MOBILE } from '../../../utils/constants';
 
 const PREFIX = 'Skills';
 
@@ -37,7 +37,9 @@ const circleMotion = keyframes({
   }
 })
 
-const Root = styled('div')(() => ({
+const Root = styled('div', {
+  shouldForwardProp: (prop) => !['inView'].includes(prop)
+})(({ inView }) => ({
   [`& .${classes.container}`]: {
     margin: "2em auto",
   },
@@ -57,8 +59,8 @@ const Root = styled('div')(() => ({
     display: "flex",
     justifyContent: "space-evenly",
     flexWrap: "nowrap",
-    '@media (max-width:900px)': {
-      flexWrap: isTablet ? "nowrap" : "wrap",
+    [`@media (max-width:${MOBILE})`]: {
+      flexWrap: "wrap",
     },
   },
 
@@ -75,7 +77,7 @@ const Root = styled('div')(() => ({
     maxWidth: "40vw",
     zIndex: 10,
     transition: 'all .2s ease-in-out',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       maxWidth: "90vw",
     },
     '&:hover': {
@@ -86,7 +88,7 @@ const Root = styled('div')(() => ({
   [`& .${classes.typography}`]: {
     margin: "0.25em",
     lineHeight: "1.5em",
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       margin: "auto",
       padding: "inherit",
     },
@@ -126,11 +128,15 @@ const Root = styled('div')(() => ({
     '&:hover': {
       cursor: "pointer",
       animationPlayState: "running",
-    }
+    },
+    animationPlayState: "running",
+    [`@media (max-width:${MOBILE})`]: {
+      animationPlayState: inView ? "running" : "paused",
+    },
   },
 
   [`&.${classes.skillsDiv}`]: {
-    marginTop: isTablet ? '-35vh' : '-10em'
+    marginTop: '-10em'
   }
 }));
 
@@ -158,7 +164,7 @@ export default function Skills() {
   }
 
   return (
-    <Root className={classes.skillsDiv}>
+    <Root className={classes.skillsDiv} inView={inView}>
       <SectionTitle title="Skills" stroke={true} />
       <div className={classes.container}>
         <div
@@ -175,7 +181,7 @@ export default function Skills() {
                   <div className={classes.colorDiv}>
                     <div
                       className={classes.circle}
-                      style={{ backgroundColor: skills[field].color, animationPlayState: isMobile ? (inView ? "running" : "paused") : "running" }}
+                      style={{ backgroundColor: skills[field].color }}
                     />
                     <div className={classes.icon}>
                       <Image
@@ -185,7 +191,7 @@ export default function Skills() {
                       />
                     </div>
                   </div>
-                  <Typography variant={isMobile ? "h4" : "h3"} className={classes.field} style={{ margin: 0, fontWeight: 600 }}>
+                  <Typography variant="h3" className={classes.field} style={{ margin: 0, fontWeight: 600 }}>
                     {field}
                   </Typography>
                 </div>

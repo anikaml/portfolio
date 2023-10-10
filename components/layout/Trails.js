@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from '@mui/material/styles';
 import { useTrail, animated } from '@react-spring/web'
-import { isMobile, isTablet } from 'react-device-detect';
 import { Typography } from '@mui/material/';
+import { MOBILE, MOBILE_SM } from '../../utils/constants';
 
 const PREFIX = 'Trails';
 
@@ -16,10 +16,10 @@ const classes = {
 const Root = styled('div')(() => ({
   [`&.${classes.trailsDiv}`]: {
     display: "block",
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       display: "flex",
       flexDirection: 'column',
-      width: isTablet ? '60vw' : 'auto',
+      width: 'auto',
       justifyContent: 'space-around',
     },
     /* IpadPro  Portrait */
@@ -46,7 +46,7 @@ const Root = styled('div')(() => ({
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       fontSize: '4rem',
     },
-    '@media (max-width:330px)': {
+    [`@media (max-width:${MOBILE_SM})`]: {
       fontSize: '1.75rem',
     },
   },
@@ -55,13 +55,15 @@ const Root = styled('div')(() => ({
     fontSize: 'calc(14px + (20 - 14) * ((100vw - 300px) / (1600 - 300)))', //40px 
     maxWidth: 450,
     lineHeight: 1.5,
+    marginTop: '2em',
     /* IpadPro  Portrait */
     '@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)': {
       fontSize: '2rem',
     },
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       fontWeight: 400,
       fontSize: 'initial',
+      marginTop: '1em'
     },
   }
 }));
@@ -69,7 +71,7 @@ const Root = styled('div')(() => ({
 export default function Trails() {
 
   const element1 = (<Typography
-    variant={isTablet ? 'h1' : isMobile ? "h4" : "h2"}
+    variant="h2"
     display="inline"
     style={{ fontWeight: 500 }}
     className={classes.element1}
@@ -78,7 +80,7 @@ export default function Trails() {
   </Typography>)
 
   const element2 = (<Typography
-    variant={isMobile ? "h5" : "h3"}
+    variant="h3"
     display="inline"
     className={classes.element2}
   >
@@ -87,7 +89,6 @@ export default function Trails() {
 
   const element3 = (<Typography
     variant="h6"
-    style={{ marginTop: isMobile ? '1em' : "2em" }}
     className={classes.element3}
   >
     {`I create functioning, optimized and user-friendly applications,

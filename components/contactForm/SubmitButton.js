@@ -7,6 +7,7 @@ import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { shadowColor, successColor, errorColor } from "../../utils/colors";
 import { theme } from '../../utils/theme';
+import { MOBILE } from '../../utils/constants';
 
 const PREFIX = 'SubmitButton';
 
@@ -34,7 +35,7 @@ const Root = styled('div')(() => ({
     '&:hover': {
       filter: `drop-shadow(5px 5px 10px rgba(0,0,0,.25))`,
     },
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       width: 'auto'
     }
   }

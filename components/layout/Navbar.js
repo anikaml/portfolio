@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
-
 import NavLink from "../navbar/NavLink";
 import LogoMotion from "../logo/LogoMotion";
 
@@ -40,7 +39,6 @@ const Root = styled('div')(() => ({
 }));
 
 export default function Navbar() {
-
 
   return (
     (<Root>

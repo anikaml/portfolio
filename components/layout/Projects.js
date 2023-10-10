@@ -9,6 +9,7 @@ import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../components/style/FadeIn';
 import { greyBorderColor, greyColor, shadowColor } from '../../utils/colors';
+import { MOBILE } from '../../utils/constants';
 
 const PREFIX = 'Projects';
 
@@ -52,7 +53,7 @@ const Root = styled('div')((
       zIndex: "-1",
       overflow: "hidden",
     },
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       height: "30vh",
       zIndex: "-3",
       overflow: "hidden",
@@ -66,7 +67,7 @@ const Root = styled('div')((
     overflow: "hidden",
     border: `1px solid ${greyBorderColor}`,
     borderRadius: '25px',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       height: "30vh",
     },
     /* IpadPro  Portrait */
@@ -81,7 +82,7 @@ const Root = styled('div')((
     paddingRight: "0.5em",
     color: theme.palette.primary.dark,
     display: 'inline',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       display: 'inline-block',
       width: "auto",
     },
@@ -90,7 +91,7 @@ const Root = styled('div')((
   [`& .${classes.details}`]: {
     display: 'inline',
     color: greyColor,
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       display: 'inline-block',
       marginTop: "0.25em",
     },
@@ -131,7 +132,7 @@ const Root = styled('div')((
     gridTemplateRows: '1fr',
     columnGap: '2em',
     rowGap: '2em',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       gridTemplateColumns: '1fr',
     },
   },

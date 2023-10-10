@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { isMobile, isTablet } from 'react-device-detect';
 import Image from 'next/image'
 import { Typography } from '@mui/material/';
 import SocialMediaLink from '../../socialMedia/SocialMediaLink';
 import Skills from './Skills';
+import { MOBILE, MOBILE_SM } from '../../../utils/constants';
 
 const PREFIX = 'AboutText';
 
@@ -46,7 +46,7 @@ const Root = styled('div')((
     width: 'auto',
     padding: '2em',
     overflow: 'hidden',
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       padding: "2em 1em 2em 1em",
       height: 'auto',
       flexWrap: "wrap",
@@ -79,14 +79,14 @@ const Root = styled('div')((
 
   [`& .${classes.description}`]: {
     fontWeight: 300,
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       fontSize: '1.25rem',
       fontWeight: 400,
     },
   },
 
   [`& .${classes.comp}`]: {
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       display: 'none',
     },
   },
@@ -94,7 +94,7 @@ const Root = styled('div')((
   [`& .${classes.text}`]: {
     padding: '4em',
     margin: '2em',
-    '@media (max-width:1000px)': {
+    [`@media (max-width:${MOBILE})`]: {
       padding: '2em',
       margin: "0em",
     },
@@ -104,13 +104,19 @@ const Root = styled('div')((
 
   [`& .${classes.wave}`]: {
     position: 'relative',
+    display: 'block',
+    bottom: '6rem',
     width: '100%',
-    // height: '20em',
-    height: '400px',
-    top: '-6em',
-    '@media (max-width:1000px)': {
-      top: '-8em',
+    height: 400,
+    [`@media (max-width:${MOBILE})`]: {
+      bottom: '4rem',
+      height: 220,
     },
+    [`@media (max-width:${MOBILE_SM})`]: {
+      bottom: '1rem',
+      height: 100,
+    },
+
   },
 
 }));
@@ -124,13 +130,13 @@ export default function AboutText() {
             <Image src="/icons/anika.svg" alt="Author illustration" width="400" height="500" />
           </div>
           <div className={classes.text}>
-            <Typography variant={isTablet ? "h2" : isMobile ? "h4" : "h3"} className={classes.typography} style={{ marginBottom: "0.5em" }}>
+            <Typography variant="h5" className={classes.typography} style={{ marginBottom: "0.5em" }}>
               {"Hi,"}
             </Typography>
-            <Typography variant={isTablet ? "h3" : "h5"} className={classes.typography}>
+            <Typography variant="h5" className={classes.typography}>
               {"I'm Anika. I work as a Senior Frontend Software Engineer."}
             </Typography>
-            <Typography variant={isTablet ? "h5" : "h6"} style={{ margin: "1em auto" }} className={`${classes.typography} ${classes.description}`}>
+            <Typography variant="h6" style={{ margin: "1em auto" }} className={`${classes.typography} ${classes.description}`}>
               {"Design has been my true passion for as long as I remember. I have started my professional journey working as an Architectural Designer in NYC. After a few years of learning new skills and discovering new possibilities along the way, I've decided to try out a new creative outlet - Web Design and Development. After many hours of learning, creating a handful of projects from scratch, and seeing the infinite possibilities for expression that this field offered, I knew that the next step in my career was to become a web designer & front-end developer."}
             </Typography>
             <div className={classes.socialMediaDiv}>
@@ -149,7 +155,7 @@ export default function AboutText() {
         </div>
       </div>
       <div className={classes.wave}>
-        <Image src="/icons/about_wave.svg" fill alt="Wave shape" />
+        <Image src="/icons/about_wave.svg" fill alt="Wave shape" priority />
       </div>
       <Skills />
     </Root>)

@@ -1,9 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
-
-import { isMobile } from 'react-device-detect';
-
 import { Link, Typography } from '@mui/material/';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -50,7 +47,7 @@ export default function SocialMediaLink(props) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Typography variant={isMobile ? "h4" : "h3"} className={props.className ? props.className : `${classes.typography} ${classes.whiteText}`}>
+        <Typography variant="h4" className={props.className ? props.className : `${classes.typography} ${classes.whiteText}`}>
           {props.name === 'GitHub' ? <GitHubIcon /> : <LinkedInIcon />}
           {props.iconOnly ? null : ` ${props.name}`}
         </Typography>

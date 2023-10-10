@@ -4,7 +4,7 @@ import { keyframes } from "@emotion/react";
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import { greyColor, shadowColor } from '../../utils/colors';
-import { isMobile } from 'react-device-detect';
+import { MOBILE } from '../../utils/constants';
 
 const PREFIX = 'Scroll';
 
@@ -50,8 +50,8 @@ const Root = styled('div')(() => ({
       animationName: customScroll,
       animationDelay: '2s',
     },
-    '@media (max-width:900px)': {
-      display: isMobile ? 'initial' : 'none',
+    [`@media (max-width:${MOBILE})`]: {
+      display: 'none',
     }
   },
   [`& .${classes.rootIconButton}`]: {

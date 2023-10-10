@@ -7,6 +7,7 @@ import Email from './Email';
 import SubmitButton from "./SubmitButton";
 import { greyColor, shadowColor } from "../../utils/colors";
 import FadeIn from "../style/FadeIn";
+import { MOBILE } from "../../utils/constants";
 
 const PREFIX = 'ContactForm';
 
@@ -26,7 +27,7 @@ const Root = styled('div')((
     boxShadow: `0px 3px 5px 3px ${shadowColor}`,
     borderRadius: 15,
     width: '40vw',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       padding: "2em",
     },
     '@media (max-width:600px)': {

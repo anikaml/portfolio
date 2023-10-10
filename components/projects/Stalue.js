@@ -11,6 +11,7 @@ import LightboxImage from "../../components/projectShared/LightboxImage";
 import { greyColor, shadowColor } from "../../utils/colors";
 import FadeIn from "../style/FadeIn";
 import MultiFormatPhoto from "../../components/photos/MultiFormatPhoto";
+import { MOBILE } from "../../utils/constants";
 
 const PREFIX = 'Stalue';
 
@@ -97,7 +98,7 @@ const Root = styled('div')(() => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "flex-start",
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       justifyContent: "center",
     },
   },

@@ -18,7 +18,7 @@ This is my personal portfolio website, which you can see at  **[anikamlodzianows
 * Framer-motion
 * React Spring
 * React Scroll Parallax
-* AWS (S3, CloudFront)
+* AWS (S3, CloudFront, CodeBuild)
 
 ## Available Scripts
 

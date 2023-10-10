@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from "framer-motion"
 import { covers } from '../../components/Covers';
 import LightboxImage from "../../components/projectShared/LightboxImage";
+import { MOBILE } from "../../utils/constants";
 
 const PREFIX = 'Datette';
 
@@ -26,7 +27,7 @@ const Root = styled('div')(() => ({
       boxShadow: "0.5rem 1rem 2rem 0.5rem rgba(0,0,0,0.2)",
       cursor: 'pointer',
     },
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       maxHeight: "30vh",
       borderRadius: "1em",
     },
@@ -43,7 +44,7 @@ const Root = styled('div')(() => ({
     flexWrap: "wrap",
     justifyContent: "flex-start",
     marginTop: '1em',
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       justifyContent: "center",
     },
     /* IpadPro  Portrait */

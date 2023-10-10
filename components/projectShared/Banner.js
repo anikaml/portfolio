@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 import { styled } from '@mui/material/styles';
+import { MOBILE } from "../../utils/constants";
 
 const PREFIX = 'Banner';
 
@@ -16,7 +17,7 @@ const Root = styled('div', {
     height: heightToUse,
     width: '100%',
     background: `url(${imageUrl}) top center no-repeat`,
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       height: "40vh",
       marginBottom: '3em'
     }

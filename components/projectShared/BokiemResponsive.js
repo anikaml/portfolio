@@ -5,26 +5,43 @@ import { Grid } from '@mui/material/';
 import { covers } from '../../components/Covers';
 import FadeIn from "../../components/style/FadeIn";
 import MultiFormatPhoto from "../photos/MultiFormatPhoto";
-import { isMobileOnly } from "react-device-detect";
+import { MOBILE, MOBILE_SM } from "../../utils/constants";
 
 const PREFIX = 'BokiemResponsive';
 
 const classes = {
-  img: `${PREFIX}-img`,
+  imgDesktop: `${PREFIX}-imgDesktop`,
+  imgMobile: `${PREFIX}-imgMobile`,
   gridContainer: `${PREFIX}-gridContainer`
 };
 
 const Root = styled('div')(() => ({
-  [`& .${classes.img}`]: {
-    maxHeight: isMobileOnly ? 150 : 300,
-    padding: '0.5em',
-    display: 'block',
+  [`& .${classes.imgDesktop}`]: {
+    height: 300,
+    marginRight: '0.5em',
+    [`@media (max-width:${MOBILE})`]: {
+      height: 200,
+    },
+    [`@media (max-width:${MOBILE_SM})`]: {
+      height: 100,
+    }
+  },
+
+  [`& .${classes.imgMobile}`]: {
+    height: 300,
+    [`@media (max-width:${MOBILE})`]: {
+      height: 200,
+    },
+    [`@media (max-width:${MOBILE_SM})`]: {
+      height: 100,
+    }
   },
 
   [`& .${classes.gridContainer}`]: {
     display: "flex",
     justifyContent: "center",
     flexWrap: 'wrap',
+    alignItems: 'center'
   }
 }));
 
@@ -38,7 +55,7 @@ export default function BokiemResponsive(props) {
         <FadeIn>
           <MultiFormatPhoto
             alt="desktop"
-            className={classes.img}
+            className={classes.imgDesktop}
             url={covers[name].url2}
             photoPath={`/projects/${name}`}
           />
@@ -46,7 +63,7 @@ export default function BokiemResponsive(props) {
         <FadeIn>
           <MultiFormatPhoto
             alt="mobile"
-            className={classes.img}
+            className={classes.imgMobile}
             url={covers[name].url3}
             photoPath={`/projects/${name}`}
           />

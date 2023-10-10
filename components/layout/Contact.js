@@ -1,15 +1,11 @@
 import React from 'react';
-
 import { styled } from '@mui/material/styles';
-
-import { isMobile } from 'react-device-detect';
-
 import { Container, Typography } from '@mui/material/';
-
 import SectionTitle from '../../components/layout/SectionTitle';
 import ContactForm from '../contactForm/ContactForm';
 import FadeIn from '../../components/style/FadeIn';
 import { greyColor } from '../../utils/colors';
+import { MOBILE, MOBILE_SM } from '../../utils/constants';
 
 const PREFIX = 'Contact';
 
@@ -25,7 +21,7 @@ const Root = styled('div')(() => ({
   [`& .${classes.container}`]: {
     margin: "2em auto 0 auto",
     display: "flex",
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       flexWrap: "wrap",
     }
   },
@@ -39,6 +35,9 @@ const Root = styled('div')(() => ({
     fontWeight: 600,
     lineHeight: 1,
     padding: "4rem 0 2rem 6rem",
+    [`@media (max-width:${MOBILE_SM})`]: {
+      fontSize: '2.5rem'
+    }
   },
 
   [`& .${classes.subtitle}`]: {
@@ -48,7 +47,7 @@ const Root = styled('div')(() => ({
   },
 
   [`& .${classes.typography}`]: {
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       padding: "1rem",
       maxWidth: 'unset',
     }
@@ -65,7 +64,7 @@ export default function Contact() {
         <div>
           <FadeIn>
             <Typography
-              variant={isMobile ? "h4" : "h2"}
+              variant="h2"
               className={`${classes.letswork} ${classes.typography}`}
             >
               {`Let's work together`}

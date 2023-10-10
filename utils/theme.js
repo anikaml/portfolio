@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { MOBILE_SM } from './constants';
 
 export const theme = createTheme({
   typography: {
@@ -100,9 +101,6 @@ theme.typography.h2 = {
 theme.typography.h3 = {
   fontSize: '3.42rem',
   fontWeight: 400,
-  '@media (max-width:1140px)': {
-    fontSize: '4vw',
-  }
 };
 
 theme.typography.h6 = {

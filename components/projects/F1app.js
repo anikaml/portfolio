@@ -8,6 +8,7 @@ import { covers } from '../../components/Covers';
 import FadeIn from "../style/FadeIn";
 import MultiFormatPhoto from "../../components/photos/MultiFormatPhoto";
 import { greyBorderColor } from "../../utils/colors";
+import { MOBILE } from "../../utils/constants";
 
 const PREFIX = 'F1app';
 
@@ -22,7 +23,7 @@ const Root = styled('div')(() => ({
     flexWrap: "wrap",
     justifyContent: "flex-start",
     margin: "2em 0 1em 0",
-    '@media (max-width:900px)': {
+    [`@media (max-width:${MOBILE})`]: {
       justifyContent: "center",
     },
     /* IpadPro  Portrait */

@@ -1,10 +1,6 @@
 import React from 'react';
-
 import { styled } from '@mui/material/styles';
-
 import { motion } from "framer-motion";
-
-import { isMobile } from 'react-device-detect';
 
 const PREFIX = 'LogoMotion';
 
@@ -26,6 +22,14 @@ const Root = styled('div')((
     strokeLinejoin: 'round',
     strokeLinecap: 'round',
     zIndex: 2,
+    '&:focus': {
+      outline: 'none',
+      boxShadow: 'none'
+    },
+    '&:active': {
+      outline: 'none',
+      boxShadow: 'none'
+    }
   },
 
   [`& .${classes.path}`]: {
@@ -39,7 +43,7 @@ export default function LogoMotion() {
 
   const item = {
     hover: { scale: 1.1, rotate: 180 },
-    pressed: { scale: isMobile ? 1.5 : 1.2, rotate: isMobile ? 0 : 180 },
+    pressed: { scale: 1.2, rotate: 180 }
   }
 
   const icon = {
@@ -62,8 +66,8 @@ export default function LogoMotion() {
       <motion.div>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
-          width={isMobile ? 20 : 40}
-          height={isMobile ? 20 : 40}
+          width={30}
+          height={30}
           viewBox="0 0 40 40"
           className={classes.item}
           whileHover="hover"
@@ -75,7 +79,7 @@ export default function LogoMotion() {
             variants={icon}
             initial="hidden"
             animate="visible"
-            strokeWidth={isMobile ? 1 : 1.5}
+            strokeWidth={1.5}
             strokeLinecap="round"
             strokeLinejoin="round"
             transition={{
