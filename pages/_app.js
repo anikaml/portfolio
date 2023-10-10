@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppProps } from 'next/app'
+import Head from 'next/head'
 import { ThemeProvider } from "@mui/material";
 import { theme } from "../utils/theme";
 import createEmotionCache from "../utils/createEmotionCache";
@@ -18,15 +19,25 @@ const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps }) {
   return (
-    <main className={roboto.className}>
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={theme}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </CacheProvider>
-    </main>
+    <>
+      <Head>
+        <title>{"Anika's Portfolio"}</title>
+        <meta
+          name="description"
+          content="Anika's Portfolio - Personal Portfolio Website"
+        />
+      </Head>
+      <main className={roboto.className}>
+        <CacheProvider value={emotionCache}>
+          <ThemeProvider theme={theme}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </CacheProvider>
+      </main>
+    </>
+
   )
 }
 

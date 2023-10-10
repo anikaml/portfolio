@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.0.1
+
+NOTES:
+
+* added head component
+* added meta and title tags
+* fix for MUI styles
+
 ## 2.0.0
 
 NOTES:
