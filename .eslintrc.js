@@ -39,6 +39,7 @@ module.exports = {
             "version": "detect"
         }
     },
+    "ignorePatterns": ["out/**"],
     "overrides": [
         {
             "files": ["cypress/**"]
