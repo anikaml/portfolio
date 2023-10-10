@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { keyframes } from "@emotion/react";
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
-import { greyColor, shadowColor } from '../../utils/colors';
+import { greyBorderColor, shadowColor } from '../../utils/colors';
 import { MOBILE } from '../../utils/constants';
 
 const PREFIX = 'Scroll';
@@ -41,7 +41,7 @@ const Root = styled('div')(() => ({
       left: '50%',
       width: '0.5rem',
       height: '0.5rem',
-      background: greyColor,
+      background: greyBorderColor,
       marginLeft: '-0.25rem',
       top: '0.5rem',
       borderRadius: '0.25rem',

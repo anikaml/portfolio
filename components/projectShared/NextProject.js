@@ -23,12 +23,14 @@ const Root = styled('div', {
 })(({ projectName }) => ({
   [`& .${classes.blurDiv}`]: {
     width: "100%",
-    minWidth: '100vw',
+    minWidth: (projectName === 'pineyTrails') ? 'unset' : '100vw',
+    height: 500,
     objectPosition: (projectName === 'datette') ? '-2em -2.5em' : (projectName === 'bokiem' || projectName === 'stalue') ? "0px -15rem" : "unset",
     zIndex: "1",
     transition: "all .2s ease-in-out",
     filter: "blur(4px)",
     overflow: "hidden",
+    objectFit: 'cover',
     '&:hover': {
       transform: "scale(1.05)",
       filter: "blur(0px)",
@@ -36,13 +38,13 @@ const Root = styled('div', {
     },
     '@media (max-width:600px)': {
       filter: "blur(0px)",
-      objectPosition: (projectName === 'datette') ? "-14em -2.5em" : "0px 0rem",
+      objectPosition: (projectName === 'datette') ? "-14em -2.5em" : "center",
       minWidth: (projectName === 'datette') ? '150vh' : (projectName === 'f1app') ? '200vw' : '100vw',
     },
   },
 
   [`& .${classes.wrapper}`]: {
-    height: "30vh",
+    height: 300,
     width: "100%",
     overflow: "hidden",
     boxShadow: `0px 3px 10px 3px ${shadowColor}`,
@@ -57,6 +59,7 @@ const Root = styled('div', {
   },
 
   [`& .${classes.rootIconButton}`]: {
+    height: 300,
     "&:hover": {
       background: "transparent",
     }

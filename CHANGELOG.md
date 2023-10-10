@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.0.3
+
+NOTES:
+
+* serve all photos in next gen format
+* adjust color contrast ratio
+
 ## 2.0.2
 
 NOTES:

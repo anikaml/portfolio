@@ -8,7 +8,7 @@ import Banner from '../projectShared/Banner';
 import { covers } from '../Covers';
 import SectionTitle from './SectionTitle';
 import FadeIn from '../../components/style/FadeIn';
-import { greyBorderColor, greyColor, shadowColor } from '../../utils/colors';
+import { greyBorderColor, greyColor, lightGreyColor, shadowColor } from '../../utils/colors';
 import { MOBILE } from '../../utils/constants';
 
 const PREFIX = 'Projects';
@@ -104,7 +104,7 @@ const Root = styled('div')((
 
   [`& .${classes.loader}`]: {
     overflow: 'visible',
-    stroke: greyColor,
+    stroke: lightGreyColor,
     strokeWidth: 0.5,
     height: 'auto',
     paddingLeft: '1em',
@@ -113,6 +113,7 @@ const Root = styled('div')((
 
   [`& .${classes.iconButton}`]: {
     width: '100%',
+    height: 350,
     padding: 0,
     borderRadius: "25px",
     webkitBorderRadius: "25px",
@@ -169,8 +170,11 @@ export default function Projects() {
                   }}
                 >
                   <Banner
-                    url={`/projects/${project}/${covers[project].url1}`}
+                    url={covers[project].url1}
                     className={classes.banner}
+                    photoPath={`/projects/${covers[project].name}`}
+                    projectsMain
+                    height={'350px'}
                   />
                 </IconButton>
               </div>

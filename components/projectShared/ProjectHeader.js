@@ -27,7 +27,6 @@ const Root = styled('span')(() => ({
   },
 
   [`& .${classes.text}`]: {
-    // fontWeight: 300,
     fontSize: '1.25rem',
     lineHeight: '1.6rem'
   }
