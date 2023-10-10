@@ -4,30 +4,21 @@ Welcome to my Portfolio repository. 👋
 
 This is my personal portfolio website, which you can see at  **[anikamlodzianowski.com](https://anikamlodzianowski.com)**
 
-![screen](https://github.com/anikaniescierewicz/portfolio/blob/master/public/screen.png?raw=true)
+![screen](https://github.com/anikaml/portfolio/blob/main/public/screen.png?raw=true)
 
+## Tech stack
 
-### Tech stack
-
-* ReactJS, 
-* Material-UI,
-* React-Router,
-* React Intersection Observer,
-* Axios,
-* Framer-motion,
-* React Spring,
-* React Scroll Parallax,
-* AWS (S3, CloudFront, CodeBuild)
-
-#
-## Image Convert
-Convert images from `.png/.jpg` to next-gen formats (`.jp2/.webp`) using [ImageMagick](https://imagemagick.org/index.php)
-```
-bash image_convert.sh
-```
-#
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* React
+* Next.js
+* Material-UI
+* Jest (unit testing)
+* React Testing Library (integration tests)
+* React Intersection Observer
+* Axios
+* Framer-motion
+* React Spring
+* React Scroll Parallax
+* AWS (S3, CloudFront)
 
 ## Available Scripts
 
@@ -35,63 +26,41 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.
 You will also see any lint errors in the console.
+
+### `npm run lint`
+
+Runs ESLint against all applicable files.\
+Open [ESLint](https://eslint.org/) for more information.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the Jest test runner.\
+See the section about [running tests](https://jestjs.io/docs/tutorial-react) for more information.
+
+### `npm run cy:run`
+
+Launches end-to-end tests using [Cypress](https://www.cypress.io/)
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `out` folder
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Open [Building for Production](https://nextjs.org/docs/pages/building-your-application) for more information.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run build:preview`
 
-### `npm run eject`
+Preview the production build locally using a simple HTTP server.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `npm run convert:images`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Convert images from `.png/.jpg` to next-gen formats (`.jp2/.webp`) using [ImageMagick](https://imagemagick.org/index.php)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `npm run prepare`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Configure [Husky](https://typicode.github.io/husky/) locally.

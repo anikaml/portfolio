@@ -4,7 +4,7 @@ module.exports = defineConfig({
   projectId: 'm8rxd3',
   component: {
     devServer: {
-      framework: 'create-react-app',
+      framework: 'next',
       bundler: 'webpack',
     },
   },
