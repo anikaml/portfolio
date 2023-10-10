@@ -36,5 +36,5 @@ phases:
       - echo Build completed, artifacts will be uploaded
 artifacts:
   files:
-    - build/**/*
+    - out/**/*
   name: artifact-name
