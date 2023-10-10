@@ -55,7 +55,7 @@ export default function ProjectTemplate(props) {
   const [lightbox_open, setLightbox_open] = useState(false);
 
   const name = props.name;
-  const photosPath = `/projects/${name}/`
+  const photosPath = `/projects/${name}`
 
   let body = null;
   if (name === 'stalue') {
@@ -81,7 +81,7 @@ export default function ProjectTemplate(props) {
         </div>
         {lightbox_open && (
           <Lightbox
-            mainSrc={photosPath + covers[name].url1}
+            mainSrc={`${photosPath}/${covers[name].url1}`}
             onCloseRequest={() => setLightbox_open(false)}
           />
         )}

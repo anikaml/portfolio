@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.0.4
+
+NOTES:
+
+* fix banner photo path
+
 ## 2.0.3
 
 NOTES:
