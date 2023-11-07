@@ -61,7 +61,11 @@ const Root = styled('div')((
     },
 
     '&:hover': {
-      borderColor: theme.palette.primary.main
+      border: `2px solid ${theme.palette.primary.main}`,
+    },
+
+    '&:focus-visible': {
+      outline: 'none'
     }
   },
 
@@ -73,7 +77,8 @@ const Root = styled('div')((
 
   [`& .${classes.message}`]: {
     padding: '1rem 0px 0px 0.5rem',
-    fontFamily: 'Roboto, Helvetica Neue, Arial, -apple-system'
+    fontFamily: 'Roboto, Helvetica Neue, Arial, -apple-system',
+    resize: 'vertical'
   }
 }));
 

@@ -98,6 +98,7 @@ const Root = styled('div', {
     transition: 'all .2s ease-in-out',
     height: '5rem',
     width: '100%',
+    position: 'relative',
     '&:hover': {
       transform: 'scale(1.1)',
     },
