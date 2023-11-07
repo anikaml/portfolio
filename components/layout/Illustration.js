@@ -57,7 +57,7 @@ const Root = styled('div')(() => ({
 
   [`& .${classes.card4}`]: { //sofa
     height: "15em",
-    width: "100%",
+    width: "18rem",
     opacity: "0.8"
   },
 

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.1.0
+
+NOTES:
+
+* refactor contact form
+* uninstall react-material-ui-form-validator
+* small styling fixes
+
 ## 2.0.4
 
 NOTES:

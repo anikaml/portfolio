@@ -127,7 +127,7 @@ export default function AboutText() {
       <div id="about" className={classes.div}>
         <div className={classes.container}>
           <div className={classes.comp}>
-            <Image src="/icons/anika.svg" alt="Author illustration" width="400" height="500" />
+            <Image src="/icons/anika.svg" alt="Author illustration" width="400" height="500" priority/>
           </div>
           <div className={classes.text}>
             <Typography variant="h5" className={classes.typography} style={{ marginBottom: "0.5em" }}>

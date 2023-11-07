@@ -1,67 +1,35 @@
 import React from "react";
-import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-import { TextValidator } from 'react-material-ui-form-validator';
-
-import { greyColor } from '../../utils/colors';
-
-const PREFIX = 'Email';
-
-const classes = {
-  textField: `${PREFIX}-textField`
-};
-
-const StyledTextValidator
-  = styled(TextValidator
-  )(() => ({
-    [`& .${classes.textField}`]: {
-      width: "100%",
-      borderRadius: "4px",
-      transition: "box-shadow 150ms ease",
-      '& .MuiInput-underline:before': { // field underline
-        borderBottom: `1px solid ${greyColor}`,
-      },
-      '& .MuiInputLabel-formControl': {
-        color: greyColor,
-      },
-      '& .MuiIconButton-label': {
-        color: greyColor,
-      },
-      '& .MuiFormHelperText-root ': {
-        color: greyColor,
-      },
-    }
-  }));
-
-export default function Email(props) {
-
+const Email = ({ disabled, className, onChange, value, labelClassName }) => {
   return (
-    <StyledTextValidator
-      className={props.className ? props.className : classes.textField}
-      color={props.color ? props.color : "secondary"}
-      disabled={props.disabled}
-      errorMessages={['Email is required', 'Please enter a valid email']}
-      helperText={props.helperText ? props.helperText : null}
-      id="email"
-      label="Email"
-      onChange={props.onChange}
-      type="email"
-      validators={['required', 'isEmail']}
-      value={props.value}
-      variant={props.variant ? props.variant : "standard"}
-      inputProps={{ 'aria-label': props.ariaLabel }}
-    />
+    <>
+      <label className={labelClassName}>
+        Email
+        <input
+          autoFocus
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          disabled={disabled}
+          className={className}
+          onChange={onChange}
+          required
+          value={value}
+        />
+      </label>
+    </>
   );
 }
 
 Email.propTypes = {
-  ariaLabel: PropTypes.string,
   className: PropTypes.string,
-  color: PropTypes.string,
   disabled: PropTypes.bool.isRequired,
-  helperText: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
-  variant: PropTypes.string,
+  labelClassName: PropTypes.string,
+  isLoading: PropTypes.bool
 };
+
+export default Email;
