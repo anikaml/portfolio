@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { styled } from '@mui/material/styles';
 import axios from "axios";
-import { ValidatorForm } from 'react-material-ui-form-validator';
 import ContactMessage from "./ContactMessage";
 import Email from './Email';
 import SubmitButton from "./SubmitButton";
@@ -13,7 +12,10 @@ const PREFIX = 'ContactForm';
 
 const classes = {
   container: `${PREFIX}-container`,
-  input: `${PREFIX}-input`
+  label: `${PREFIX}-label`,
+  input: `${PREFIX}-input`,
+  email: `${PREFIX}-email`,
+  message: `${PREFIX}-message`,
 };
 
 const Root = styled('div')((
@@ -37,30 +39,41 @@ const Root = styled('div')((
     }
   },
 
+  [`& .${classes.label}`]: {
+    color: greyColor,
+    letterSpacing: 1.5,
+    fontSize: 12
+  },
+
   [`& .${classes.input}`]: {
     width: "100%",
     transition: "box-shadow 150ms ease",
+    border: `2px solid ${shadowColor}`,
     borderRadius: 15,
     zIndex: 1,
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        border: `2px solid ${shadowColor}`,
-        borderRadius: 15,
-      },
-      '&:hover fieldset': {
-        border: `2px solid ${theme.palette.primary.main}`,
-      },
-      '&.Mui-focused': {
-        borderRadius: 15,
-      },
-      "& input:-internal-autofill-selected": {
-        borderRadius: 15,
-      },
-    },
-    '& .MuiInputLabel-formControl': {
+    marginTop: '0.5rem',
+
+    '&::placeholder': {
       color: greyColor,
+      opacity: 0.6,
       letterSpacing: 1.5,
+      paddingLeft: '0.25rem',
     },
+
+    '&:hover': {
+      borderColor: theme.palette.primary.main
+    }
+  },
+
+  [`& .${classes.email}`]: {
+    height: '3rem',
+    paddingLeft: '0.5rem',
+    marginBottom: '0.5rem'
+  },
+
+  [`& .${classes.message}`]: {
+    padding: '1rem 0px 0px 0.5rem',
+    fontFamily: 'Roboto, Helvetica Neue, Arial, -apple-system'
   }
 }));
 
@@ -81,7 +94,8 @@ export default function ContactForm() {
     };
   }, []);
 
-  async function handleSubmit() {
+  async function handleSubmit(event) {
+    event.preventDefault();
     setIsLoading(true);
     try {
       await axios.post("https://api.anikamlodzianowski.com/emailer", text)
@@ -116,30 +130,29 @@ export default function ContactForm() {
     // used for textfield items
     setText({
       ...text,
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
   return (
     <Root className={classes.container}>
-      <ValidatorForm noValidate onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <FadeIn>
           <Email
-            autoFocus
             disabled={isLoading}
-            className={classes.input}
             onChange={textChange}
             value={text.email}
-            variant="outlined"
+            className={`${classes.input} ${classes.email}`}
+            labelClassName={classes.label}
           />
         </FadeIn>
         <FadeIn>
           <ContactMessage
             disabled={isLoading}
-            className={classes.input}
+            className={`${classes.input} ${classes.message}`}
+            labelClassName={classes.label}
             onChange={textChange}
             value={text.message}
-            variant="outlined"
           />
         </FadeIn>
         <FadeIn>
@@ -151,7 +164,7 @@ export default function ContactForm() {
             {submitButtonText}
           </SubmitButton>
         </FadeIn>
-      </ValidatorForm>
+      </form>
     </Root>
   );
 }
