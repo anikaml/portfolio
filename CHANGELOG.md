@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.1.1
+
+NOTES:
+
+* updated dependencies
+* removed unused code
+* updated readme screenshot
+
 ## 2.1.0
 
 NOTES:
