@@ -49,7 +49,7 @@ export default function Navbar() {
           elevation={0}
           className={classes.appbar}
         >
-          <Container maxWidth="lg">
+          <Container maxWidth="xl">
             <Toolbar className={classes.toolbar}>
               <div className={classes.meltEnter}>
                 <IconButton
