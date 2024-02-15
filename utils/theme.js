@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { MOBILE_SM } from './constants';
 
 export const theme = createTheme({
   typography: {
@@ -26,12 +25,6 @@ export const theme = createTheme({
       dark: '#111030',
       contrastText: '#FFFFFF',
     },
-    // secondary: {
-    //   light: '#E2B1AF',
-    //   main: '#FF9F79',
-    //   dark: '#3D444F',
-    //   contrastText: '#111030',
-    // },
     text: {
       primary: '#111030',
     },

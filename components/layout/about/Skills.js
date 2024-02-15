@@ -158,7 +158,7 @@ export default function Skills() {
     Designer: {
       text: 'I like clean design, easy navigation, and adding a custom touch to all my projects.',
       'What I design': 'Websites, Website Prototypes, Logos, App presentations',
-      Tools: ['Photoshop', 'AdobeXD', 'Inkscape/Illustrator', '3dsMax', 'Cinema4D', 'Pen & Paper'],
+      Tools: ['Photoshop', 'Figma', 'AdobeXD', 'Inkscape/Illustrator', '3dsMax', 'Cinema4D', 'Pen & Paper'],
       svg: "/icons/designer.svg",
       color: theme.palette.primary.light,
     },
